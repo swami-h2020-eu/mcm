@@ -37,7 +37,6 @@ extensions = [
     'sphinx.ext.todo',
     'sphinx.ext.viewcode',
     "sphinx.ext.githubpages",
-    # 'autoapi.extension',
     'nbsphinx',  # jupyter notebook
     'IPython.sphinxext.ipython_console_highlighting',
     'sphinx.ext.mathjax',  # Maths visualization
@@ -64,13 +63,7 @@ exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', '**.ipynb_checkpoints']
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-# html_theme = 'alabaster'
 html_theme = 'sphinx_rtd_theme'
-# html_theme = "pydata_sphinx_theme"
-
-# def setup(app):
-#     app.add_stylesheet('css/custom.css')
-
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
@@ -94,12 +87,6 @@ napoleon_use_rtype = True
 
 # TODOs
 todo_include_todos = True
-
-# # AutoAPI options
-# autoapi_type = 'python'
-# autoapi_dirs = ['../src/swami']
-# autoapi_member_order = "groupwise"
-# # autoapi_options = ["show-module-summary"]
 
 # fortran
 fortran_src = ["../src/libswamif/*.f90"]
