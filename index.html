@@ -1,0 +1,341 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>SWAMI - MCM model &mdash; SWAMI v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="First steps" href="first-steps.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="#" class="icon icon-home"> SWAMI
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="um.html">Unified Model (UM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtm2020.html">Drag Temperature Model (DTM2020)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran.html">Fortran modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran_examples.html">Fortran examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_example.html">Python example</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">SWAMI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="#" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>SWAMI - MCM model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="swami-mcm-model">
+<h1>SWAMI - MCM model<a class="headerlink" href="#swami-mcm-model" title="Permalink to this headline">¶</a></h1>
+<p>SWAMI (<a class="reference external" href="http://swami-h2020.eu/">http://swami-h2020.eu/</a>) was a H2020 project with the purpose of developing a model of the whole atmosphere by means of blending the Unified Model (UM) from the MetOffice in the UK for the atmosphere (0 to 120 km) and the Drag Temperature Model (DTM2020) from the Centre National d’Études Spatiales (CNES) in France covering the thermosphere, from 120 to 1500 km.
+The model, called MCM (MOWA Climatological Model), provides point-wise estimates of temperature, density and wind up to 120 km, and temperature, total and partial densities above 120 km. The drivers for the thermosphere model are the solar radio flux F10.7 and the planetary geomagnetic index Kp.</p>
+<p>To be efficient and performant, the UM was averaged to a set of data tables that contain diurnal variability and cover three solar activity levels (in terms of F10.7).
+The DTM is included directly.
+Both models are combined by means of interpolation in the blending altitude range (between 100 and 120 km) to create MCM.</p>
+<p>The thermosphere model <strong>DTM2020</strong> is also available separately. Two versions exist: the operational version, which is used in MCM, and a more accurate research version. The drivers of the DTM2020 research model are the 30 cm solar radio flux F30 and the new hourly planetary geomagnetic index Hp60.</p>
+<div class="toctree-wrapper compound">
+<p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First steps</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#fortran-modules">Fortran modules</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#python-wrapper">Python wrapper</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#how-to-obtain-the-space-weather-indices-data">How to obtain the space weather indices data</a></li>
+<li class="toctree-l2"><a class="reference internal" href="first-steps.html#dtm2020">DTM2020</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="um.html">Unified Model (UM)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="um.html#description-of-the-model">Description of the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="um.html#solar-cycle-classification">Solar cycle classification</a></li>
+<li class="toctree-l2"><a class="reference internal" href="um.html#standard-deviation">Standard deviation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="um.html#winds">Winds</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="dtm2020.html">Drag Temperature Model (DTM2020)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="dtm2020.html#description-of-the-model">Description of the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dtm2020.html#density-uncertainty">Density uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="dtm2020.html#implementation-instructions">Implementation instructions</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fortran.html">Fortran modules</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fortran.html#compilation">Compilation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran.html#how-to-use">How to use</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran.html#fortran-interface">Fortran interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fortran_examples.html">Fortran examples</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="fortran_examples.html#single-point">Single point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran_examples.html#altitude-profile">Altitude profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran_examples.html#map-at-altitude">Map at altitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran_examples.html#um-winds">UM Winds</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fortran_examples.html#compilation-script">Compilation script</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python wrapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="python.html#installation-of-the-python-package">Installation of the Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="python.html#module-swami">Python interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Python_example.html">Python example</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="Python_example.html#How-to-load-the-model">How to load the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_example.html#Single-point">Single point</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_example.html#Altitude-profile">Altitude profile</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_example.html#Map-at-altitude">Map at altitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_example.html#DTM">DTM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Python_example.html#UM">UM</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="acknowledgements">
+<h2>Acknowledgements<a class="headerlink" href="#acknowledgements" title="Permalink to this headline">¶</a></h2>
+<p>Contact information: <a class="reference external" href="http://swami-h2020.eu/contact-us/">http://swami-h2020.eu/contact-us/</a></p>
+<table class="docutils align-default">
+<colgroup>
+<col style="width: 45%" />
+<col style="width: 55%" />
+</colgroup>
+<tbody>
+<tr class="row-odd"><td><p><a class="reference internal" href="_images/deimos.jpg"><img alt="deimos_logo" class="align-middle" src="_images/deimos.jpg" style="width: 112.0px; height: 60.0px;" /></a></p></td>
+<td><p><a class="reference internal" href="_images/cnes.png"><img alt="cnes_logo" class="align-middle" src="_images/cnes.png" style="width: 64.0px; height: 60.0px;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>Deimos Space</p></td>
+<td><p>CNES</p></td>
+</tr>
+<tr class="row-odd"><td><p>Spain</p></td>
+<td><p>France</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="http://www.deimos-space.com/en/">http://www.deimos-space.com/en/</a></p></td>
+<td><p><a class="reference external" href="https://cnes.fr/en">https://cnes.fr/en</a></p></td>
+</tr>
+<tr class="row-odd"><td><p><a class="reference internal" href="_images/mo.png"><img alt="mo_logo" class="align-middle" src="_images/mo.png" style="width: 168.0px; height: 52.5px;" /></a></p></td>
+<td><p><a class="reference internal" href="_images/gfz.png"><img alt="gfz_logo" class="align-middle" src="_images/gfz.png" style="width: 80.5px; height: 70.0px;" /></a></p></td>
+</tr>
+<tr class="row-even"><td><p>MetOffice</p></td>
+<td><p>GFZ-Postdam</p></td>
+</tr>
+<tr class="row-odd"><td><p>UK</p></td>
+<td><p>Germany</p></td>
+</tr>
+<tr class="row-even"><td><p><a class="reference external" href="https://www.metoffice.gov.uk/">https://www.metoffice.gov.uk/</a></p></td>
+<td><p><a class="reference external" href="https://www.gfz-potsdam.de/startseite/">https://www.gfz-potsdam.de/startseite/</a></p></td>
+</tr>
+</tbody>
+</table>
+<p>The <a class="reference external" href="https://cordis.europa.eu/project/id/776287/en">SWAMI</a> project has received funding from the European Union’s Horizon 2020 research and innovation programme under grant agreement No 776287.</p>
+<a class="reference internal image-reference" href="_images/eu.jpg"><img alt="_images/eu.jpg" src="_images/eu.jpg" style="width: 90.0px; height: 60.3px;" /></a>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="first-steps.html" class="btn btn-neutral float-right" title="First steps" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SWAMI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

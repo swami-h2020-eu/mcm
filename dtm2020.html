@@ -1,0 +1,429 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Drag Temperature Model (DTM2020) &mdash; SWAMI v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Fortran modules" href="fortran.html" />
+    <link rel="prev" title="Unified Model (UM)" href="um.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SWAMI
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Index</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="um.html">Unified Model (UM)</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Drag Temperature Model (DTM2020)</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#description-of-the-model">Description of the model</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#density-uncertainty">Density uncertainty</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#implementation-instructions">Implementation instructions</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-of-dtm2020-operational-version">Implementation of DTM2020 - operational version</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#implementation-of-dtm2020-research-version">Implementation of DTM2020 - research version</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="fortran.html">Fortran modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran_examples.html">Fortran examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_example.html">Python example</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SWAMI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Drag Temperature Model (DTM2020)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/dtm2020.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="drag-temperature-model-dtm2020">
+<h1>Drag Temperature Model (DTM2020)<a class="headerlink" href="#drag-temperature-model-dtm2020" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="description-of-the-model">
+<h2>Description of the model<a class="headerlink" href="#description-of-the-model" title="Permalink to this headline">¶</a></h2>
+<p>The semi-empirical Drag Temperature Model (DTM) predicts temperature, density and composition of the Earth’s thermosphere, especially for the purpose of orbit computation. Operational and Research DTM2020 models were developed in the framework of the H2020 Space Weather Atmosphere Models and Indices project (SWAMI). The models provide low spatial and temporal resolution point-wise predictions as a function of location (altitude, latitude, longitude, local solar time), solar and geomagnetic activities, and season. The drivers of the operational model are F10.7 and Kp, whereas the more accurate research model uses a more representative but possibly less robust solar proxy, F30, and the new hourly geomagnetic index Hp60. The DTM2020 models are constructed by optimally fitting model coefficients to density, temperature, and composition measurements.</p>
+<p>The backbone of the models is the complete CHAMP and GOCE high-resolution accelerometer-inferred density datasets, as well as SwarmA densities. Those density datasets were processed by TU Delft (Netherlands) using high fidelity satellite models and they are presently the standard for absolute density. As a result, the DTM2020 densities are on average 20-25% smaller than DTM2013.</p>
+<p>The DTM2020 subroutines present in the MCM model are available at the <a class="reference internal" href="fortran.html#m-dtm-drag-temperature-model-dtm"><span class="std std-ref">m_dtm: Drag Temperature Model (DTM)</span></a> module.</p>
+</div>
+<div class="section" id="density-uncertainty">
+<h2>Density uncertainty<a class="headerlink" href="#density-uncertainty" title="Permalink to this headline">¶</a></h2>
+<p>An optional new feature of the operational DTM2020 is the possibility to compute the uncertainty of the density prediction.
+The 1-sigma uncertainty provided in the model is given as a percentage of the value of the predicted density.</p>
+<p>The uncertainty model is justified in the range [200 km - 500 km].
+However, strong assumptions must be added to extend the altitude range from 100 km to 1000 km due to unavailability of data:</p>
+<ul class="simple">
+<li><p>at lower altitudes (&lt; 200 km), a worst-case is chosen by fixing 1-sigma to their values at the altitude of 200 km,</p></li>
+<li><p>at higher altitudes (&gt; 500 km), an optimistic case is assumed by keeping 1-sigma values at the 500 km level.</p></li>
+</ul>
+<p>This 1-sigma uncertainty prediction can be obtained with the subroutine sigma_subroutine.f90 or via <code class="xref py py-func docutils literal notranslate"><span class="pre">m_dtm/get_dtm2020_dens_uncertainty()</span></code></p>
+</div>
+<div class="section" id="implementation-instructions">
+<h2>Implementation instructions<a class="headerlink" href="#implementation-instructions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="implementation-of-dtm2020-operational-version">
+<h3>Implementation of DTM2020 - operational version<a class="headerlink" href="#implementation-of-dtm2020-operational-version" title="Permalink to this headline">¶</a></h3>
+<p>List of files (located in src/dtm2020):</p>
+<ul class="simple">
+<li><p>dtm2020_F107_Kp-subr.f90</p></li>
+<li><p>DTM_2020_F107_Kp</p></li>
+<li><p>sigma_subroutine.f90</p></li>
+<li><p>Mod_DTM2020F107Kp_Benchmark.f90</p></li>
+</ul>
+<p>The dtm2020_F107_Kp-subr.f90 are used in combination with the model coefficient file DTM_2020_F107_Kp.
+First read in the model coefficients by calling the subroutine lecdtm, the coefficients are then stored in common pardtm.
+Provide the path to the model coefficient file in lecdtm if it is not in the local directory, and define tape number.
+Then call the dtm3 subroutine, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">program</span> <span class="n">x</span>
+<span class="n">call</span> <span class="n">lecdtm</span>
+<span class="o">...</span><span class="p">[</span><span class="n">dtm2020_F107_Kp</span><span class="o">-</span><span class="n">subr_NoComm</span><span class="o">.</span><span class="n">f90</span><span class="p">,</span> <span class="n">DTM_2020_F107_Kp</span><span class="p">,</span><span class="n">sigma_subroutine</span><span class="o">.</span><span class="n">f90</span><span class="p">,</span><span class="n">Mod_DTM2020F107Kp_Benchmark</span><span class="o">.</span><span class="n">f90</span><span class="p">]</span>
+<span class="o">...</span>
+<span class="n">do</span> <span class="mi">10</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">call</span> <span class="n">dtm3</span><span class="p">(</span><span class="n">day</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">fbar</span><span class="p">,</span><span class="n">akp</span><span class="p">,</span><span class="n">alti</span><span class="p">,</span><span class="n">hl</span><span class="p">,</span><span class="n">alat</span><span class="p">,</span><span class="n">xlon</span><span class="p">,</span><span class="n">tz</span><span class="p">,</span><span class="n">tinf</span><span class="p">,</span><span class="n">ro</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">wmm</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The input parameters (real) are:</p>
+<ul class="simple">
+<li><p>day    = day of year [1.-366.]</p></li>
+<li><p>f(2)   = f(1)=instantaneous flux F10.7 at (t - 24hr)    /   f(2)=0.</p></li>
+<li><p>fbar(2)= fbar(1)=mean flux F10.7 of last 81 days at t   /   fbar(2)=0.</p></li>
+<li><p>akp(4) = akp(1)= kp delayed by 3 hour</p></li>
+<li><p>akp(3)=mean of last 24 hours</p></li>
+<li><p>akp(2) &amp; akp(4)=0.</p></li>
+<li><p>alti   = altitude (in km) greater than 120 km</p></li>
+<li><p>hl     = local time (in radian: 0-24hr = 0-2pi)</p></li>
+<li><p>alat   = latitude (in radian)</p></li>
+<li><p>xlon   = longitude (in radian)</p></li>
+</ul>
+<p>The output parameters (real) are:</p>
+<ul class="simple">
+<li><p>tz      = temperature at altitude ‘alti’</p></li>
+<li><p>tinf    = exospheric temperature</p></li>
+<li><p>d(1)    = partial density of atomic hydrogen (in gram/cm3)</p></li>
+<li><p>d(2)    = partial density of helium</p></li>
+<li><p>d(3)    = partial density of atomic oxygen</p></li>
+<li><p>d(4)    = partial density of molecular nitrogen</p></li>
+<li><p>d(5)    = partial density of molecular oxygen</p></li>
+<li><p>d(6)    = partial density of atomic nitrogen (0)</p></li>
+<li><p>ro      = total density (in gram/cm3)</p></li>
+<li><p>wmm     = mean molecular mass (in gram)</p></li>
+</ul>
+<p>The solar flux has to be interpolated to the decimal date for the 81-day mean,
+and interpolated to the decimal date minus 24hr for the daily flux (i.e., 1-day delayed instantaneous flux).
+The kp has to be computed from similarly interpolated ap values:
+interpolate linearly from one to the next 3-hourly ap value, then convert back to kp.
+NB: the interface and drivers are the same as in DTM-2013</p>
+<p>A simple benchmark is provided in the program Mod_DTM2020F107Kp_Benchmark.f90 (compile and run)</p>
+<p>New feature of DTM2020: 1-sigma uncertainty of the density estimate
+The subroutine sigma_subroutine.f90 gives as a function of position and drivers an estimate of the density uncertainty.
+It is given as a percentage of the density estimate. The call is made after dtm3, e.g.:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">program</span> <span class="n">x</span>
+<span class="n">call</span> <span class="n">lecdtm</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">do</span> <span class="mi">10</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">call</span> <span class="n">dtm3</span><span class="p">(</span><span class="n">day</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">fbar</span><span class="p">,</span><span class="n">akp</span><span class="p">,</span><span class="n">alti</span><span class="p">,</span><span class="n">hl</span><span class="p">,</span><span class="n">alat</span><span class="p">,</span><span class="n">xlon</span><span class="p">,</span><span class="n">tz</span><span class="p">,</span><span class="n">tinf</span><span class="p">,</span><span class="n">ro</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">wmm</span><span class="p">)</span>
+<span class="n">call</span> <span class="n">sigma_function</span><span class="p">(</span><span class="n">latitude</span><span class="p">,</span><span class="n">lhour</span><span class="p">,</span><span class="n">day</span><span class="p">,</span><span class="n">alti</span><span class="p">,</span><span class="n">fbar</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">akp</span><span class="p">(</span><span class="mi">1</span><span class="p">),</span><span class="n">stdev</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The input parameters (real) are:</p>
+<ul class="simple">
+<li><p>latitude = latitude, in deg</p></li>
+<li><p>lhour    = local time, in hr</p></li>
+<li><p>day      = day of year [1.-366.]</p></li>
+<li><p>alti     = altitude (in km) greater than 120 km</p></li>
+<li><p>fm       = fbar(1)=mean flux F10.7 of last 81 days at t</p></li>
+<li><p>kpindex  = akp(1)= kp delayed by 3 hour</p></li>
+</ul>
+<p>The output parameter (real) is:</p>
+<ul class="simple">
+<li><p>stdev    = 1-sigma uncertainty (%) of the density estimate ro</p></li>
+</ul>
+</div>
+<div class="section" id="implementation-of-dtm2020-research-version">
+<h3>Implementation of DTM2020 - research version<a class="headerlink" href="#implementation-of-dtm2020-research-version" title="Permalink to this headline">¶</a></h3>
+<p>Related files (located in src/dtm2020):</p>
+<ul class="simple">
+<li><p>dtm2020_F30_Hp-subr.f90</p></li>
+<li><p>DTM_2020_F30_ap60</p></li>
+<li><p>Mod_DTM2020F30Hp60_Benchmark.f90</p></li>
+</ul>
+<p>The dtm2020_F30_Hp-subr.f90 are used in combination with the model coefficient file DTM_2020_F30_ap60.</p>
+<p>The F30 radio flux from Nobeyama is distributed by CLS: <a class="reference external" href="ftp://ftpsedr.cls.fr/pub/previsol/solarflux/observation/">ftp://ftpsedr.cls.fr/pub/previsol/solarflux/observation/</a> (use the file ‘absolute observations’)</p>
+<p>The forecast is given here: <a class="reference external" href="ftp://ftpsedr.cls.fr/pub/previsol/solarflux/forecast/absolute">ftp://ftpsedr.cls.fr/pub/previsol/solarflux/forecast/absolute</a></p>
+<p>F30 is used in DTM after rescaling to F10.7 via linear regression:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>rescaled F30 = −1.5998 + 1.553755 ∗ F30 + (0.22446 * year - 447.13328)
+(year = decimal year, i.e. 2012.555)
+</pre></div>
+</div>
+<p>NOTE: If you are simply running simulations, you can use F10.7 too</p>
+<p>First read in the model coefficients by calling the subroutine lecdtm, the coefficients are then stored in common pardtm.
+Provide the path to the model coefficient file in lecdtm if it is not in the local directory, and define tape number.
+Then call the dtm5 subroutine:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">program</span> <span class="n">x</span>
+<span class="n">call</span> <span class="n">lecdtm</span>
+<span class="o">...</span>
+<span class="o">...</span>
+<span class="n">do</span> <span class="mi">10</span><span class="p">,</span> <span class="o">...</span>
+<span class="n">call</span> <span class="n">dtm5</span><span class="p">(</span><span class="n">day</span><span class="p">,</span><span class="n">f</span><span class="p">,</span><span class="n">fbar</span><span class="p">,</span><span class="n">ap60</span><span class="p">,</span><span class="n">alti</span><span class="p">,</span><span class="n">hl</span><span class="p">,</span><span class="n">alat</span><span class="p">,</span><span class="n">xlon</span><span class="p">,</span><span class="n">tz</span><span class="p">,</span><span class="n">tinf</span><span class="p">,</span><span class="n">ro</span><span class="p">,</span><span class="n">d</span><span class="p">,</span><span class="n">wmm</span><span class="p">)</span>
+<span class="o">...</span>
+</pre></div>
+</div>
+<p>The input parameters (real) are:</p>
+<ul class="simple">
+<li><p>day     = day of year [1.-366.]</p></li>
+<li><p>f(2)    = f(1)=instantaneous flux F30 at (t - 24hr)    /   f(2)=0.</p></li>
+<li><p>fbar(2) = fbar(1)=mean flux F30 of last 81 days at t   /   fbar(2)=0.</p></li>
+<li><p>ap60(10)=</p></li>
+<li><ul>
+<li><p>ap60(1) = 4hr delayed ap60 at t</p></li>
+<li><p>ap60(2) = 0hr delayed ap60 at t</p></li>
+<li><p>ap60(3) = 1hr delayed ap60 at t</p></li>
+<li><p>ap60(4) = 2hr delayed ap60 at t</p></li>
+<li><p>ap60(5) = 3hr delayed ap60 at t</p></li>
+<li><p>ap60(6) = mean of last 24 hours</p></li>
+<li><p>ap60(7) = mean of 5-6-7hr delayed at t</p></li>
+<li><p>ap60(8) = mean of 9-10-11hr delayed at t</p></li>
+<li><p>ap60(9) = mean of 14-15-16hr delayed at t</p></li>
+<li><p>ap60(10)= mean of 19-20-21hr delayed at t</p></li>
+</ul>
+</li>
+<li><p>alti   = altitude (in km) greater than 120 km</p></li>
+<li><p>hl     = local time (in radian: 0-24hr = 0-2pi)</p></li>
+<li><p>alat   = latitude (in radian)</p></li>
+<li><p>xlon   = longitude (in radian)</p></li>
+</ul>
+<p>The output parameters (real) are:</p>
+<ul class="simple">
+<li><p>tz      = temperature at altitude ‘alti’</p></li>
+<li><p>tinf    = exospheric temperature</p></li>
+<li><p>d(1)    = partial density of atomic hydrogen (in gram/cm3)</p></li>
+<li><p>d(2)    = partial density of helium</p></li>
+<li><p>d(3)    = partial density of atomic oxygen</p></li>
+<li><p>d(4)    = partial density of molecular nitrogen</p></li>
+<li><p>d(5)    = partial density of molecular oxygen</p></li>
+<li><p>d(6)    = partial density of atomic nitrogen (0)</p></li>
+<li><p>ro      = total density (in gram/cm3)</p></li>
+<li><p>wmm     = mean molecular mass (in gram)</p></li>
+</ul>
+<p>A simple benchmark is provided in the program Mod_DTM2020F30Hp60_Benchmark.f90 (compile and run)</p>
+<div class="admonition-contact-information admonition">
+<p class="admonition-title">Contact information</p>
+<p>Dr. Sean Bruinsma (CNES, France)</p>
+<p>sean.bruinsma [at] cnes.fr</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="fortran.html" class="btn btn-neutral float-right" title="Fortran modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="um.html" class="btn btn-neutral float-left" title="Unified Model (UM)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SWAMI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,413 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>swami &mdash; SWAMI v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> SWAMI
+          
+
+          
+            
+            <img src="../_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../first-steps.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../um.html">Unified Model (UM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../dtm2020.html">Drag Temperature Model (DTM2020)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fortran.html">Fortran modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../fortran_examples.html">Fortran examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python.html">Python wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../Python_example.html">Python example</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">SWAMI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Module code</a> &raquo;</li>
+        
+      <li>swami</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for swami</h1><div class="highlight"><pre>
+<span></span><span class="c1"># ---------------------------------------------------------------------</span>
+<span class="c1"># – Project : SWAMI</span>
+<span class="c1"># – Customer : N/A</span>
+<span class="c1"># ---------------------------------------------------------------------</span>
+<span class="c1"># – Author : Daniel Lubián Arenillas</span>
+<span class="c1"># – Issue : 1.0</span>
+<span class="c1"># – Date : 2021-03-31</span>
+<span class="c1"># – Purpose : Python functions for SWAMI</span>
+<span class="c1"># - Component : swami python library</span>
+<span class="c1"># ---------------------------------------------------------------------</span>
+<span class="c1"># – © Copyright Deimos Space SLU, 2021</span>
+<span class="c1"># – All rights reserved</span>
+<span class="c1"># ---------------------------------------------------------------------</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">tempfile</span>
+<span class="kn">from</span> <span class="nn">enum</span> <span class="kn">import</span> <span class="n">Enum</span>
+<span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;swami-1.0.rc&quot;</span>
+
+<span class="n">_PWD</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)</span><span class="o">.</span><span class="n">absolute</span><span class="p">()</span><span class="o">.</span><span class="n">parent</span>
+
+<span class="n">_PATH_DEFAULT_EXEC</span> <span class="o">=</span> <span class="n">_PWD</span> <span class="o">/</span> <span class="s2">&quot;swami.x&quot;</span>
+<span class="n">_PATH_DEFAULT_DATA</span> <span class="o">=</span> <span class="n">_PWD</span> <span class="o">/</span> <span class="s2">&quot;data&quot;</span>
+
+
+<span class="k">class</span> <span class="nc">_AtmModel</span><span class="p">(</span><span class="n">Enum</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;Enumerator on the three atmospheric models</span>
+
+<span class="sd">    - AtmModel.MCM : MCM</span>
+<span class="sd">    - AtmModel.DTM2020 : DTM2020</span>
+<span class="sd">    - AtmModel.UM: UM</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">MCM</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">DTM2020</span> <span class="o">=</span> <span class="mi">2</span>
+    <span class="n">UM</span> <span class="o">=</span> <span class="mi">3</span>
+
+
+<div class="viewcode-block" id="SwamiModel"><a class="viewcode-back" href="../python.html#swami.SwamiModel">[docs]</a><span class="k">class</span> <span class="nc">SwamiModel</span><span class="p">:</span>
+    <span class="sd">&quot;&quot;&quot;SWAMI Model wrapper. Includes MCM, DTM2020 and UM</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        model (str, optional): Model to use. Defaults to MCM. Valid values are: MCM, DTM2020, UM</span>
+<span class="sd">        exec_swami (os.PathLike, optional): Path to the executable. Defaults to the one included.</span>
+<span class="sd">        path_to_data (os.PathLike, optional): Path to the data. Defaults to the included package.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">model</span> <span class="o">=</span> <span class="n">_AtmModel</span><span class="o">.</span><span class="n">MCM</span>
+    <span class="n">path_to_bin</span> <span class="o">=</span> <span class="n">_PATH_DEFAULT_EXEC</span>
+    <span class="n">path_to_data</span> <span class="o">=</span> <span class="n">_PATH_DEFAULT_DATA</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">model</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">exec_swami</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">path_to_data</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Initialiser</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            model (str, optional): Model to use. Defaults to MCM. Valid values are: MCM, DTM2020, UM</span>
+<span class="sd">            exec_swami (os.PathLike, optional): Path to the executable. Defaults to the one included.</span>
+<span class="sd">            path_to_data (os.PathLike, optional): Path to the data. Defaults to the included package.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="n">model</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="o">=</span> <span class="n">_AtmModel</span><span class="p">[</span><span class="n">model</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">exec_swami</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_to_bin</span> <span class="o">=</span> <span class="n">exec_swami</span>
+        <span class="k">if</span> <span class="n">path_to_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_to_data</span> <span class="o">=</span> <span class="n">path_to_data</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_generate_nml_from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Generate a namelist file from a dictionary</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            d (dict): Dictionary</span>
+<span class="sd">            name (str, optional): Name of the namelist. Defaults to &quot;input&quot;.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">def</span> <span class="nf">logical</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
+            <span class="k">return</span> <span class="s2">&quot;.true.&quot;</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="s2">&quot;.false.&quot;</span>
+
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;swami_&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.inp&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nml</span><span class="p">:</span>
+            <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&amp;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
+                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">logical</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
+                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
+                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">23.16e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
+                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="c1"># nml.write(&quot;\\&quot;)</span>
+            <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&amp;end</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">nml</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+            <span class="k">return</span> <span class="n">nml</span><span class="o">.</span><span class="n">name</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">_read_output_file</span><span class="p">(</span><span class="n">outfile</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Read output file from swami.x</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            outfile (os.PathLike): Path to output file</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Dictionary with values per model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">outfile</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">res</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">f</span><span class="p">:</span>
+                <span class="n">model</span><span class="p">,</span> <span class="n">var</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s2">&quot;:&quot;</span><span class="p">)</span>
+                <span class="n">model</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">model</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">res</span><span class="p">:</span>
+                    <span class="n">res</span><span class="p">[</span><span class="n">model</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+                <span class="n">res</span><span class="p">[</span><span class="n">model</span><span class="p">][</span><span class="n">var</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">val</span><span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">res</span>
+
+<div class="viewcode-block" id="SwamiModel.run"><a class="viewcode-back" href="../python.html#swami.SwamiModel.run">[docs]</a>    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
+            <span class="n">altitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">day_of_year</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">local_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">f107</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">f107m</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">kp1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">kp2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+            <span class="n">get_uncertainty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
+            <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;Run the model</span>
+
+<span class="sd">        Returns a dictionary with keys &#39;MCM&#39;, &#39;DTM2020&#39; or &#39;UM&#39;,</span>
+<span class="sd">        which is another dictionary with &#39;temp&#39;, &#39;dens&#39;, etc. </span>
+<span class="sd">        Also, &#39;_input&#39; is another subdictionary </span>
+<span class="sd">        including the input parameters.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            altitude (float): Altitude in km</span>
+<span class="sd">            day_of_year (float): Day of the year [0-366]</span>
+<span class="sd">            local_time (float): Local time, h [0-24]</span>
+<span class="sd">            latitude (float): Latitude, deg [-90 to 90]</span>
+<span class="sd">            longitude (float): Longitude, deg [0-360]</span>
+<span class="sd">            f107 (float): F10.7</span>
+<span class="sd">            f107m (float): F10.7 averaged</span>
+<span class="sd">            kp1 (float): Kp</span>
+<span class="sd">            kp2 (float): Kp</span>
+<span class="sd">            get_uncertainty (bool, optional): It uncertainties should be returned. Defaults to False.</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            dict: Dictionary with values per model</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">output_file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
+            <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.out&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;swami_&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span><span class="p">)</span>
+
+        <span class="n">data_dtm</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_to_data</span><span class="p">)</span>
+        <span class="n">data_dtm</span> <span class="o">=</span> <span class="n">data_dtm</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="k">if</span> <span class="n">data_dtm</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;/&quot;</span> <span class="k">else</span> <span class="n">data_dtm</span>
+        <span class="n">data_um</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_to_data</span><span class="p">,</span> <span class="s2">&quot;um&quot;</span><span class="p">))</span>
+        <span class="n">data_um</span> <span class="o">=</span> <span class="n">data_um</span> <span class="o">+</span> <span class="s2">&quot;/&quot;</span> <span class="k">if</span> <span class="n">data_um</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">!=</span> <span class="s2">&quot;/&quot;</span> <span class="k">else</span> <span class="n">data_um</span>
+
+        <span class="n">is_mcm</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="n">_AtmModel</span><span class="o">.</span><span class="n">MCM</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="n">is_dtm</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="n">_AtmModel</span><span class="o">.</span><span class="n">DTM2020</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="n">is_um</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">model</span> <span class="ow">is</span> <span class="n">_AtmModel</span><span class="o">.</span><span class="n">UM</span> <span class="k">else</span> <span class="kc">False</span>
+
+        <span class="n">input_dict</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;altitude&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">altitude</span><span class="p">),</span>
+            <span class="s2">&quot;day_of_year&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">day_of_year</span><span class="p">),</span>
+            <span class="s2">&quot;local_time&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">local_time</span><span class="p">),</span>
+            <span class="s2">&quot;latitude&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">latitude</span><span class="p">),</span>
+            <span class="s2">&quot;longitude&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">longitude</span><span class="p">),</span>
+            <span class="s2">&quot;f107&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">f107</span><span class="p">),</span>
+            <span class="s2">&quot;f107m&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">f107m</span><span class="p">),</span>
+            <span class="s2">&quot;kp1&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">kp1</span><span class="p">),</span>
+            <span class="s2">&quot;kp2&quot;</span><span class="p">:</span> <span class="nb">float</span><span class="p">(</span><span class="n">kp2</span><span class="p">),</span>
+            <span class="s2">&quot;bMCM&quot;</span><span class="p">:</span> <span class="n">is_mcm</span><span class="p">,</span>
+            <span class="s2">&quot;bDTM&quot;</span><span class="p">:</span> <span class="n">is_dtm</span><span class="p">,</span>
+            <span class="s2">&quot;bUM&quot;</span><span class="p">:</span> <span class="n">is_um</span><span class="p">,</span>
+            <span class="s2">&quot;bUMstd&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">get_uncertainty</span><span class="p">),</span> <span class="c1"># and is_um,</span>
+            <span class="s2">&quot;bDTMunc&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">get_uncertainty</span><span class="p">),</span> <span class="c1"># and is_dtm,</span>
+            <span class="s2">&quot;data_dtm&quot;</span><span class="p">:</span> <span class="n">data_dtm</span><span class="p">,</span>
+            <span class="s2">&quot;data_um&quot;</span><span class="p">:</span> <span class="n">data_um</span><span class="p">,</span>
+            <span class="s2">&quot;output_file&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">input_file</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_nml_from_dict</span><span class="p">(</span><span class="n">input_dict</span><span class="p">)</span>
+
+        <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_to_bin</span><span class="p">),</span> <span class="n">input_file</span><span class="p">]</span>
+
+        <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_output_file</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+        <span class="n">out</span><span class="p">[</span><span class="s2">&quot;_input&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">input_dict</span>
+
+        <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">input_file</span><span class="p">)</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">unlink</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">out</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SWAMI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

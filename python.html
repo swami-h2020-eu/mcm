@@ -1,0 +1,320 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>Python wrapper &mdash; SWAMI v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Python example" href="Python_example.html" />
+    <link rel="prev" title="Fortran examples" href="fortran_examples.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SWAMI
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Index</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="um.html">Unified Model (UM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtm2020.html">Drag Temperature Model (DTM2020)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran.html">Fortran modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran_examples.html">Fortran examples</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python wrapper</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#installation-of-the-python-package">Installation of the Python package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#module-swami">Python interface</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="Python_example.html">Python example</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SWAMI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>Python wrapper</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/python.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="python-wrapper">
+<h1>Python wrapper<a class="headerlink" href="#python-wrapper" title="Permalink to this headline">¶</a></h1>
+<p>A Python wrapper has been developed and released to be able to make some quick plots and take a look at the results easily.</p>
+<p>It consists on calling a compiled Fortran program, so the performance is far from good.
+Take that into account when using this Python wrapper.</p>
+<div class="section" id="installation-of-the-python-package">
+<h2>Installation of the Python package<a class="headerlink" href="#installation-of-the-python-package" title="Permalink to this headline">¶</a></h2>
+<p>System requirements (same as <a class="reference internal" href="fortran.html#fortran-modules"><span class="std std-ref">Fortran modules</span></a> + the python part):</p>
+<ul class="simple">
+<li><p>Python &gt;=3.6</p></li>
+<li><p>python-pip</p></li>
+<li><p>gfortran</p></li>
+<li><p>libnetcdff (more info at <a class="reference external" href="https://www.unidata.ucar.edu/software/netcdf/docs-fortran/">https://www.unidata.ucar.edu/software/netcdf/docs-fortran/</a>)</p></li>
+</ul>
+<p>To install the package, go to <cite>src/swami</cite> and execute in bash <cite>make_wrapper.sh</cite>.
+It will generate a <cite>swami.x</cite> executable.</p>
+<p>If you are using Ubuntu 18.04 64bits, the executable included in the distributed version should work.</p>
+<p>Once that is done, install the python package in a virtual environment or in your preferred python distribution.</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>python3 setup.py sdist
+pip install swami-1.0.tar.gz
+</pre></div>
+</div>
+</div>
+<div class="section" id="module-swami">
+<span id="python-interface"></span><h2>Python interface<a class="headerlink" href="#module-swami" title="Permalink to this headline">¶</a></h2>
+<dl class="py class">
+<dt id="swami.SwamiModel">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">swami.</span></code><code class="sig-name descname"><span class="pre">SwamiModel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_swami</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/swami.html#SwamiModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.SwamiModel" title="Permalink to this definition">¶</a></dt>
+<dd><p>SWAMI Model wrapper. Includes MCM, DTM2020 and UM</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – Model to use. Defaults to MCM. Valid values are: MCM, DTM2020, UM</p></li>
+<li><p><strong>exec_swami</strong> (<em>os.PathLike</em><em>, </em><em>optional</em>) – Path to the executable. Defaults to the one included.</p></li>
+<li><p><strong>path_to_data</strong> (<em>os.PathLike</em><em>, </em><em>optional</em>) – Path to the data. Defaults to the included package.</p></li>
+</ul>
+</dd>
+</dl>
+<dl class="py method">
+<dt id="swami.SwamiModel.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_of_year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107m</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_uncertainty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/swami.html#SwamiModel.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.SwamiModel.run" title="Permalink to this definition">¶</a></dt>
+<dd><p>Run the model</p>
+<p>Returns a dictionary with keys ‘MCM’, ‘DTM2020’ or ‘UM’,
+which is another dictionary with ‘temp’, ‘dens’, etc.
+Also, ‘_input’ is another subdictionary
+including the input parameters.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>altitude</strong> (<em>float</em>) – Altitude in km</p></li>
+<li><p><strong>day_of_year</strong> (<em>float</em>) – Day of the year [0-366]</p></li>
+<li><p><strong>local_time</strong> (<em>float</em>) – Local time, h [0-24]</p></li>
+<li><p><strong>latitude</strong> (<em>float</em>) – Latitude, deg [-90 to 90]</p></li>
+<li><p><strong>longitude</strong> (<em>float</em>) – Longitude, deg [0-360]</p></li>
+<li><p><strong>f107</strong> (<em>float</em>) – F10.7</p></li>
+<li><p><strong>f107m</strong> (<em>float</em>) – F10.7 averaged</p></li>
+<li><p><strong>kp1</strong> (<em>float</em>) – Kp</p></li>
+<li><p><strong>kp2</strong> (<em>float</em>) – Kp</p></li>
+<li><p><strong>get_uncertainty</strong> (<em>bool</em><em>, </em><em>optional</em>) – It uncertainties should be returned. Defaults to False.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Dictionary with values per model</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>dict</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+        <a href="Python_example.html" class="btn btn-neutral float-right" title="Python example" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="fortran_examples.html" class="btn btn-neutral float-left" title="Fortran examples" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SWAMI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
