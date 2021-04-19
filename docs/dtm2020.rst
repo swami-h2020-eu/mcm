@@ -1,0 +1,197 @@
+Drag Temperature Model (DTM2020)
+================================
+
+Description of the model
+------------------------
+
+The semi-empirical Drag Temperature Model (DTM) predicts temperature, density and composition of the Earth's thermosphere, especially for the purpose of orbit computation. Operational and Research DTM2020 models were developed in the framework of the H2020 Space Weather Atmosphere Models and Indices project (SWAMI). The models provide low spatial and temporal resolution point-wise predictions as a function of location (altitude, latitude, longitude, local solar time), solar and geomagnetic activities, and season. The drivers of the operational model are F10.7 and Kp, whereas the more accurate research model uses a more representative but possibly less robust solar proxy, F30, and the new hourly geomagnetic index Hp60. The DTM2020 models are constructed by optimally fitting model coefficients to density, temperature, and composition measurements.
+
+The backbone of the models is the complete CHAMP and GOCE high-resolution accelerometer-inferred density datasets, as well as SwarmA densities. Those density datasets were processed by TU Delft (Netherlands) using high fidelity satellite models and they are presently the standard for absolute density. As a result, the DTM2020 densities are on average 20-25% smaller than DTM2013.
+
+The DTM2020 subroutines present in the MCM model are available at the :ref:`m_dtm: Drag Temperature Model (DTM)` module.
+
+
+Density uncertainty
+-------------------
+
+An optional new feature of the operational DTM2020 is the possibility to compute the uncertainty of the density prediction. 
+The 1-sigma uncertainty provided in the model is given as a percentage of the value of the predicted density.
+
+The uncertainty model is justified in the range [200 km - 500 km]. 
+However, strong assumptions must be added to extend the altitude range from 100 km to 1000 km due to unavailability of data:
+
+* at lower altitudes (< 200 km), a worst-case is chosen by fixing 1-sigma to their values at the altitude of 200 km,
+* at higher altitudes (> 500 km), an optimistic case is assumed by keeping 1-sigma values at the 500 km level.
+
+This 1-sigma uncertainty prediction can be obtained with the subroutine sigma_subroutine.f90 or via :func:`m_dtm/get_dtm2020_dens_uncertainty`
+
+
+Implementation instructions
+---------------------------
+
+Implementation of DTM2020 - operational version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+List of files (located in src/dtm2020):
+
+* dtm2020_F107_Kp-subr.f90
+* DTM_2020_F107_Kp
+* sigma_subroutine.f90
+* Mod_DTM2020F107Kp_Benchmark.f90
+
+The dtm2020_F107_Kp-subr.f90 are used in combination with the model coefficient file DTM_2020_F107_Kp.
+First read in the model coefficients by calling the subroutine lecdtm, the coefficients are then stored in common pardtm. 
+Provide the path to the model coefficient file in lecdtm if it is not in the local directory, and define tape number.
+Then call the dtm3 subroutine, e.g.::
+
+    program x
+    call lecdtm
+    ...[dtm2020_F107_Kp-subr_NoComm.f90, DTM_2020_F107_Kp,sigma_subroutine.f90,Mod_DTM2020F107Kp_Benchmark.f90]
+    ...
+    do 10, ...
+    call dtm3(day,f,fbar,akp,alti,hl,alat,xlon,tz,tinf,ro,d,wmm)
+    ...
+
+The input parameters (real) are:
+
+* day    = day of year [1.-366.]
+* f(2)   = f(1)=instantaneous flux F10.7 at (t - 24hr)    /   f(2)=0.
+* fbar(2)= fbar(1)=mean flux F10.7 of last 81 days at t   /   fbar(2)=0.
+* akp(4) = akp(1)= kp delayed by 3 hour
+*          akp(3)=mean of last 24 hours
+*          akp(2) & akp(4)=0.
+* alti   = altitude (in km) greater than 120 km
+* hl     = local time (in radian: 0-24hr = 0-2pi)
+* alat   = latitude (in radian)
+* xlon   = longitude (in radian)
+
+The output parameters (real) are:
+
+* tz      = temperature at altitude 'alti'
+* tinf    = exospheric temperature
+* d(1)    = partial density of atomic hydrogen (in gram/cm3)
+* d(2)    = partial density of helium
+* d(3)    = partial density of atomic oxygen
+* d(4)    = partial density of molecular nitrogen
+* d(5)    = partial density of molecular oxygen
+* d(6)    = partial density of atomic nitrogen (0)
+* ro      = total density (in gram/cm3)
+* wmm     = mean molecular mass (in gram)
+
+The solar flux has to be interpolated to the decimal date for the 81-day mean, 
+and interpolated to the decimal date minus 24hr for the daily flux (i.e., 1-day delayed instantaneous flux). 
+The kp has to be computed from similarly interpolated ap values: 
+interpolate linearly from one to the next 3-hourly ap value, then convert back to kp. 
+NB: the interface and drivers are the same as in DTM-2013
+
+A simple benchmark is provided in the program Mod_DTM2020F107Kp_Benchmark.f90 (compile and run) 
+
+
+
+New feature of DTM2020: 1-sigma uncertainty of the density estimate
+The subroutine sigma_subroutine.f90 gives as a function of position and drivers an estimate of the density uncertainty.
+It is given as a percentage of the density estimate. The call is made after dtm3, e.g.::
+
+    program x
+    call lecdtm
+    ...
+    ...
+    do 10, ...
+    call dtm3(day,f,fbar,akp,alti,hl,alat,xlon,tz,tinf,ro,d,wmm)
+    call sigma_function(latitude,lhour,day,alti,fbar(1),akp(1),stdev)
+    ...
+
+The input parameters (real) are:
+
+* latitude = latitude, in deg
+* lhour    = local time, in hr
+* day      = day of year [1.-366.]
+* alti     = altitude (in km) greater than 120 km
+* fm       = fbar(1)=mean flux F10.7 of last 81 days at t
+* kpindex  = akp(1)= kp delayed by 3 hour
+
+The output parameter (real) is:
+
+* stdev    = 1-sigma uncertainty (%) of the density estimate ro
+ 
+
+Implementation of DTM2020 - research version
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+Related files (located in src/dtm2020):
+
+* dtm2020_F30_Hp-subr.f90
+* DTM_2020_F30_ap60
+* Mod_DTM2020F30Hp60_Benchmark.f90
+
+The dtm2020_F30_Hp-subr.f90 are used in combination with the model coefficient file DTM_2020_F30_ap60.
+
+The F30 radio flux from Nobeyama is distributed by CLS: ftp://ftpsedr.cls.fr/pub/previsol/solarflux/observation/ (use the file ‘absolute observations’)
+
+The forecast is given here: ftp://ftpsedr.cls.fr/pub/previsol/solarflux/forecast/absolute
+
+F30 is used in DTM after rescaling to F10.7 via linear regression::
+
+    rescaled F30 = −1.5998 + 1.553755 ∗ F30 + (0.22446 * year - 447.13328)
+    (year = decimal year, i.e. 2012.555)
+
+NOTE: If you are simply running simulations, you can use F10.7 too
+
+First read in the model coefficients by calling the subroutine lecdtm, the coefficients are then stored in common pardtm. 
+Provide the path to the model coefficient file in lecdtm if it is not in the local directory, and define tape number.
+Then call the dtm5 subroutine::
+
+    program x
+    call lecdtm
+    ...
+    ...
+    do 10, ...
+    call dtm5(day,f,fbar,ap60,alti,hl,alat,xlon,tz,tinf,ro,d,wmm)
+    ...
+
+The input parameters (real) are:
+
+* day     = day of year [1.-366.]
+* f(2)    = f(1)=instantaneous flux F30 at (t - 24hr)    /   f(2)=0.
+* fbar(2) = fbar(1)=mean flux F30 of last 81 days at t   /   fbar(2)=0.
+* ap60(10)= 
+* 
+    * ap60(1) = 4hr delayed ap60 at t
+    * ap60(2) = 0hr delayed ap60 at t
+    * ap60(3) = 1hr delayed ap60 at t  
+    * ap60(4) = 2hr delayed ap60 at t  
+    * ap60(5) = 3hr delayed ap60 at t  
+    * ap60(6) = mean of last 24 hours
+    * ap60(7) = mean of 5-6-7hr delayed at t       
+    * ap60(8) = mean of 9-10-11hr delayed at t    
+    * ap60(9) = mean of 14-15-16hr delayed at t        
+    * ap60(10)= mean of 19-20-21hr delayed at t      
+
+* alti   = altitude (in km) greater than 120 km
+* hl     = local time (in radian: 0-24hr = 0-2pi)
+* alat   = latitude (in radian)
+* xlon   = longitude (in radian)
+  
+The output parameters (real) are:
+
+* tz      = temperature at altitude 'alti'
+* tinf    = exospheric temperature
+* d(1)    = partial density of atomic hydrogen (in gram/cm3)
+* d(2)    = partial density of helium
+* d(3)    = partial density of atomic oxygen
+* d(4)    = partial density of molecular nitrogen
+* d(5)    = partial density of molecular oxygen
+* d(6)    = partial density of atomic nitrogen (0)
+* ro      = total density (in gram/cm3)
+* wmm     = mean molecular mass (in gram)
+
+
+A simple benchmark is provided in the program Mod_DTM2020F30Hp60_Benchmark.f90 (compile and run) 
+
+
+
+.. admonition:: Contact information
+
+   Dr. Sean Bruinsma (CNES, France)
+
+   sean.bruinsma [at] cnes.fr

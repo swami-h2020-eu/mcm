@@ -1,0 +1,7 @@
+include README.md
+
+include src/swami/*.x
+recursive-include src/swami/*
+recursive-include src/swami/data *
+
+global-exclude *.py[cod] __pycache__ *.so *.dylib *.mod
