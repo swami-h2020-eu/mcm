@@ -9,13 +9,13 @@ The thermosphere model DTM2020 is also available separately. Two versions exist:
 
 ## Documentation
 
-The documentation is available at https://swami-h2020-eu.github.io/test/contents.html
+The documentation is available at https://swami-h2020-eu.github.io/mcm/
 
 It includes API reference, brief descriptions of the model, examples and compilation instructions
 
 ## How to use
 
-Clone the repository or [download the code](https://github.com/swami-h2020-eu/test/archive/refs/heads/master.zip).
+Clone the repository or [download the code](https://github.com/swami-h2020-eu/mcm/archive/refs/heads/master.zip).
 
 Tested in Ubuntu 18.04 LTS
 
@@ -30,7 +30,7 @@ MCM model is under `src/libswamif`
 
 Two versions of DTM2020 model are at `src/dtm2020`
 
-Compilation instructions are at: https://swami-h2020-eu.github.io/test/fortran.html
+Compilation instructions are at: https://swami-h2020-eu.github.io/mcm/fortran.html
 
 ### Python wrapper
 
@@ -38,4 +38,4 @@ Compilation instructions are at: https://swami-h2020-eu.github.io/test/fortran.h
 * To create the package: `python3 setup.py sdist`
 * To install: `pip3 install .`. This will install a Python package called `swami`
 
-More detailed instructions at: https://swami-h2020-eu.github.io/test/python.html
+More detailed instructions at: https://swami-h2020-eu.github.io/mcm/python.html
