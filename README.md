@@ -15,7 +15,7 @@ It includes API reference, brief descriptions of the model, examples and compila
 
 ## How to use
 
-Clone the repository or [download the code](https://github.com/swami-h2020-eu/mcm/archive/refs/heads/master.zip).
+Clone the repository or [download the code](https://github.com/swami-h2020-eu/mcm/archive/refs/heads/main.zip).
 
 Tested in Ubuntu 18.04 LTS
 
