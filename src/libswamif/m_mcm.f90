@@ -163,7 +163,7 @@ contains
 
         implicit none
         type(t_mcm_out), intent(out) :: mcm_out     ! Full output of MCM
-        real(8), intent(in) :: alti                 ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti                 ! Altitude, in km [0-1500]
         real(8), intent(in) :: lati                 ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi                ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct                 ! Local time, in hours [0-24)
