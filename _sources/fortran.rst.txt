@@ -99,72 +99,103 @@ This module contains routines related to the MCM model, which combines the DTM (
 
    .. py:attribute:: dens
       :type: float
+      :noindex:
 
       Total density (in gram/cm3)
 
    .. py:attribute:: temp
       :type: float
+      :noindex:
       
       Temperature at altitude (K)
 
    .. py:attribute:: wmm
       :type: float
+      :noindex:
 
       Mean molecular mass (in gram)
+
    .. py:attribute:: d_H
       :type: float
+      :noindex:
 
       Partial density of atomic hydrogen (in gram/cm3)
+
    .. py:attribute:: d_He
       :type: float
+      :noindex:
 
       Partial density of helium
+
    .. py:attribute:: d_O
       :type: float
+      :noindex:
 
       Partial density of atomic oxygen
+
    .. py:attribute:: d_N2
       :type: float
+      :noindex:
 
       Partial density of molecular nitrogen
+
    .. py:attribute:: d_O2
       :type: float
+      :noindex:
 
       Partial density of molecular oxygen
+
    .. py:attribute:: d_N
       :type: float
+      :noindex:
 
       Partial density of atomic nitrogen
+
    .. py:attribute:: tinf
       :type: float
+      :noindex:
 
       Exospheric temperature, in K
+
    .. py:attribute:: dens_unc
       :type: float
+      :noindex:
 
       Density uncertainty from DTM2020 (above 120 km), as a percentage
+
    .. py:attribute:: dens_std
       :type: float
+      :noindex:
 
       Standard deviation of the density (UM, below 100 km), in g/cm3
+
    .. py:attribute:: temp_std
       :type: float
+      :noindex:
 
       Standard deviation of the temperature (UM, below 100 km), in K
+
    .. py:attribute:: xwind
       :type: float
+      :noindex:
 
       Zonal wind, in m/s
+
    .. py:attribute:: ywind
       :type: float
+      :noindex:
 
       Meridional wind, m/s
+
    .. py:attribute:: xwind_std
       :type: float
+      :noindex:
 
       Standard deviation of zonal wind, in m/s
+
    .. py:attribute:: ywind_std
       :type: float
+      :noindex:
 
       Standard deviation of neridional wind, m/s
 
@@ -196,13 +227,13 @@ Go to :ref:`Drag Temperature Model (DTM2020)`) for some theoretical details abou
    :type: string
    :value: "DTM_2020_F107_Kp.dat"
 
-.. py:class:: t_mcm_out
+.. py:class:: t_dtm_out
 
    .. py:attribute:: dens
-         :type: float
-         :noindex:
+      :type: float
+      :noindex:
       
-         Total density (in gram/cm3)
+      Total density (in gram/cm3)
       
    .. py:attribute:: temp
       :type: float
