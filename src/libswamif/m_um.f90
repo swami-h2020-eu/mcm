@@ -23,6 +23,8 @@ module m_um
     real(8), parameter :: KM2M = 1000.d0
     logical, parameter :: DEBUG_UM = .true.
     logical, parameter :: B_DEBUG_STOP_UM = .true.
+    real(8), parameter :: UM_ALTI_LIMIT = 100d0
+    real(8), parameter :: UM_ALTI_LIMIT_WINDS = 120d0
     character(len=*), parameter :: UM_NAME_TIME = "time" !> cftime.num2date(t0, "hours since 1970-01-01")
     character(len=*), parameter :: UM_NAME_REFTIME = "forecast_reference_time"
     character(len=*), parameter :: UM_NAME_LATI = "latitude"
@@ -111,6 +113,16 @@ contains
         end if
 
     end subroutine check_ier_nc
+
+    subroutine check_altitude(alti, limit)
+        implicit none
+        real(8),intent(in) :: alti, limit
+
+        if (alti > limit) then
+            write(*, "(A,F10.4,A,F10.4,A)") "UM ERROR: Altitude ", alti, " km above limit ", limit, " km. Stopping."
+            stop
+        end if
+    end subroutine check_altitude
 
     subroutine get_dimension_um(name, fid, dim_um, ier)
         ! Get UM dimension fron a netCDF file
@@ -475,6 +487,7 @@ contains
         real(8), intent(in) :: f107m    ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)   ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT)
         call get_um_var_mean(temp, UM_NAME_TEMP, alti, lati, longi, loct, &
                              doy, f107, f107m, kps)
 
@@ -494,6 +507,7 @@ contains
         real(8), intent(in) :: f107m   ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)  ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT)
         call get_um_var_mean(dens, UM_NAME_DENS, alti, lati, longi, loct, doy, &
                              f107, f107m, kps, apply_log10=[.true., .false., .false., .false.])
 
@@ -516,6 +530,7 @@ contains
         real(8), intent(in) :: f107m   ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)  ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT)
         call get_um_var_std(std, UM_NAME_DENS, alti, lati, longi, loct, &
                             doy, f107, f107m, kps)
 
@@ -537,6 +552,7 @@ contains
         real(8), intent(in) :: f107m   ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)  ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT)
         call get_um_var_std(std, UM_NAME_TEMP, alti, lati, longi, loct, &
                             doy, f107, f107m, kps)
 
@@ -556,6 +572,7 @@ contains
         real(8), intent(in) :: f107m   ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)  ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT_WINDS)
         call get_um_var_mean(xwind, UM_NAME_XWIND, alti, lati, longi, loct, &
                              doy, f107, f107m, kps)
 
@@ -575,6 +592,7 @@ contains
         real(8), intent(in) :: f107m    ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)   ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT_WINDS)
         call get_um_var_mean(ywind, UM_NAME_YWIND, alti, lati, longi, loct, &
                              doy, f107, f107m, kps)
 
@@ -594,6 +612,7 @@ contains
         real(8), intent(in) :: f107m   ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)  ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT_WINDS)
         call get_um_var_std(std, UM_NAME_XWIND, alti, lati, longi, loct, &
                             doy, f107, f107m, kps)
 
@@ -613,6 +632,7 @@ contains
         real(8), intent(in) :: f107m   ! Space weather index F10.7, average flux at time
         real(8), intent(in) :: kps(2)  ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
+        call check_altitude(alti, UM_ALTI_LIMIT_WINDS)
         call get_um_var_std(std, UM_NAME_YWIND, alti, lati, longi, loct, &
                             doy, f107, f107m, kps)
 
