@@ -58,7 +58,7 @@ purposes only. A user of MCM or DTM software shall **not**:
 - copy it except for archival or emergency repair
 
 A license for commercial use of MCM or DTM can be requested. An example of such a license for the DTM
-software is provided in this directory ('LICENSE DTM.doc').
+software is provided in this directory ([LICENSE DTM.doc](https://github.com/swami-h2020-eu/mcm/blob/main/LICENSE%20DTM.doc)).
 
 **WARRANTY**
 
