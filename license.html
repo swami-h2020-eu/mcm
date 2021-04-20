@@ -1,0 +1,263 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" />
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <title>MCM INCLUDING DTM SOFTWARE, AND DTM SOFTWARE &mdash; SWAMI v1.0 documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
+
+  
+  
+
+  
+  
+
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script src="_static/jquery.js"></script>
+        <script src="_static/underscore.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search"  style="background: white" >
+          
+
+          
+            <a href="index.html" class="icon icon-home"> SWAMI
+          
+
+          
+            
+            <img src="_static/logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Index</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
+<li class="toctree-l1"><a class="reference internal" href="first-steps.html">First steps</a></li>
+<li class="toctree-l1"><a class="reference internal" href="um.html">Unified Model (UM)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="dtm2020.html">Drag Temperature Model (DTM2020)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran.html">Fortran modules</a></li>
+<li class="toctree-l1"><a class="reference internal" href="fortran_examples.html">Fortran examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="python.html">Python wrapper</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Python_example.html">Python example</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">SWAMI</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+        
+      <li>MCM INCLUDING DTM SOFTWARE, AND DTM SOFTWARE</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="_sources/license.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="mcm-including-dtm-software-and-dtm-software">
+<h1>MCM INCLUDING DTM SOFTWARE, AND DTM SOFTWARE<a class="headerlink" href="#mcm-including-dtm-software-and-dtm-software" title="Permalink to this headline">¶</a></h1>
+<p>The MCM software is property of the Centre National d’Etudes Spatiales (CNES, France), the Met Office
+(United Kingdom), and Elecnor Deimos (Spain). The DTM software is property of the Centre National
+d’Etudes Spatiales (CNES, France).</p>
+<p>CNES, the Met Office and Elecnor Deimos grant to the Licensee a free non-exclusive and non-transferable
+license for the MCM software for academic, non-commercial, purposes only. CNES grants to the Licensee a
+free non-exclusive and non-transferable license for the DTM software for academic, non-commercial,
+purposes only. A user of MCM or DTM software shall not:</p>
+<ul class="simple">
+<li><p>use it for any non-academic, commercial purposes,</p></li>
+<li><p>make any modification or improvement to the Software,</p></li>
+<li><p>disseminate it or partly disseminate it, or any of its supporting data</p></li>
+<li><p>copy it except for archival or emergency repair</p></li>
+</ul>
+<p>A license for commercial use of MCM or DTM can be requested. An example of such a license for the DTM
+software is provided in this directory (<a class="reference external" href="https://github.com/swami-h2020-eu/mcm/blob/main/LICENSE%20DTM.doc">https://github.com/swami-h2020-eu/mcm/blob/main/LICENSE%20DTM.doc</a>).</p>
+<div class="section" id="warranty">
+<h2>WARRANTY<a class="headerlink" href="#warranty" title="Permalink to this headline">¶</a></h2>
+<p>The Licensee will use the MCM or DTM software in its present state at his own risk, without any guarantee of
+any kind from CNES, the Met Office and Elecnor Deimos.
+CNES, the Met Office and Elecnor Deimos cannot be held liable for any damage for the Licensee that can
+result from the use of the MCM or DTM software.</p>
+<p>THE USE OF THE MCM OR DTM SOFTWARE CONSTITUTES AN IMPLICIT ACCEPTATION BY THE
+USER OF THE TERMS OF THE PRESENT LICENSE.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &#169; Copyright 2021, SWAMI.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
