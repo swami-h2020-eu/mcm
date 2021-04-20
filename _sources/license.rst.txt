@@ -1,5 +1,8 @@
-MCM INCLUDING DTM SOFTWARE, AND DTM SOFTWARE
-============================================
+License
+=======
+
+**MCM INCLUDING DTM SOFTWARE, AND DTM SOFTWARE**
+
 
 The MCM software is property of the Centre National d’Etudes Spatiales (CNES, France), the Met Office
 (United Kingdom), and Elecnor Deimos (Spain). The DTM software is property of the Centre National
