@@ -39,3 +39,33 @@ Compilation instructions are at: https://swami-h2020-eu.github.io/mcm/fortran.ht
 * To install: `pip3 install .`. This will install a Python package called `swami`
 
 More detailed instructions at: https://swami-h2020-eu.github.io/mcm/python.html
+
+## License
+
+**MCM INCLUDING DTM SOFTWARE, AND DTM SOFTWARE**
+
+The MCM software is property of the Centre National d’Etudes Spatiales (CNES, France), the Met Office
+(United Kingdom), and Elecnor Deimos (Spain). The DTM software is property of the Centre National
+d’Etudes Spatiales (CNES, France).
+
+CNES, the Met Office and Elecnor Deimos grant to the Licensee a free non-exclusive and non-transferable
+license for the MCM software for academic, non-commercial, purposes only. CNES grants to the Licensee a
+free non-exclusive and non-transferable license for the DTM software for academic, non-commercial,
+purposes only. A user of MCM or DTM software shall **not**:
+- use it for any non-academic, commercial purposes,
+- make any modification or improvement to the Software,
+- disseminate it or partly disseminate it, or any of its supporting data
+- copy it except for archival or emergency repair
+
+A license for commercial use of MCM or DTM can be requested. An example of such a license for the DTM
+software is provided in this directory (‘’License DTM).
+
+**WARRANTY**
+
+The Licensee will use the MCM or DTM software in its present state at his own risk, without any guarantee of
+any kind from CNES, the Met Office and Elecnor Deimos.
+CNES, the Met Office and Elecnor Deimos cannot be held liable for any damage for the Licensee that can
+result from the use of the MCM or DTM software.
+
+THE USE OF THE MCM OR DTM SOFTWARE CONSTITUTES AN IMPLICIT ACCEPTATION BY THE
+USER OF THE TERMS OF THE PRESENT LICENSE.
