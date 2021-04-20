@@ -27,6 +27,7 @@ The thermosphere model **DTM2020** is also available separately. Two versions ex
    fortran_examples.rst
    python.rst
    Python_example.ipynb
+   license.rst
 
 
 Acknowledgements

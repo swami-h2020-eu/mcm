@@ -95,8 +95,6 @@ This module contains routines related to the MCM model, which combines the DTM (
 
 .. f:autosubroutine:: m_mcm/get_mcm
 
-.. f:autotype:: m_mcm/t_mcm_out
-
 .. py:class:: t_mcm_out
 
    .. py:attribute:: dens
@@ -185,67 +183,80 @@ Go to :ref:`Drag Temperature Model (DTM2020)`) for some theoretical details abou
     call get_dtm2020_dens_uncertainty(dens_unc, temp, alti, lati, long, loct, doy, f107, f107m, kps(2))
 
 
-.. f:autovariable:: m_dtm/DTM2020_DATA_FILENAME
+.. f:autosubroutine:: m_dtm/init_dtm2020
+
+
+.. f:autosubroutine:: m_dtm/get_dtm2020
+
+
+.. f:autosubroutine:: m_dtm/get_dtm2020_dens_uncertainty
+
 
 .. py:data:: DTM2020_DATA_FILENAME
    :type: string
    :value: "DTM_2020_F107_Kp.dat"
 
-.. f:autosubroutine:: m_dtm/init_dtm2020
-
-.. f:autosubroutine:: m_dtm/get_dtm2020
-
-.. f:autosubroutine:: m_dtm/get_dtm2020_dens_uncertainty
-
 .. py:class:: t_mcm_out
 
-      .. py:attribute:: dens
+   .. py:attribute:: dens
          :type: float
+         :noindex:
       
          Total density (in gram/cm3)
+      
+   .. py:attribute:: temp
+      :type: float
+      :noindex:
+   
+      Temperature at altitude (K)
+   
+   .. py:attribute:: wmm
+      :type: float
+      :noindex:
+   
+      Mean molecular mass (in gram)
 
-      .. py:attribute:: temp
-         :type: float
-      
-         Temperature at altitude (K)
+   .. py:attribute:: d_H
+      :type: float
+      :noindex:
+   
+      Partial density of atomic hydrogen (in gram/cm3)
+   
+   .. py:attribute:: d_He
+      :type: float
+      :noindex:
+   
+      Partial density of helium
 
-      .. py:attribute:: wmm
-         :type: float
-      
-         Mean molecular mass (in gram)
-      .. py:attribute:: d_H
-         :type: float
-      
-         Partial density of atomic hydrogen (in gram/cm3)
+   .. py:attribute:: d_O
+      :type: float
+      :noindex:
+   
+      Partial density of atomic oxygen
+   
+   .. py:attribute:: d_N2
+      :type: float
+      :noindex:
+   
+      Partial density of molecular nitrogen
+   
+   .. py:attribute:: d_O2
+      :type: float
+      :noindex:
+   
+      Partial density of molecular oxygen
+   
+   .. py:attribute:: d_N
+      :type: float
+      :noindex:
+   
+      Partial density of atomic nitrogen
+   
+   .. py:attribute:: tinf
+      :type: float
+      :noindex:
 
-      .. py:attribute:: d_He
-         :type: float
-      
-         Partial density of helium
-      .. py:attribute:: d_O
-         :type: float
-      
-         Partial density of atomic oxygen
-
-      .. py:attribute:: d_N2
-         :type: float
-      
-         Partial density of molecular nitrogen
-
-      .. py:attribute:: d_O2
-         :type: float
-      
-         Partial density of molecular oxygen
-
-      .. py:attribute:: d_N
-         :type: float
-      
-         Partial density of atomic nitrogen
-
-      .. py:attribute:: tinf
-         :type: float
-      
-         Exospheric temperature, in K
+      Exospheric temperature, in K
 
 
 m_um: Unified Model (UM)
@@ -270,19 +281,28 @@ Go to :ref:`Unified Model (UM)`) for some theoretical details about the model.
 
 .. f:autosubroutine:: m_um/init_um
 
+
 .. f:autosubroutine:: m_um/get_um_dens
+
 
 .. f:autosubroutine:: m_um/get_um_temp
 
+
 .. f:autosubroutine:: m_um/get_um_xwind
+
 
 .. f:autosubroutine:: m_um/get_um_ywind
 
+
 .. f:autosubroutine:: m_um/get_um_dens_standard_deviation
+
 
 .. f:autosubroutine:: m_um/get_um_temp_standard_deviation
 
+
 .. f:autosubroutine:: m_um/get_um_xwind_standard_deviation
 
+
 .. f:autosubroutine:: m_um/get_um_ywind_standard_deviation
+
 
