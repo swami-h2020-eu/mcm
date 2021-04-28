@@ -263,7 +263,7 @@ contains
                                   um_var%dims(1)%data, & ! time
                                   um_var%data, &
                                   point, &
-                                  axis_log10)
+                                  apply_log10=axis_log10)
 
     end subroutine interpolate_um_var_linear
 
@@ -466,6 +466,8 @@ contains
         ! interpolate
         if (present(apply_log10)) then
             interpolate_log10 = apply_log10
+        else
+            interpolate_log10 = [.false., .false., .false., .false.]
         end if
 
         call interpolate_um_var_linear(um_var, alti_m, lati, loct, um_time, var, &
@@ -478,7 +480,7 @@ contains
 
         implicit none
         real(8), intent(out) :: temp    ! Air temperature, in K
-        real(8), intent(in) :: alti     ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti     ! Altitude, in km [0-100]
         real(8), intent(in) :: lati     ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi    ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct     ! Local time, in hours [0-24)
@@ -489,7 +491,8 @@ contains
 
         call check_altitude(alti, UM_ALTI_LIMIT)
         call get_um_var_mean(temp, UM_NAME_TEMP, alti, lati, longi, loct, &
-                             doy, f107, f107m, kps)
+                             doy, f107, f107m, kps, &
+                             apply_log10=[.false., .false., .false., .false.])
 
     end subroutine get_um_temp
 
@@ -498,7 +501,7 @@ contains
 
         implicit none
         real(8), intent(out) :: dens   ! Air density, in g/cm^3
-        real(8), intent(in) :: alti    ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti    ! Altitude, in km [0-100]
         real(8), intent(in) :: lati    ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi   ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct    ! Local time, in hours [0-24)
@@ -509,7 +512,8 @@ contains
 
         call check_altitude(alti, UM_ALTI_LIMIT)
         call get_um_var_mean(dens, UM_NAME_DENS, alti, lati, longi, loct, doy, &
-                             f107, f107m, kps, apply_log10=[.true., .false., .false., .false.])
+                             f107, f107m, kps, &
+                             apply_log10=[.true., .false., .false., .false.])
 
         ! Convert kg/m3 to g/cm3
         dens = dens*1d-3
@@ -521,7 +525,7 @@ contains
 
         implicit none
         real(8), intent(out) :: std    ! Standard deviation of the density [g/cm3]
-        real(8), intent(in) :: alti    ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti    ! Altitude, in km [0-100]
         real(8), intent(in) :: lati    ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi   ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct    ! Local time, in hours [0-24)
@@ -543,7 +547,7 @@ contains
 
         implicit none
         real(8), intent(out) :: std    ! Standard deviation of the temperature [K]
-        real(8), intent(in) :: alti    ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti    ! Altitude, in km [0-100]
         real(8), intent(in) :: lati    ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi   ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct    ! Local time, in hours [0-24)
@@ -563,7 +567,7 @@ contains
 
         implicit none
         real(8), intent(out) :: xwind  ! X wind, in m/s
-        real(8), intent(in) :: alti    ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti    ! Altitude, in km [0-120]
         real(8), intent(in) :: lati    ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi   ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct    ! Local time, in hours [0-24)
@@ -574,7 +578,8 @@ contains
 
         call check_altitude(alti, UM_ALTI_LIMIT_WINDS)
         call get_um_var_mean(xwind, UM_NAME_XWIND, alti, lati, longi, loct, &
-                             doy, f107, f107m, kps)
+                             doy, f107, f107m, kps, &
+                             apply_log10=[.false., .false., .false., .false.])
 
     end subroutine get_um_xwind
 
@@ -583,7 +588,7 @@ contains
 
         implicit none
         real(8), intent(out) :: ywind   ! Y wind, in m/s
-        real(8), intent(in) :: alti     ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti     ! Altitude, in km [0-120]
         real(8), intent(in) :: lati     ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi    ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct     ! Local time, in hours [0-24)
@@ -594,7 +599,8 @@ contains
 
         call check_altitude(alti, UM_ALTI_LIMIT_WINDS)
         call get_um_var_mean(ywind, UM_NAME_YWIND, alti, lati, longi, loct, &
-                             doy, f107, f107m, kps)
+                             doy, f107, f107m, kps, &
+                             apply_log10=[.false., .false., .false., .false.])
 
     end subroutine get_um_ywind
 
@@ -603,7 +609,7 @@ contains
 
         implicit none
         real(8), intent(out) :: std    ! Standard deviation of the X wind [m/s]
-        real(8), intent(in) :: alti    ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti    ! Altitude, in km [0-120]
         real(8), intent(in) :: lati    ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi   ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct    ! Local time, in hours [0-24)
@@ -623,7 +629,7 @@ contains
 
         implicit none
         real(8), intent(out) :: std    ! Standard deviation of the Y wind [m/s]
-        real(8), intent(in) :: alti    ! Altitude, in km [0-152]
+        real(8), intent(in) :: alti    ! Altitude, in km [0-120]
         real(8), intent(in) :: lati    ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi   ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct    ! Local time, in hours [0-24)

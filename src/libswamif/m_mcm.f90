@@ -163,7 +163,7 @@ contains
 
         implicit none
         type(t_mcm_out), intent(out) :: mcm_out     ! Full output of MCM
-        real(8), intent(in) :: alti                 ! Altitude, in km [0-1500]
+        real(8), intent(in) :: alti                 ! Altitude, in km [0, 1500]
         real(8), intent(in) :: lati                 ! Latitude, in degrees [-90, 90]
         real(8), intent(in) :: longi                ! Longitude, in degrees [0, 360)
         real(8), intent(in) :: loct                 ! Local time, in hours [0-24)
@@ -174,8 +174,8 @@ contains
         logical, intent(in), optional :: get_unc    ! Get uncertainties and standard deviations (defaults to .false.)
         logical, intent(in), optional :: get_winds  ! Get winds (defaults to .false.)
 
-        real(8) :: temp_um, dens_um, temp_dtm, dens_dtm
-        real(8), parameter :: NONE = -1d0
+        real(8) :: temp_um, dens_um, temp_dtm, dens_dtm, alti_um, alti_dtm, alti_winds
+        real(8), parameter :: NONE = -999999d0
         type(t_dtm2020_out) :: dtm_out
         logical :: b_get_unc = .false.
         logical :: b_get_winds = .false.
@@ -202,27 +202,29 @@ contains
         mcm_out%ywind_std = NONE
 
         ! UM part
-        if (alti < BLENDING_ALTI_RANGE_HIGH) then
-            call get_um_temp(temp_um, alti, lati, longi, loct, doy, f107, f107m, kps)
-            call get_um_dens(dens_um, alti, lati, longi, loct, doy, f107, f107m, kps)
+        alti_um = min(alti, BLENDING_ALTI_RANGE_LOW)
+        call get_um_temp(temp_um, alti_um, lati, longi, loct, doy, f107, f107m, kps)
+        call get_um_dens(dens_um, alti_um, lati, longi, loct, doy, f107, f107m, kps)
+        if (b_get_unc) then
+            call get_um_temp_standard_deviation(mcm_out%temp_std, alti_um, lati, longi, loct, doy, f107, f107m, kps)
+            call get_um_dens_standard_deviation(mcm_out%dens_std, alti_um, lati, longi, loct, doy, f107, f107m, kps)
+        end if
+
+        ! Winds
+        if (b_get_winds) then
+            alti_winds = min(alti, BLENDING_ALTI_RANGE_HIGH)
+            call get_um_xwind(mcm_out%xwind, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
+            call get_um_ywind(mcm_out%ywind, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
             if (b_get_unc) then
-                call get_um_temp_standard_deviation(mcm_out%temp_std, alti, lati, longi, loct, doy, f107, f107m, kps)
-                call get_um_dens_standard_deviation(mcm_out%dens_std, alti, lati, longi, loct, doy, f107, f107m, kps)
-            end if
-            ! Winds
-            if (b_get_winds) then
-                call get_um_xwind(mcm_out%xwind, alti, lati, longi, loct, doy, f107, f107m, kps)
-                call get_um_ywind(mcm_out%ywind, alti, lati, longi, loct, doy, f107, f107m, kps)
-                if (b_get_unc) then
-                    call get_um_xwind_standard_deviation(mcm_out%xwind_std, alti, lati, longi, loct, doy, f107, f107m, kps)
-                    call get_um_ywind_standard_deviation(mcm_out%ywind_std, alti, lati, longi, loct, doy, f107, f107m, kps)
-                end if
+                call get_um_xwind_standard_deviation(mcm_out%xwind_std, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
+                call get_um_ywind_standard_deviation(mcm_out%ywind_std, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
             end if
         end if
 
         ! DTM2020 part
-        if (alti > BLENDING_ALTI_RANGE_LOW) then
-            call get_dtm2020(dens_dtm, temp_dtm, alti, lati, longi, loct, doy, f107, f107m, kps, dtm_out=dtm_out)
+        alti_dtm = max(alti, BLENDING_ALTI_RANGE_HIGH)
+        call get_dtm2020(dens_dtm, temp_dtm, alti_dtm, lati, longi, loct, doy, f107, f107m, kps, dtm_out=dtm_out)
+        if (alti >= BLENDING_ALTI_RANGE_HIGH) then ! 120 km
             mcm_out%wmm = dtm_out%wmm
             mcm_out%d_H = dtm_out%d_H
             mcm_out%d_He = dtm_out%d_He
@@ -237,10 +239,10 @@ contains
         end if
 
         ! Blending of temperature and density
-        if (alti < BLENDING_ALTI_RANGE_LOW) then
+        if (alti <= BLENDING_ALTI_RANGE_LOW) then ! 100 km
             mcm_out%temp = temp_um
             mcm_out%dens = dens_um
-        else if (alti > BLENDING_ALTI_RANGE_HIGH) then
+        else if (alti >= BLENDING_ALTI_RANGE_HIGH) then ! 120 km
             mcm_out%temp = temp_dtm
             mcm_out%dens = dens_dtm
         else

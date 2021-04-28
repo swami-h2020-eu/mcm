@@ -33,4 +33,4 @@ Python interface
 ----------------
 
 .. automodule:: swami
-    :members: SwamiModel
+    :members: MCM,MCMOutput

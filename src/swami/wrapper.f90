@@ -5,18 +5,26 @@
 ! – Author : Daniel Lubián Arenillas
 ! – Issue : 1.0
 ! – Date : 2021-03-31
-! – Purpose : Single point program for the Python wrapper
+! – Purpose : Single point program for the VSWMC
 ! ---------------------------------------------------------------------
-! – © Copyright Deimos Space SLU, 2021
+! – Deimos Space SLU, CNES, MetOffice, 2021
 ! – All rights reserved
 ! ---------------------------------------------------------------------
-
-
+!
+! REQUIREMENTS (in Ubuntu 18.04)
+!
+! gfortran
+! libnetcdff-dev: https://www.unidata.ucar.edu/software/netcdf/
+!
+! COMPILATION INSTRUCTIONS
+!
+! SRC=src/libswamif
+! gfortran -c $SRC/dtm2020_F107_Kp-subr_MCM.f90 $SRC/dtm2020_sigma_function.f90 $SRC/m_dtm.f90 $SRC/m_interp.f90 $SRC/m_um.f90 $SRC/m_mcm.f90  `nf-config --fflags --flibs` -Wall -pedantic -Warray-bounds -fbacktrace
+! gfortran -o swami_vswmc.x vswmc.f90 *.o `nf-config --fflags --flibs`
+!
 program wrapper
 
-    use m_um
-    use m_dtm
-    use m_mcm
+    use m_mcm, only: init_mcm, get_mcm, t_mcm_out
 
     implicit none
 
@@ -33,22 +41,23 @@ program wrapper
     ! Path where to find the "DTM_2020_F107_Kp.dat" file
     character(len=4096) :: data_dtm
     character(len=4096) :: output_file, input_file
+    real(8) :: kp1, kp2
+    logical :: b_winds, b_unc_std
+    type(t_mcm_out) :: res
 
     integer:: lun
 
-    real(8) :: temp, dens, std_dens, std_temp, unc, kp1, kp2
-    logical :: bMCM, bDTM, bUM, bUMstd, bDTMunc
 
     namelist /input/ altitude, day_of_year, local_time, latitude, longitude, &
         f107, f107m, kp1, kp2, &
-        bMCM, bDTM, bUM, bUMstd, bDTMunc, &
+        b_unc_std, b_winds, &
         data_um, data_dtm, output_file
 
     call get_command_argument(1, input_file)
 
-    open(file=input_file, newunit=lun, status="old", action="read")
-    read(lun, nml=input)
-    close(lun)
+    open (file=input_file, newunit=lun, status="old", action="read")
+    read (lun, nml=input)
+    close (lun)
 
     kps = [kp1, kp2]
 
@@ -60,61 +69,43 @@ program wrapper
     !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     ! MCM
 
-    if (bMCM) then
-        ! Get the temperature (K) using the MCM model
-        call get_mcm_temp(temp, altitude, latitude, longitude, local_time, day_of_year, &
-                          f107, f107m, kps)
+    call get_mcm(mcm_out=res, &
+                 alti=altitude, lati=latitude, longi=longitude, &
+                 loct=local_time, doy=day_of_year, &
+                 f107=f107, f107m=f107m, kps=kps, &
+                 get_unc=b_unc_std, get_winds=b_winds)
 
-        ! Get the density (g/cm3) using the MCM model
-        call get_mcm_dens(dens, altitude, latitude, longitude, local_time, day_of_year, &
-                          f107, f107m, kps)
+    ! Write input values
+    write (lun, 1000) "alti = ", altitude
+    write (lun, 1000) "lati = ", latitude
+    write (lun, 1000) "longi = ", longitude
+    write (lun, 1000) "loct = ", local_time
+    write (lun, 1000) "doy = ", day_of_year
+    write (lun, 1000) "f107 = ", f107
+    write (lun, 1000) "f107m = ", f107m
+    write (lun, 1000) "kp1 = ", kp1
+    write (lun, 1000) "kp2 = ", kp2
 
-        write (lun, *) "MCM:temp:", temp
-        write (lun, *) "MCM:dens:", dens
-    end if
+    ! Write output values
+    write (lun, 1000) "dens = ", res%dens
+    write (lun, 1000) "temp = ", res%temp
+    write (lun, 1000) "wmm = ", res%wmm
+    write (lun, 1000) "d_H = ", res%d_H
+    write (lun, 1000) "d_He = ", res%d_He
+    write (lun, 1000) "d_O = ", res%d_O
+    write (lun, 1000) "d_N2 = ", res%d_N2
+    write (lun, 1000) "d_O2 = ", res%d_O2
+    write (lun, 1000) "d_N = ", res%d_N
+    write (lun, 1000) "tinf = ", res%tinf
+    write (lun, 1000) "dens_unc = ", res%dens_unc
+    write (lun, 1000) "dens_std = ", res%dens_std
+    write (lun, 1000) "temp_std = ", res%temp_std
+    write (lun, 1000) "xwind = ", res%xwind
+    write (lun, 1000) "ywind = ", res%ywind
+    write (lun, 1000) "xwind_std = ", res%xwind_std
+    write (lun, 1000) "ywind_std = ", res%ywind_std
 
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    ! UM  (up to 152km)
-    if (bUM .and. (altitude < 150d0)) then
-        ! Get the temperature (K) using the UM model
-        call get_um_temp(temp, altitude, latitude, longitude, local_time, day_of_year, &
-                         f107, f107m, kps)
-
-        ! Get the density (g/cm3) using the UM model
-        call get_um_dens(dens, altitude, latitude, longitude, local_time, day_of_year, &
-                         f107, f107m, kps)
-        write (lun, *) "UM:temp:", temp
-        write (lun, *) "UM:dens:", dens
-    end if
-
-    if (bUMstd .and. (altitude < 150d0)) then
-        ! Standard deviation for density (g/cm3) and temperature (K)
-        call get_um_dens_standard_deviation(std_dens, altitude, latitude, longitude, local_time, &
-                                            day_of_year, f107, f107m, kps)
-        call get_um_temp_standard_deviation(std_temp, altitude, latitude, longitude, local_time, &
-                                            day_of_year, f107, f107m, kps)
-
-        write (lun, *) "UM:temp_std:", std_temp
-        write (lun, *) "UM:dens_std:", std_dens
-    end if
-
-    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-    ! DTM2020 (above 120 km)
-
-    if (bDTM .and. (altitude > 120d0)) then
-        ! Get the temperature (K) density (g/cm3) using the DTM2020 model
-        call get_dtm2020(dens, temp, altitude, latitude, longitude, local_time, day_of_year, &
-                         f107, f107m, kps)
-        write (lun, *) "DTM2020:temp:", temp
-        write (lun, *) "DTM2020:dens:", dens
-    end if
-    if (bDTMunc .and. (altitude > 120d0)) then
-        ! Get the uncertainty (%) of the density
-        call get_dtm2020_dens_uncertainty(unc, altitude, latitude, longitude, local_time, &
-                                          day_of_year, f107, f107m, kps)
-
-        write (lun, *) "DTM2020:dens_unc:", unc
-    end if
+1000 format(A, ES25.15)
 
     close (lun)
 
