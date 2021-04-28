@@ -102,7 +102,11 @@
 <li class="toctree-l2"><a class="reference internal" href="#How-to-load-the-model">How to load the model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Single-point">Single point</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Altitude-profile:-temperature-and-density">Altitude profile: temperature and density</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Map-at-altitude:-temperature-and-density">Map at altitude: temperature and density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Map-at-altitude">Map at altitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Temperature-and-density-at-160-km">Temperature and density at 160 km</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Winds-at-80-km">Winds at 80 km</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -499,7 +503,7 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Results are MCMOutput(dens=2.829354049223008e-10, temp=178.8555615350168, wmm=None, d_H=None, d_He=None, d_O=None, d_N2=None, d_O2=None, d_N=None, tinf=None, dens_unc=None, dens_std=1.749150709600944e-11, temp_std=9.60724715517875, xwind=nan, ywind=nan, xwind_std=28.02476670220009, ywind_std=21.61078819732512, alti=100.0, lati=3.0, longi=15.0, loct=12.0, doy=53.0, f107=70.0, f107m=69.0, kp1=1.0, kp2=1.0)
+Results are MCMOutput(dens=2.829354049223008e-10, temp=178.8555615350168, wmm=None, d_H=None, d_He=None, d_O=None, d_N2=None, d_O2=None, d_N=None, tinf=None, dens_unc=None, dens_std=1.749150709600944e-11, temp_std=9.60724715517875, xwind=-8.469296526223774, ywind=-9.41530132156296, xwind_std=28.02476670220009, ywind_std=21.61078819732512, alti=100.0, lati=3.0, longi=15.0, loct=12.0, doy=53.0, f107=70.0, f107m=69.0, kp1=1.0, kp2=1.0)
 
 Density is 2.829e-10 g/cm3
 Temperature is 178.86 K
@@ -558,11 +562,14 @@ Temperature is 178.86 K
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/Python_example_8_0.svg" src="_images/Python_example_8_0.svg" /></div>
+<img alt="_images/Python_example_8_0.png" src="_images/Python_example_8_0.png" />
 </div>
 </div>
-<div class="section" id="Map-at-altitude:-temperature-and-density">
-<h2>Map at altitude: temperature and density<a class="headerlink" href="#Map-at-altitude:-temperature-and-density" title="Permalink to this headline">¶</a></h2>
+</div>
+<div class="section" id="Map-at-altitude">
+<h2>Map at altitude<a class="headerlink" href="#Map-at-altitude" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Temperature-and-density-at-160-km">
+<h3>Temperature and density at 160 km<a class="headerlink" href="#Temperature-and-density-at-160-km" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -612,7 +619,6 @@ Temperature is 178.86 K
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Temperature / K&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude / deg&quot;</span><span class="p">)</span>
 <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Local time / h&quot;</span><span class="p">)</span>
-
 </pre></div>
 </div>
 </div>
@@ -629,8 +635,12 @@ Text(0.5, 0, &#39;Local time / h&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/Python_example_11_1.svg" src="_images/Python_example_11_1.svg" /></div>
+<img alt="_images/Python_example_12_1.png" src="_images/Python_example_12_1.png" />
 </div>
+</div>
+</div>
+<div class="section" id="Winds-at-80-km">
+<h3>Winds at 80 km<a class="headerlink" href="#Winds-at-80-km" title="Permalink to this headline">¶</a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
@@ -697,7 +707,8 @@ Text(0.5, 0, &#39;Local time / h&#39;)
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="_images/Python_example_13_1.svg" src="_images/Python_example_13_1.svg" /></div>
+<img alt="_images/Python_example_15_1.png" src="_images/Python_example_15_1.png" />
+</div>
 </div>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -706,6 +717,7 @@ Text(0.5, 0, &#39;Local time / h&#39;)
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
 <span></span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
