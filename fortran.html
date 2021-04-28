@@ -273,113 +273,26 @@ It will load the required constants and keep them in memory throughtout the whol
 <span class="k">call </span><span class="n">get_mcm</span><span class="p">(</span><span class="n">mcm_out</span><span class="p">,</span> <span class="n">alti</span><span class="p">,</span> <span class="n">lati</span><span class="p">,</span> <span class="nb">long</span><span class="p">,</span> <span class="n">loct</span><span class="p">,</span> <span class="n">doy</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<dl class="py class">
-<dt id="t_mcm_out">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">t_mcm_out</span></code><a class="headerlink" href="#t_mcm_out" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">dens</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Total density (in gram/cm3)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">temp</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Temperature at altitude (K)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">wmm</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Mean molecular mass (in gram)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_H</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of atomic hydrogen (in gram/cm3)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_He</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of helium</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_O</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of atomic oxygen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_N2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of molecular nitrogen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_O2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of molecular oxygen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_N</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of atomic nitrogen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">tinf</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Exospheric temperature, in K</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">dens_unc</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Density uncertainty from DTM2020 (above 120 km), as a percentage</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">dens_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Standard deviation of the density (UM, below 100 km), in g/cm3</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">temp_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Standard deviation of the temperature (UM, below 100 km), in K</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">xwind</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Zonal wind, in m/s</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">ywind</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Meridional wind, m/s</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">xwind_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Standard deviation of zonal wind, in m/s</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">ywind_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Standard deviation of neridional wind, m/s</p>
-</dd></dl>
-
-</dd></dl>
-
+<p>Derived type <code class="docutils literal notranslate"><span class="pre">t_mcm_out</span></code></p>
+<ul class="simple">
+<li><p><strong>dens</strong> <em>[real]</em>: Total density (in gram/cm3)</p></li>
+<li><p><strong>temp</strong> <em>[real]</em>: Temperature at altitude (K)</p></li>
+<li><p><strong>wmm</strong> <em>[real]</em>: Mean molecular mass (in gram)</p></li>
+<li><p><strong>d_H</strong> <em>[real]</em>: Partial density of atomic hydrogen (in gram/cm3)</p></li>
+<li><p><strong>d_He</strong> <em>[real]</em>: Partial density of helium</p></li>
+<li><p><strong>d_O</strong> <em>[real]</em>: Partial density of atomic oxygen</p></li>
+<li><p><strong>d_N2</strong> <em>[real]</em>: Partial density of molecular nitrogen</p></li>
+<li><p><strong>d_O2</strong> <em>[real]</em>: Partial density of molecular oxygen</p></li>
+<li><p><strong>d_N</strong> <em>[real]</em>: Partial density of atomic nitrogen</p></li>
+<li><p><strong>tinf</strong> <em>[real]</em>: Exospheric temperature, in K</p></li>
+<li><p><strong>dens_unc</strong> <em>[real]</em>: Density uncertainty from DTM2020 (above 120 km), as a percentage</p></li>
+<li><p><strong>dens_std</strong> <em>[real]</em>: Standard deviation of the density (UM, below 100 km), in g/cm3</p></li>
+<li><p><strong>temp_std</strong> <em>[real]</em>: Standard deviation of the temperature (UM, below 100 km), in K</p></li>
+<li><p><strong>xwind</strong> <em>[real]</em>: Zonal wind, in m/s</p></li>
+<li><p><strong>ywind</strong> <em>[real]</em>: Meridional wind, m/s</p></li>
+<li><p><strong>xwind_std</strong> <em>[real]</em>: Standard deviation of zonal wind, in m/s</p></li>
+<li><p><strong>ywind_std</strong> <em>[real]</em>: Standard deviation of neridional wind, m/s</p></li>
+</ul>
 </div>
 <div class="section" id="m-dtm-drag-temperature-model-dtm">
 <h3>m_dtm: Drag Temperature Model (DTM)<a class="headerlink" href="#m-dtm-drag-temperature-model-dtm" title="Permalink to this headline">¶</a></h3>
@@ -390,76 +303,21 @@ It will load the required constants and keep them in memory throughtout the whol
 <span class="k">call </span><span class="n">get_dtm2020_dens_uncertainty</span><span class="p">(</span><span class="n">dens_unc</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">alti</span><span class="p">,</span> <span class="n">lati</span><span class="p">,</span> <span class="nb">long</span><span class="p">,</span> <span class="n">loct</span><span class="p">,</span> <span class="n">doy</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-<dl class="py data">
-<dt id="DTM2020_DATA_FILENAME">
-<code class="sig-name descname"><span class="pre">DTM2020_DATA_FILENAME</span></code><em class="property"><span class="pre">:</span> <span class="pre">string</span></em><em class="property"> <span class="pre">=</span> <span class="pre">&quot;DTM_2020_F107_Kp.dat&quot;</span></em><a class="headerlink" href="#DTM2020_DATA_FILENAME" title="Permalink to this definition">¶</a></dt>
-<dd></dd></dl>
-
-<dl class="py class">
-<dt id="t_dtm_out">
-<em class="property"><span class="pre">class</span> </em><code class="sig-name descname"><span class="pre">t_dtm_out</span></code><a class="headerlink" href="#t_dtm_out" title="Permalink to this definition">¶</a></dt>
-<dd><dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">dens</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Total density (in gram/cm3)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">temp</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Temperature at altitude (K)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">wmm</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Mean molecular mass (in gram)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_H</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of atomic hydrogen (in gram/cm3)</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_He</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of helium</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_O</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of atomic oxygen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_N2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of molecular nitrogen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_O2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of molecular oxygen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">d_N</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Partial density of atomic nitrogen</p>
-</dd></dl>
-
-<dl class="py attribute">
-<dt>
-<code class="sig-name descname"><span class="pre">tinf</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em></dt>
-<dd><p>Exospheric temperature, in K</p>
-</dd></dl>
-
-</dd></dl>
-
+<p>Parameter <code class="docutils literal notranslate"><span class="pre">DTM2020_DATA_FILENAME</span></code> (<em>character</em>) is <code class="docutils literal notranslate"><span class="pre">&quot;DTM_2020_F107_Kp.dat&quot;</span></code></p>
+<p>Derived type <code class="docutils literal notranslate"><span class="pre">t_dtm_out</span></code></p>
+<ul class="simple">
+<li><p><strong>dens</strong> <em>[real]</em>: Total density (in gram/cm3)</p></li>
+<li><p><strong>temp</strong> <em>[real]</em>: Temperature at altitude (K)</p></li>
+<li><p><strong>wmm</strong> <em>[real]</em>: Mean molecular mass (in gram)</p></li>
+<li><p><strong>d_H</strong> <em>[real]</em>: Partial density of atomic hydrogen (in gram/cm3)</p></li>
+<li><p><strong>d_He</strong> <em>[real]</em>: Partial density of helium</p></li>
+<li><p><strong>d_O</strong> <em>[real]</em>: Partial density of atomic oxygen</p></li>
+<li><p><strong>d_N2</strong> <em>[real]</em>: Partial density of molecular nitrogen</p></li>
+<li><p><strong>d_O2</strong> <em>[real]</em>: Partial density of molecular oxygen</p></li>
+<li><p><strong>d_N</strong> <em>[real]</em>: Partial density of atomic nitrogen</p></li>
+<li><p><strong>tinf</strong> <em>[real]</em>: Exospheric temperature, in K</p></li>
+<li><p><strong>dens_unc</strong> <em>[real]</em>: Density uncertainty from DTM2020 (above 120 km), as a percentage</p></li>
+</ul>
 </div>
 <div class="section" id="m-um-unified-model-um">
 <h3>m_um: Unified Model (UM)<a class="headerlink" href="#m-um-unified-model-um" title="Permalink to this headline">¶</a></h3>

@@ -95,109 +95,25 @@ This module contains routines related to the MCM model, which combines the DTM (
 
 .. f:autosubroutine:: m_mcm/get_mcm
 
-.. py:class:: t_mcm_out
+Derived type ``t_mcm_out``
 
-   .. py:attribute:: dens
-      :type: float
-      :noindex:
-
-      Total density (in gram/cm3)
-
-   .. py:attribute:: temp
-      :type: float
-      :noindex:
-      
-      Temperature at altitude (K)
-
-   .. py:attribute:: wmm
-      :type: float
-      :noindex:
-
-      Mean molecular mass (in gram)
-
-   .. py:attribute:: d_H
-      :type: float
-      :noindex:
-
-      Partial density of atomic hydrogen (in gram/cm3)
-
-   .. py:attribute:: d_He
-      :type: float
-      :noindex:
-
-      Partial density of helium
-
-   .. py:attribute:: d_O
-      :type: float
-      :noindex:
-
-      Partial density of atomic oxygen
-
-   .. py:attribute:: d_N2
-      :type: float
-      :noindex:
-
-      Partial density of molecular nitrogen
-
-   .. py:attribute:: d_O2
-      :type: float
-      :noindex:
-
-      Partial density of molecular oxygen
-
-   .. py:attribute:: d_N
-      :type: float
-      :noindex:
-
-      Partial density of atomic nitrogen
-
-   .. py:attribute:: tinf
-      :type: float
-      :noindex:
-
-      Exospheric temperature, in K
-
-   .. py:attribute:: dens_unc
-      :type: float
-      :noindex:
-
-      Density uncertainty from DTM2020 (above 120 km), as a percentage
-
-   .. py:attribute:: dens_std
-      :type: float
-      :noindex:
-
-      Standard deviation of the density (UM, below 100 km), in g/cm3
-
-   .. py:attribute:: temp_std
-      :type: float
-      :noindex:
-
-      Standard deviation of the temperature (UM, below 100 km), in K
-
-   .. py:attribute:: xwind
-      :type: float
-      :noindex:
-
-      Zonal wind, in m/s
-
-   .. py:attribute:: ywind
-      :type: float
-      :noindex:
-
-      Meridional wind, m/s
-
-   .. py:attribute:: xwind_std
-      :type: float
-      :noindex:
-
-      Standard deviation of zonal wind, in m/s
-
-   .. py:attribute:: ywind_std
-      :type: float
-      :noindex:
-
-      Standard deviation of neridional wind, m/s
+* **dens** *[real]*: Total density (in gram/cm3)
+* **temp** *[real]*: Temperature at altitude (K)
+* **wmm** *[real]*: Mean molecular mass (in gram)
+* **d_H** *[real]*: Partial density of atomic hydrogen (in gram/cm3)
+* **d_He** *[real]*: Partial density of helium
+* **d_O** *[real]*: Partial density of atomic oxygen
+* **d_N2** *[real]*: Partial density of molecular nitrogen
+* **d_O2** *[real]*: Partial density of molecular oxygen
+* **d_N** *[real]*: Partial density of atomic nitrogen
+* **tinf** *[real]*: Exospheric temperature, in K
+* **dens_unc** *[real]*: Density uncertainty from DTM2020 (above 120 km), as a percentage
+* **dens_std** *[real]*: Standard deviation of the density (UM, below 100 km), in g/cm3
+* **temp_std** *[real]*: Standard deviation of the temperature (UM, below 100 km), in K
+* **xwind** *[real]*: Zonal wind, in m/s
+* **ywind** *[real]*: Meridional wind, m/s
+* **xwind_std** *[real]*: Standard deviation of zonal wind, in m/s
+* **ywind_std** *[real]*: Standard deviation of neridional wind, m/s
 
 
 m_dtm: Drag Temperature Model (DTM)
@@ -223,71 +139,21 @@ Go to :ref:`Drag Temperature Model (DTM2020)`) for some theoretical details abou
 .. f:autosubroutine:: m_dtm/get_dtm2020_dens_uncertainty
 
 
-.. py:data:: DTM2020_DATA_FILENAME
-   :type: string
-   :value: "DTM_2020_F107_Kp.dat"
+Parameter ``DTM2020_DATA_FILENAME`` (*character*) is ``"DTM_2020_F107_Kp.dat"``
 
-.. py:class:: t_dtm_out
+Derived type ``t_dtm_out``
 
-   .. py:attribute:: dens
-      :type: float
-      :noindex:
-      
-      Total density (in gram/cm3)
-      
-   .. py:attribute:: temp
-      :type: float
-      :noindex:
-   
-      Temperature at altitude (K)
-   
-   .. py:attribute:: wmm
-      :type: float
-      :noindex:
-   
-      Mean molecular mass (in gram)
-
-   .. py:attribute:: d_H
-      :type: float
-      :noindex:
-   
-      Partial density of atomic hydrogen (in gram/cm3)
-   
-   .. py:attribute:: d_He
-      :type: float
-      :noindex:
-   
-      Partial density of helium
-
-   .. py:attribute:: d_O
-      :type: float
-      :noindex:
-   
-      Partial density of atomic oxygen
-   
-   .. py:attribute:: d_N2
-      :type: float
-      :noindex:
-   
-      Partial density of molecular nitrogen
-   
-   .. py:attribute:: d_O2
-      :type: float
-      :noindex:
-   
-      Partial density of molecular oxygen
-   
-   .. py:attribute:: d_N
-      :type: float
-      :noindex:
-   
-      Partial density of atomic nitrogen
-   
-   .. py:attribute:: tinf
-      :type: float
-      :noindex:
-
-      Exospheric temperature, in K
+* **dens** *[real]*: Total density (in gram/cm3)
+* **temp** *[real]*: Temperature at altitude (K)
+* **wmm** *[real]*: Mean molecular mass (in gram)
+* **d_H** *[real]*: Partial density of atomic hydrogen (in gram/cm3)
+* **d_He** *[real]*: Partial density of helium
+* **d_O** *[real]*: Partial density of atomic oxygen
+* **d_N2** *[real]*: Partial density of molecular nitrogen
+* **d_O2** *[real]*: Partial density of molecular oxygen
+* **d_N** *[real]*: Partial density of atomic nitrogen
+* **tinf** *[real]*: Exospheric temperature, in K
+* **dens_unc** *[real]*: Density uncertainty from DTM2020 (above 120 km), as a percentage
 
 
 m_um: Unified Model (UM)
