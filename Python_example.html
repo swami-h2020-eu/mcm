@@ -101,10 +101,8 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Python example</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#How-to-load-the-model">How to load the model</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Single-point">Single point</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Altitude-profile">Altitude profile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Map-at-altitude">Map at altitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#DTM">DTM</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#UM">UM</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Altitude-profile:-temperature-and-density">Altitude profile: temperature and density</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Map-at-altitude:-temperature-and-density">Map at altitude: temperature and density</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
@@ -465,7 +463,7 @@ div.rendered_html tbody tr:hover {
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">mcm</span> <span class="o">=</span> <span class="n">swami</span><span class="o">.</span><span class="n">SwamiModel</span><span class="p">()</span>  <span class="c1"># defaults to MCM</span>
+<span></span><span class="n">mcm</span> <span class="o">=</span> <span class="n">swami</span><span class="o">.</span><span class="n">MCM</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -487,11 +485,12 @@ div.rendered_html tbody tr:hover {
     <span class="n">f107m</span><span class="o">=</span><span class="mi">69</span><span class="p">,</span>
     <span class="n">kp1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="n">kp2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+    <span class="n">get_winds</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">get_uncertainty</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
-<span class="n">dens</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;MCM&quot;</span><span class="p">][</span><span class="s2">&quot;dens&quot;</span><span class="p">]</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;MCM&quot;</span><span class="p">][</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density is </span><span class="si">{</span><span class="n">dens</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> g/cm3&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature is </span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Results are </span><span class="si">{</span><span class="n">out</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density is </span><span class="si">{</span><span class="n">out</span><span class="o">.</span><span class="n">dens</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> g/cm3&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature is </span><span class="si">{</span><span class="n">out</span><span class="o">.</span><span class="n">temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -500,13 +499,15 @@ div.rendered_html tbody tr:hover {
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Density is 2.603e-10 g/cm3
-Temperature is 175.26 K
+Results are MCMOutput(dens=2.829354049223008e-10, temp=178.8555615350168, wmm=None, d_H=None, d_He=None, d_O=None, d_N2=None, d_O2=None, d_N=None, tinf=None, dens_unc=None, dens_std=1.749150709600944e-11, temp_std=9.60724715517875, xwind=nan, ywind=nan, xwind_std=28.02476670220009, ywind_std=21.61078819732512, alti=100.0, lati=3.0, longi=15.0, loct=12.0, doy=53.0, f107=70.0, f107m=69.0, kp1=1.0, kp2=1.0)
+
+Density is 2.829e-10 g/cm3
+Temperature is 178.86 K
 </pre></div></div>
 </div>
 </div>
-<div class="section" id="Altitude-profile">
-<h2>Altitude profile<a class="headerlink" href="#Altitude-profile" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Altitude-profile:-temperature-and-density">
+<h2>Altitude profile: temperature and density<a class="headerlink" href="#Altitude-profile:-temperature-and-density" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -528,8 +529,8 @@ Temperature is 175.26 K
         <span class="n">kp1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="n">kp2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
     <span class="p">)</span>
-    <span class="n">dens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">&quot;MCM&quot;</span><span class="p">][</span><span class="s2">&quot;dens&quot;</span><span class="p">])</span>
-    <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="p">[</span><span class="s2">&quot;MCM&quot;</span><span class="p">][</span><span class="s2">&quot;temp&quot;</span><span class="p">])</span>
+    <span class="n">dens</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">dens</span><span class="p">)</span>
+    <span class="n">temp</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">out</span><span class="o">.</span><span class="n">temp</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -560,8 +561,8 @@ Temperature is 175.26 K
 <img alt="_images/Python_example_8_0.svg" src="_images/Python_example_8_0.svg" /></div>
 </div>
 </div>
-<div class="section" id="Map-at-altitude">
-<h2>Map at altitude<a class="headerlink" href="#Map-at-altitude" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="Map-at-altitude:-temperature-and-density">
+<h2>Map at altitude: temperature and density<a class="headerlink" href="#Map-at-altitude:-temperature-and-density" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
@@ -586,8 +587,8 @@ Temperature is 175.26 K
             <span class="n">kp1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
             <span class="n">kp2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
         <span class="p">)</span>
-        <span class="n">dens</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;MCM&quot;</span><span class="p">][</span><span class="s2">&quot;dens&quot;</span><span class="p">]</span>
-        <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;MCM&quot;</span><span class="p">][</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span>
+        <span class="n">dens</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">dens</span>
+        <span class="n">temp</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">temp</span>
 </pre></div>
 </div>
 </div>
@@ -630,86 +631,82 @@ Text(0.5, 0, &#39;Local time / h&#39;)
 <div class="output_area docutils container">
 <img alt="_images/Python_example_11_1.svg" src="_images/Python_example_11_1.svg" /></div>
 </div>
-</div>
-<div class="section" id="DTM">
-<h2>DTM<a class="headerlink" href="#DTM" title="Permalink to this headline">¶</a></h2>
-<div class="nbinput docutils container">
+<div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">dtm</span> <span class="o">=</span> <span class="n">swami</span><span class="o">.</span><span class="n">SwamiModel</span><span class="p">(</span><span class="s2">&quot;DTM2020&quot;</span><span class="p">)</span>
+<span></span><span class="n">lati</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span>
+<span class="n">loct</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
 
-<span class="n">out</span> <span class="o">=</span> <span class="n">dtm</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">altitude</span><span class="o">=</span><span class="mi">200</span><span class="p">,</span>
-    <span class="n">latitude</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">longitude</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-    <span class="n">local_time</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-    <span class="n">day_of_year</span><span class="o">=</span><span class="mi">53</span><span class="p">,</span>
-    <span class="n">f107</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
-    <span class="n">f107m</span><span class="o">=</span><span class="mi">69</span><span class="p">,</span>
-    <span class="n">kp1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">kp2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">get_uncertainty</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span>
-<span class="n">dens</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;DTM2020&quot;</span><span class="p">][</span><span class="s2">&quot;dens&quot;</span><span class="p">]</span>
-<span class="n">dens_unc</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;DTM2020&quot;</span><span class="p">][</span><span class="s2">&quot;dens_unc&quot;</span><span class="p">]</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;DTM2020&quot;</span><span class="p">][</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density is </span><span class="si">{</span><span class="n">dens</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> g/cm3, with uncertainty </span><span class="si">{</span><span class="n">dens_unc</span><span class="si">:</span><span class="s2">.2</span><span class="si">}</span><span class="s2"> %&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature is </span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> K&quot;</span><span class="p">)</span>
+<span class="n">xwind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lati</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">loct</span><span class="p">)))</span>
+<span class="n">ywind</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="nb">len</span><span class="p">(</span><span class="n">lati</span><span class="p">),</span> <span class="nb">len</span><span class="p">(</span><span class="n">loct</span><span class="p">)))</span>
+
+<span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">lat</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">lati</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">j</span><span class="p">,</span> <span class="n">lt</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">loct</span><span class="p">):</span>
+        <span class="n">out</span> <span class="o">=</span> <span class="n">mcm</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
+            <span class="n">altitude</span><span class="o">=</span><span class="mi">80</span><span class="p">,</span>
+            <span class="n">latitude</span><span class="o">=</span><span class="n">lat</span><span class="p">,</span>
+            <span class="n">longitude</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
+            <span class="n">local_time</span><span class="o">=</span><span class="n">lt</span><span class="p">,</span>
+            <span class="n">day_of_year</span><span class="o">=</span><span class="mi">53</span><span class="p">,</span>
+            <span class="n">f107</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
+            <span class="n">f107m</span><span class="o">=</span><span class="mi">69</span><span class="p">,</span>
+            <span class="n">kp1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">kp2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+            <span class="n">get_winds</span><span class="o">=</span><span class="kc">True</span>
+        <span class="p">)</span>
+        <span class="n">xwind</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">xwind</span>
+        <span class="n">ywind</span><span class="p">[</span><span class="n">i</span><span class="p">,</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">out</span><span class="o">.</span><span class="n">ywind</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Density is 1.827e-13 g/cm3, with uncertainty 7.4 %
-Temperature is 726.31 K
-</pre></div></div>
-</div>
-</div>
-<div class="section" id="UM">
-<h2>UM<a class="headerlink" href="#UM" title="Permalink to this headline">¶</a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
-<span></span><span class="n">um</span> <span class="o">=</span> <span class="n">swami</span><span class="o">.</span><span class="n">SwamiModel</span><span class="p">(</span><span class="s2">&quot;UM&quot;</span><span class="p">)</span>
+<span></span><span class="n">f</span><span class="p">,</span> <span class="n">ax</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
 
-<span class="n">out</span> <span class="o">=</span> <span class="n">um</span><span class="o">.</span><span class="n">run</span><span class="p">(</span>
-    <span class="n">altitude</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
-    <span class="n">latitude</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span>
-    <span class="n">longitude</span><span class="o">=</span><span class="mi">15</span><span class="p">,</span>
-    <span class="n">local_time</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span>
-    <span class="n">day_of_year</span><span class="o">=</span><span class="mi">53</span><span class="p">,</span>
-    <span class="n">f107</span><span class="o">=</span><span class="mi">70</span><span class="p">,</span>
-    <span class="n">f107m</span><span class="o">=</span><span class="mi">69</span><span class="p">,</span>
-    <span class="n">kp1</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">kp2</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
-    <span class="n">get_uncertainty</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span>
+<span class="n">lt</span><span class="p">,</span> <span class="n">la</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">meshgrid</span><span class="p">(</span><span class="n">loct</span><span class="p">,</span> <span class="n">lati</span><span class="p">)</span>
 
-<span class="n">dens</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;UM&quot;</span><span class="p">][</span><span class="s2">&quot;dens&quot;</span><span class="p">]</span>
-<span class="n">dens_std</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;UM&quot;</span><span class="p">][</span><span class="s2">&quot;dens_std&quot;</span><span class="p">]</span>
-<span class="n">temp</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;UM&quot;</span><span class="p">][</span><span class="s2">&quot;temp&quot;</span><span class="p">]</span>
-<span class="n">temp_std</span> <span class="o">=</span> <span class="n">out</span><span class="p">[</span><span class="s2">&quot;UM&quot;</span><span class="p">][</span><span class="s2">&quot;temp_std&quot;</span><span class="p">]</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="n">la</span><span class="p">,</span> <span class="n">xwind</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Zonal wind / m/s&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude / deg&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Local time / h&quot;</span><span class="p">)</span>
 
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Density is </span><span class="si">{</span><span class="n">dens</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2"> g/cm3, with standard deviation </span><span class="si">{</span><span class="n">dens_std</span><span class="si">:</span><span class="s2">.3e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Temperature is </span><span class="si">{</span><span class="n">temp</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> K, with standard deviation </span><span class="si">{</span><span class="n">temp_std</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">c</span> <span class="o">=</span> <span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="n">lt</span><span class="p">,</span> <span class="n">la</span><span class="p">,</span> <span class="n">ywind</span><span class="p">)</span>
+<span class="n">f</span><span class="o">.</span><span class="n">colorbar</span><span class="p">(</span><span class="n">c</span><span class="p">,</span> <span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s2">&quot;Meridional wind / m/s&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s2">&quot;Latitude / deg&quot;</span><span class="p">)</span>
+<span class="n">ax</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s2">&quot;Local time / h&quot;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Text(0.5, 0, &#39;Local time / h&#39;)
+</pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<div class="highlight"><pre>
-Density is 2.603e-10 g/cm3, with standard deviation 2.474e-11
-Temperature is 175.26 K, with standard deviation 13.59
-</pre></div></div>
+<img alt="_images/Python_example_13_1.svg" src="_images/Python_example_13_1.svg" /></div>
+</div>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre>
+<span></span>
+</pre></div>
+</div>
 </div>
 </div>
 </div>

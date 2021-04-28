@@ -221,26 +221,183 @@ pip install swami-1.0.tar.gz
 <div class="section" id="module-swami">
 <span id="python-interface"></span><h2>Python interface<a class="headerlink" href="#module-swami" title="Permalink to this headline">¶</a></h2>
 <dl class="py class">
-<dt id="swami.SwamiModel">
-<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">swami.</span></code><code class="sig-name descname"><span class="pre">SwamiModel</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">model</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">exec_swami</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/swami.html#SwamiModel"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.SwamiModel" title="Permalink to this definition">¶</a></dt>
-<dd><p>SWAMI Model wrapper. Includes MCM, DTM2020 and UM</p>
+<dt id="swami.MCMOutput">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">swami.</span></code><code class="sig-name descname"><span class="pre">MCMOutput</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">dens</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wmm</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_H</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_He</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_O</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_N2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_O2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">d_N</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">tinf</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dens_unc</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">dens_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temp_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xwind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ywind</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">xwind_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ywind_std</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">alti</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">lati</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longi</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">loct</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">doy</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107m</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/swami.html#MCMOutput"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.MCMOutput" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="py attribute">
+<dt id="swami.MCMOutput.dens">
+<code class="sig-name descname"><span class="pre">dens</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.dens" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.temp">
+<code class="sig-name descname"><span class="pre">temp</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.temp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.wmm">
+<code class="sig-name descname"><span class="pre">wmm</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.wmm" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.d_H">
+<code class="sig-name descname"><span class="pre">d_H</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.d_H" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.d_He">
+<code class="sig-name descname"><span class="pre">d_He</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.d_He" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.d_O">
+<code class="sig-name descname"><span class="pre">d_O</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.d_O" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.d_N2">
+<code class="sig-name descname"><span class="pre">d_N2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.d_N2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 6</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.d_O2">
+<code class="sig-name descname"><span class="pre">d_O2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.d_O2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 7</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.d_N">
+<code class="sig-name descname"><span class="pre">d_N</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.d_N" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 8</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.tinf">
+<code class="sig-name descname"><span class="pre">tinf</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.tinf" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 9</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.dens_unc">
+<code class="sig-name descname"><span class="pre">dens_unc</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.dens_unc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 10</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.dens_std">
+<code class="sig-name descname"><span class="pre">dens_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.dens_std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 11</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.temp_std">
+<code class="sig-name descname"><span class="pre">temp_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.temp_std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 12</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.xwind">
+<code class="sig-name descname"><span class="pre">xwind</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.xwind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 13</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.ywind">
+<code class="sig-name descname"><span class="pre">ywind</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.ywind" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 14</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.xwind_std">
+<code class="sig-name descname"><span class="pre">xwind_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.xwind_std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 15</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.ywind_std">
+<code class="sig-name descname"><span class="pre">ywind_std</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.ywind_std" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 16</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.alti">
+<code class="sig-name descname"><span class="pre">alti</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.alti" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 17</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.lati">
+<code class="sig-name descname"><span class="pre">lati</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.lati" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 18</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.longi">
+<code class="sig-name descname"><span class="pre">longi</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.longi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 19</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.loct">
+<code class="sig-name descname"><span class="pre">loct</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.loct" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 20</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.doy">
+<code class="sig-name descname"><span class="pre">doy</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.doy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 21</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.f107">
+<code class="sig-name descname"><span class="pre">f107</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.f107" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 22</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.f107m">
+<code class="sig-name descname"><span class="pre">f107m</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.f107m" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 23</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.kp1">
+<code class="sig-name descname"><span class="pre">kp1</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.kp1" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 24</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt id="swami.MCMOutput.kp2">
+<code class="sig-name descname"><span class="pre">kp2</span></code><em class="property"><span class="pre">:</span> <span class="pre">float</span></em><a class="headerlink" href="#swami.MCMOutput.kp2" title="Permalink to this definition">¶</a></dt>
+<dd><p>Alias for field number 25</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt id="swami.MCM">
+<em class="property"><span class="pre">class</span> </em><code class="sig-prename descclassname"><span class="pre">swami.</span></code><code class="sig-name descname"><span class="pre">MCM</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">exec_swami</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">path_to_data</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">Optional</span><span class="p"><span class="pre">[</span></span><span class="pre">os.PathLike</span><span class="p"><span class="pre">]</span></span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/swami.html#MCM"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.MCM" title="Permalink to this definition">¶</a></dt>
+<dd><p>MCM Model wrapper.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
-<li><p><strong>model</strong> (<em>str</em><em>, </em><em>optional</em>) – Model to use. Defaults to MCM. Valid values are: MCM, DTM2020, UM</p></li>
 <li><p><strong>exec_swami</strong> (<em>os.PathLike</em><em>, </em><em>optional</em>) – Path to the executable. Defaults to the one included.</p></li>
 <li><p><strong>path_to_data</strong> (<em>os.PathLike</em><em>, </em><em>optional</em>) – Path to the data. Defaults to the included package.</p></li>
 </ul>
 </dd>
 </dl>
 <dl class="py method">
-<dt id="swami.SwamiModel.run">
-<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_of_year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107m</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_uncertainty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="_modules/swami.html#SwamiModel.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.SwamiModel.run" title="Permalink to this definition">¶</a></dt>
+<dt id="swami.MCM.run">
+<code class="sig-name descname"><span class="pre">run</span></code><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">altitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">day_of_year</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">local_time</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">latitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">longitude</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">f107m</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp1</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kp2</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_uncertainty</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">get_winds</span></span><span class="p"><span class="pre">:</span></span> <span class="n"><span class="pre">bool</span></span> <span class="o"><span class="pre">=</span></span> <span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> &#x2192; <a class="reference internal" href="#swami.MCMOutput" title="swami.MCMOutput"><span class="pre">swami.MCMOutput</span></a><a class="reference internal" href="_modules/swami.html#MCM.run"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#swami.MCM.run" title="Permalink to this definition">¶</a></dt>
 <dd><p>Run the model</p>
-<p>Returns a dictionary with keys ‘MCM’, ‘DTM2020’ or ‘UM’,
-which is another dictionary with ‘temp’, ‘dens’, etc.
-Also, ‘_input’ is another subdictionary
-including the input parameters.</p>
+<p>Returns a MCMOutput object with the results as attributes.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><ul class="simple">
@@ -249,18 +406,19 @@ including the input parameters.</p>
 <li><p><strong>local_time</strong> (<em>float</em>) – Local time, h [0-24]</p></li>
 <li><p><strong>latitude</strong> (<em>float</em>) – Latitude, deg [-90 to 90]</p></li>
 <li><p><strong>longitude</strong> (<em>float</em>) – Longitude, deg [0-360]</p></li>
-<li><p><strong>f107</strong> (<em>float</em>) – F10.7</p></li>
-<li><p><strong>f107m</strong> (<em>float</em>) – F10.7 averaged</p></li>
-<li><p><strong>kp1</strong> (<em>float</em>) – Kp</p></li>
-<li><p><strong>kp2</strong> (<em>float</em>) – Kp</p></li>
-<li><p><strong>get_uncertainty</strong> (<em>bool</em><em>, </em><em>optional</em>) – It uncertainties should be returned. Defaults to False.</p></li>
+<li><p><strong>f107</strong> (<em>float</em>) – F10.7, instantaneous flux at (t - 24hr)</p></li>
+<li><p><strong>f107m</strong> (<em>float</em>) – F10.7, average of the last 81 days</p></li>
+<li><p><strong>kp1</strong> (<em>float</em>) – Kp, delayed by 3 hours</p></li>
+<li><p><strong>kp2</strong> (<em>float</em>) – Kp, mean of previous 24 hours</p></li>
+<li><p><strong>get_uncertainty</strong> (<em>bool</em><em>, </em><em>optional</em>) – Uncertainties will be returned. Defaults to False.</p></li>
+<li><p><strong>get_winds</strong> (<em>bool</em><em>, </em><em>optional</em>) – Winds will be returned. Defaults to False.</p></li>
 </ul>
 </dd>
 <dt class="field-even">Returns</dt>
-<dd class="field-even"><p>Dictionary with values per model</p>
+<dd class="field-even"><p>NamedTuple with the results</p>
 </dd>
 <dt class="field-odd">Return type</dt>
-<dd class="field-odd"><p>dict</p>
+<dd class="field-odd"><p><a class="reference internal" href="#swami.MCMOutput" title="swami.MCMOutput">MCMOutput</a></p>
 </dd>
 </dl>
 </dd></dl>
