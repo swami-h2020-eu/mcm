@@ -174,7 +174,7 @@ contains
         logical, intent(in), optional :: get_unc    ! Get uncertainties and standard deviations (defaults to .false.)
         logical, intent(in), optional :: get_winds  ! Get winds (defaults to .false.)
 
-        real(8) :: temp_um, dens_um, temp_dtm, dens_dtm, alti_um, alti_dtm, alti_winds
+        real(8) :: temp_um, dens_um, temp_dtm, dens_dtm, alti_um, alti_dtm
         real(8), parameter :: NONE = -999999d0
         type(t_dtm2020_out) :: dtm_out
         logical :: b_get_unc = .false.
@@ -205,19 +205,18 @@ contains
         alti_um = min(alti, BLENDING_ALTI_RANGE_LOW)
         call get_um_temp(temp_um, alti_um, lati, longi, loct, doy, f107, f107m, kps)
         call get_um_dens(dens_um, alti_um, lati, longi, loct, doy, f107, f107m, kps)
-        if (b_get_unc) then
-            call get_um_temp_standard_deviation(mcm_out%temp_std, alti_um, lati, longi, loct, doy, f107, f107m, kps)
-            call get_um_dens_standard_deviation(mcm_out%dens_std, alti_um, lati, longi, loct, doy, f107, f107m, kps)
+        if (b_get_unc .and. (alti <= BLENDING_ALTI_RANGE_LOW)) then ! <= 100 km
+            call get_um_temp_standard_deviation(mcm_out%temp_std, alti, lati, longi, loct, doy, f107, f107m, kps)
+            call get_um_dens_standard_deviation(mcm_out%dens_std, alti, lati, longi, loct, doy, f107, f107m, kps)
         end if
 
         ! Winds
-        if (b_get_winds) then
-            alti_winds = min(alti, BLENDING_ALTI_RANGE_HIGH)
-            call get_um_xwind(mcm_out%xwind, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
-            call get_um_ywind(mcm_out%ywind, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
-            if (b_get_unc) then
-                call get_um_xwind_standard_deviation(mcm_out%xwind_std, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
-                call get_um_ywind_standard_deviation(mcm_out%ywind_std, alti_winds, lati, longi, loct, doy, f107, f107m, kps)
+        if (b_get_winds .and. (alti <= BLENDING_ALTI_RANGE_HIGH)) then  ! <= 120 km
+            call get_um_xwind(mcm_out%xwind, alti, lati, longi, loct, doy, f107, f107m, kps)
+            call get_um_ywind(mcm_out%ywind, alti, lati, longi, loct, doy, f107, f107m, kps)
+            if (b_get_unc .and. (alti <= BLENDING_ALTI_RANGE_HIGH)) then
+                call get_um_xwind_standard_deviation(mcm_out%xwind_std, alti, lati, longi, loct, doy, f107, f107m, kps)
+                call get_um_ywind_standard_deviation(mcm_out%ywind_std, alti, lati, longi, loct, doy, f107, f107m, kps)
             end if
         end if
 
