@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Fortran modules &mdash; SWAMI v1.0 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -205,11 +209,11 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="fortran-modules">
+<section id="fortran-modules">
 <h1>Fortran modules<a class="headerlink" href="#fortran-modules" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="compilation">
+<section id="compilation">
 <h2>Compilation<a class="headerlink" href="#compilation" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="requirements">
+<section id="requirements">
 <h3>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h3>
 <p>Tested on Ubuntu 18.04 LTS</p>
 <ul class="simple">
@@ -221,8 +225,8 @@
 sudo apt-get install libnetcdff-dev
 </pre></div>
 </div>
-</div>
-<div class="section" id="how-to-compile">
+</section>
+<section id="how-to-compile">
 <h3>How to compile<a class="headerlink" href="#how-to-compile" title="Permalink to this headline">¶</a></h3>
 <p>Using gfortran and linking the netcdf library (which is the most tricky part).</p>
 <p>This command will compile everything, but please look at both the <cite>examples/build_examples.sh</cite> and the <cite>src/libswamif/build_tests.sh</cite> scripts for more details.</p>
@@ -252,19 +256,19 @@ gfortran -c <span class="nv">$SRC</span>/dtm2020_F107_Kp-subr_MCM.f90 <span clas
 gfortran <span class="nv">$M_MCM</span>
 </pre></div>
 </div>
-</div>
-</div>
-<div class="section" id="how-to-use">
+</section>
+</section>
+<section id="how-to-use">
 <h2>How to use<a class="headerlink" href="#how-to-use" title="Permalink to this headline">¶</a></h2>
 <p>In your fortran program, use the <cite>use</cite> statement to load the module.
 There are three modules with their most important functions.
 More details on the units, the valid ranges and the definition in <a class="reference internal" href="#fortran-interface"><span class="std std-ref">Fortran interface</span></a></p>
 <p>It is important to call the <cite>init_</cite> subroutine at the beginning of the program.
 It will load the required constants and keep them in memory throughtout the whole execution.</p>
-</div>
-<div class="section" id="fortran-interface">
+</section>
+<section id="fortran-interface">
 <h2>Fortran interface<a class="headerlink" href="#fortran-interface" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="m-mcm-mowa-climatological-model-mcm">
+<section id="m-mcm-mowa-climatological-model-mcm">
 <h3>m_mcm: MOWA Climatological Model (MCM)<a class="headerlink" href="#m-mcm-mowa-climatological-model-mcm" title="Permalink to this headline">¶</a></h3>
 <p>This module contains routines related to the MCM model, which combines the DTM (thermosphere) and the UM (lower atmosphere) to have a <cite>MOdel of the Whole Atmosphere</cite></p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">path_to_data_um</span><span class="p">,</span> <span class="n">path_to_data_dtm</span><span class="p">)</span>
@@ -293,8 +297,8 @@ It will load the required constants and keep them in memory throughtout the whol
 <li><p><strong>xwind_std</strong> <em>[real]</em>: Standard deviation of zonal wind, in m/s</p></li>
 <li><p><strong>ywind_std</strong> <em>[real]</em>: Standard deviation of neridional wind, m/s</p></li>
 </ul>
-</div>
-<div class="section" id="m-dtm-drag-temperature-model-dtm">
+</section>
+<section id="m-dtm-drag-temperature-model-dtm">
 <h3>m_dtm: Drag Temperature Model (DTM)<a class="headerlink" href="#m-dtm-drag-temperature-model-dtm" title="Permalink to this headline">¶</a></h3>
 <p>This module contains routines related to the DTM2020 model.</p>
 <p>Go to <a class="reference internal" href="dtm2020.html#drag-temperature-model-dtm2020"><span class="std std-ref">Drag Temperature Model (DTM2020)</span></a>) for some theoretical details about the model.</p>
@@ -318,8 +322,8 @@ It will load the required constants and keep them in memory throughtout the whol
 <li><p><strong>tinf</strong> <em>[real]</em>: Exospheric temperature, in K</p></li>
 <li><p><strong>dens_unc</strong> <em>[real]</em>: Density uncertainty from DTM2020 (above 120 km), as a percentage</p></li>
 </ul>
-</div>
-<div class="section" id="m-um-unified-model-um">
+</section>
+<section id="m-um-unified-model-um">
 <h3>m_um: Unified Model (UM)<a class="headerlink" href="#m-um-unified-model-um" title="Permalink to this headline">¶</a></h3>
 <p>This module contains routines related to the UM model.</p>
 <p>Go to <a class="reference internal" href="um.html#unified-model-um"><span class="std std-ref">Unified Model (UM)</span></a>) for some theoretical details about the model.</p>
@@ -334,9 +338,9 @@ It will load the required constants and keep them in memory throughtout the whol
 <span class="k">call </span><span class="n">get_um_ywind_standard_deviation</span><span class="p">(</span><span class="n">ywind_std</span><span class="p">,</span> <span class="n">alti</span><span class="p">,</span> <span class="n">lati</span><span class="p">,</span> <span class="nb">long</span><span class="p">,</span> <span class="n">loct</span><span class="p">,</span> <span class="n">doy</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
 </pre></div>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>

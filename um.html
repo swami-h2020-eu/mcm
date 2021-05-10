@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Unified Model (UM) &mdash; SWAMI v1.0 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -197,9 +201,9 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="unified-model-um">
+<section id="unified-model-um">
 <h1>Unified Model (UM)<a class="headerlink" href="#unified-model-um" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description-of-the-model">
+<section id="description-of-the-model">
 <h2>Description of the model<a class="headerlink" href="#description-of-the-model" title="Permalink to this headline">¶</a></h2>
 <p>The UM is the Met Office weather and climate model. In most applications the
 UM has an upper boundary at around 85 km in altitude, but here we use and
@@ -224,8 +228,8 @@ the migrating tidal signal, and the mean and standard deviation of the total fie
 calculations were carried out for neutral density, temperature, zonal wind and
 meridional wind.</p>
 <p>Subroutines for the UM part of the MCM model are available in the <a class="reference internal" href="fortran.html#m-um-unified-model-um"><span class="std std-ref">m_um: Unified Model (UM)</span></a> module.</p>
-</div>
-<div class="section" id="solar-cycle-classification">
+</section>
+<section id="solar-cycle-classification">
 <h2>Solar cycle classification<a class="headerlink" href="#solar-cycle-classification" title="Permalink to this headline">¶</a></h2>
 <p>Three years were chosen to represent three corresponding levels in terms of solar activity.</p>
 <p>The driver to select between each year is the F10.7 flux 81-day average (<cite>f107m</cite> argument in the code) following this rule:</p>
@@ -254,12 +258,12 @@ meridional wind.</p>
 </tr>
 </tbody>
 </table>
-</div>
-<div class="section" id="standard-deviation">
+</section>
+<section id="standard-deviation">
 <h2>Standard deviation<a class="headerlink" href="#standard-deviation" title="Permalink to this headline">¶</a></h2>
 <p>The UM model also provides the standard deviation of the temperature and the density through the <code class="xref py py-func docutils literal notranslate"><span class="pre">m_um/get_um_temp_standard_deviation()</span></code> and <code class="xref py py-func docutils literal notranslate"><span class="pre">m_um/get_um_dens_standard_deviation()</span></code> subroutines, respectively.</p>
-</div>
-<div class="section" id="winds">
+</section>
+<section id="winds">
 <h2>Winds<a class="headerlink" href="#winds" title="Permalink to this headline">¶</a></h2>
 <p>X wind and Y wind denote zonal wind and meridional wind, respectively.
 Zonal wind is the horizontal wind in the east-west direction (eastward positive, westward negative)
@@ -270,8 +274,8 @@ and meridional wind is the horizontal wind in  the north-south direction (northw
 <p>Dr. David Jackson (Met Office, UK)</p>
 <p>david.jackson [at] metoffice.gov.uk</p>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>

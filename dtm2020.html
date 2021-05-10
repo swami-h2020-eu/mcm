@@ -4,7 +4,8 @@
 <html class="writer-html5" lang="en" >
 <head>
   <meta charset="utf-8" />
-  
+  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
   <title>Drag Temperature Model (DTM2020) &mdash; SWAMI v1.0 documentation</title>
@@ -13,6 +14,8 @@
   
   <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
   <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
 
   
@@ -30,6 +33,7 @@
   
     
       <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
         <script src="_static/jquery.js"></script>
         <script src="_static/underscore.js"></script>
         <script src="_static/doctools.js"></script>
@@ -200,15 +204,15 @@
     text-align: unset;
 }
 </style>
-<div class="section" id="drag-temperature-model-dtm2020">
+<section id="drag-temperature-model-dtm2020">
 <h1>Drag Temperature Model (DTM2020)<a class="headerlink" href="#drag-temperature-model-dtm2020" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="description-of-the-model">
+<section id="description-of-the-model">
 <h2>Description of the model<a class="headerlink" href="#description-of-the-model" title="Permalink to this headline">¶</a></h2>
 <p>The semi-empirical Drag Temperature Model (DTM) predicts temperature, density and composition of the Earth’s thermosphere, especially for the purpose of orbit computation. Operational and Research DTM2020 models were developed in the framework of the H2020 Space Weather Atmosphere Models and Indices project (SWAMI). The models provide low spatial and temporal resolution point-wise predictions as a function of location (altitude, latitude, longitude, local solar time), solar and geomagnetic activities, and season. The drivers of the operational model are F10.7 and Kp, whereas the more accurate research model uses a more representative but possibly less robust solar proxy, F30, and the new hourly geomagnetic index Hp60. The DTM2020 models are constructed by optimally fitting model coefficients to density, temperature, and composition measurements.</p>
 <p>The backbone of the models is the complete CHAMP and GOCE high-resolution accelerometer-inferred density datasets, as well as SwarmA densities. Those density datasets were processed by TU Delft (Netherlands) using high fidelity satellite models and they are presently the standard for absolute density. As a result, the DTM2020 densities are on average 20-25% smaller than DTM2013.</p>
 <p>The DTM2020 subroutines present in the MCM model are available at the <a class="reference internal" href="fortran.html#m-dtm-drag-temperature-model-dtm"><span class="std std-ref">m_dtm: Drag Temperature Model (DTM)</span></a> module.</p>
-</div>
-<div class="section" id="density-uncertainty">
+</section>
+<section id="density-uncertainty">
 <h2>Density uncertainty<a class="headerlink" href="#density-uncertainty" title="Permalink to this headline">¶</a></h2>
 <p>An optional new feature of the operational DTM2020 is the possibility to compute the uncertainty of the density prediction.
 The 1-sigma uncertainty provided in the model is given as a percentage of the value of the predicted density.</p>
@@ -219,10 +223,10 @@ However, strong assumptions must be added to extend the altitude range from 100 
 <li><p>at higher altitudes (&gt; 500 km), an optimistic case is assumed by keeping 1-sigma values at the 500 km level.</p></li>
 </ul>
 <p>This 1-sigma uncertainty prediction can be obtained with the subroutine sigma_subroutine.f90 or via <code class="xref py py-func docutils literal notranslate"><span class="pre">m_dtm/get_dtm2020_dens_uncertainty()</span></code></p>
-</div>
-<div class="section" id="implementation-instructions">
+</section>
+<section id="implementation-instructions">
 <h2>Implementation instructions<a class="headerlink" href="#implementation-instructions" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="implementation-of-dtm2020-operational-version">
+<section id="implementation-of-dtm2020-operational-version">
 <h3>Implementation of DTM2020 - operational version<a class="headerlink" href="#implementation-of-dtm2020-operational-version" title="Permalink to this headline">¶</a></h3>
 <p>List of files (located in src/dtm2020):</p>
 <ul class="simple">
@@ -302,8 +306,8 @@ It is given as a percentage of the density estimate. The call is made after dtm3
 <ul class="simple">
 <li><p>stdev    = 1-sigma uncertainty (%) of the density estimate ro</p></li>
 </ul>
-</div>
-<div class="section" id="implementation-of-dtm2020-research-version">
+</section>
+<section id="implementation-of-dtm2020-research-version">
 <h3>Implementation of DTM2020 - research version<a class="headerlink" href="#implementation-of-dtm2020-research-version" title="Permalink to this headline">¶</a></h3>
 <p>Related files (located in src/dtm2020):</p>
 <ul class="simple">
@@ -375,9 +379,9 @@ Then call the dtm5 subroutine:</p>
 <p>Dr. Sean Bruinsma (CNES, France)</p>
 <p>sean.bruinsma [at] cnes.fr</p>
 </div>
-</div>
-</div>
-</div>
+</section>
+</section>
+</section>
 
 
            </div>
