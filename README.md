@@ -69,3 +69,12 @@ result from the use of the MCM or DTM software.
 
 THE USE OF THE MCM OR DTM SOFTWARE CONSTITUTES AN IMPLICIT ACCEPTATION BY THE
 USER OF THE TERMS OF THE PRESENT LICENSE.
+
+## Contact details
+
+[@daluar](http://github.com/daluar) @ Deimos Space
+
+[@seanbruinsma](http://github.com/seanbruinsma) @ CNES
+
+David Jackson @ MetOffice
+
