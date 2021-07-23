@@ -45,7 +45,7 @@ program wrapper
     logical :: b_winds, b_unc_std
     type(t_mcm_out) :: res
 
-    integer:: lun
+    integer:: lun, ier
 
 
     namelist /input/ altitude, day_of_year, local_time, latitude, longitude, &
@@ -54,8 +54,15 @@ program wrapper
         data_um, data_dtm, output_file
 
     call get_command_argument(1, input_file)
+    if (trim(input_file) == "") then
+        write(*, *) "Please provide an input file. Call './swami.x input_file.txt'"
+        call exit(-1)
+    end if
 
-    open (file=input_file, newunit=lun, status="old", action="read")
+    open (file=input_file, newunit=lun, status="old", action="read", iostat=ier)
+    if (ier /= 0) then
+        write(*, *) "Error while opening input file: '", trim(input_file), "'. Error code is ", ier
+    end if
     read (lun, nml=input)
     close (lun)
 
