@@ -26,6 +26,7 @@ module m_mcm
     real(8), parameter, private :: BLENDING_ALTI_RANGE_HIGH = 120.0d0  ! Transition region: higher altitude
     real(8), parameter, private :: PI = acos(-1d0)
     real(8), parameter, private :: HOUR2RAD = PI/12.d0
+    real(8), parameter, public :: NONE = -9.99999d100
 
     public :: get_mcm_dens
     public :: get_mcm_temp
@@ -141,7 +142,7 @@ contains
 
     end subroutine get_mcm_temp
 
-    subroutine get_mcm(mcm_out, alti, lati, longi, loct, doy, f107, f107m, kps, get_unc, get_winds)
+    subroutine get_mcm(mcm_out, alti, lati, longi, loct, doy, f107, f107m, kps, get_unc, get_winds, region)
         ! | Get all output values for MCM (slow):
         ! - dens : Total density (in gram/cm3)
         ! - temp : Temperature at altitude (K)
@@ -173,12 +174,13 @@ contains
         real(8), intent(in) :: kps(2)               ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
         logical, intent(in), optional :: get_unc    ! Get uncertainties and standard deviations (defaults to .false.)
         logical, intent(in), optional :: get_winds  ! Get winds (defaults to .false.)
+        integer, intent(out), optional :: region    ! Region: 1 is UM, 2 is blending, 3 is DTM
 
         real(8) :: temp_um, dens_um, temp_dtm, dens_dtm, alti_um, alti_dtm
-        real(8), parameter :: NONE = -999999d0
         type(t_dtm2020_out) :: dtm_out
         logical :: b_get_unc = .false.
         logical :: b_get_winds = .false.
+        integer :: region__ = 0
 
         if (present(get_unc)) b_get_unc = get_unc
         if (present(get_winds)) b_get_winds = get_winds
@@ -241,13 +243,18 @@ contains
         if (alti <= BLENDING_ALTI_RANGE_LOW) then ! 100 km
             mcm_out%temp = temp_um
             mcm_out%dens = dens_um
+            region__ = 1
         else if (alti >= BLENDING_ALTI_RANGE_HIGH) then ! 120 km
             mcm_out%temp = temp_dtm
             mcm_out%dens = dens_dtm
+            region__ = 3
         else
             mcm_out%temp = linear_segment(BLENDING_ALTI_RANGE_LOW, BLENDING_ALTI_RANGE_HIGH, temp_um, temp_dtm, alti)
             mcm_out%dens = loge_linear_segment(BLENDING_ALTI_RANGE_LOW, BLENDING_ALTI_RANGE_HIGH, dens_um, dens_dtm, alti)
+            region__ = 2
         end if
+
+        if (present(region)) region = region__
 
     end subroutine get_mcm
 
