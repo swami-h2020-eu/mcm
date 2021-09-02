@@ -26,7 +26,7 @@ module m_mcm
     real(8), parameter, private :: BLENDING_ALTI_RANGE_HIGH = 120.0d0  ! Transition region: higher altitude
     real(8), parameter, private :: PI = acos(-1d0)
     real(8), parameter, private :: HOUR2RAD = PI/12.d0
-    real(8), parameter, public :: NONE = -9.99999d100
+    real(8), parameter, public :: NONE = -999999d0
 
     public :: get_mcm_dens
     public :: get_mcm_temp
