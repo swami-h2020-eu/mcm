@@ -36,6 +36,9 @@ module m_um
     character(len=*), parameter :: UM_NAME_YWIND = "y_wind"
     character(len=*), parameter :: UM_VAR_TYPE_MEAN = "mean"
     character(len=*), parameter :: UM_VAR_TYPE_STD = "std"
+    integer, parameter :: SOLAR_CYCLE_ACT_LOW = 1
+    integer, parameter :: SOLAR_CYCLE_ACT_MEDIUM = 2
+    integer, parameter :: SOLAR_CYCLE_ACT_HIGH = 3
 
     character(len=256) :: path_to_um_data
 
@@ -79,6 +82,9 @@ module m_um
         real(8) :: reference_time
     end type t_um_variable
 
+    logical :: file_is_loaded(3, 4, 2)
+    type(t_um_variable) :: um_vars(3, 4, 2)
+
 contains
 
     subroutine init_um(um_data_path)
@@ -87,7 +93,41 @@ contains
         implicit none
         character(len=*), intent(in) :: um_data_path
 
+        integer, parameter :: solarcycles(3) = [SOLAR_CYCLE_ACT_LOW, SOLAR_CYCLE_ACT_MEDIUM, SOLAR_CYCLE_ACT_HIGH]
+        character(len=*), parameter :: varnames(4) = [UM_NAME_TEMP, UM_NAME_DENS, UM_NAME_XWIND, UM_NAME_YWIND]
+        character(len=*), parameter :: vartypes(2) = [UM_VAR_TYPE_MEAN, UM_VAR_TYPE_STD]
+
+        integer :: i, j, k, ivn, ivt, iscc, code, ier
+        type(t_um_variable) :: um_var
+
         path_to_um_data = trim(um_data_path)
+
+        file_is_loaded(:, :, :) = .false.
+
+        do i = 1, size(solarcycles)
+            do j = 1, size(varnames)
+                do k = 1, size(vartypes)
+                    call tipify_um_var(varnames(j), vartypes(k), solarcycles(i), ivn, ivt, iscc, code)
+                    call load_um_var(varnames(j), vartypes(k), solarcycles(i), um_var, code)
+                    if (code /= 0) then
+                        write(*, *) "ERROR: while tipifying UM var during initialization: ", &
+                            varnames(j), vartypes(k), solarcycles(i)
+                        ier = code
+                        call exit(ier)
+                    end if
+                    if (code /= 0) then
+                        write(*, *) "ERROR: while loading UM var during initialization: ", &
+                            varnames(j), vartypes(k), solarcycles(i)
+                        ier = code
+                        call exit(ier)
+                    end if
+
+                    um_vars(iscc, ivn, ivt) = um_var
+                    file_is_loaded(iscc, ivn, ivt) = .true.
+
+                end do
+            end do
+        end do
 
     end subroutine init_um
 
@@ -116,10 +156,10 @@ contains
 
     subroutine check_altitude(alti, limit)
         implicit none
-        real(8),intent(in) :: alti, limit
+        real(8), intent(in) :: alti, limit
 
         if (alti > limit) then
-            write(*, "(A,F10.4,A,F10.4,A)") "UM ERROR: Altitude ", alti, " km above limit ", limit, " km. Stopping."
+            write (*, "(A,F10.4,A,F10.4,A)") "UM ERROR: Altitude ", alti, " km above limit ", limit, " km. Stopping."
             stop
         end if
     end subroutine check_altitude
@@ -298,11 +338,11 @@ contains
         integer, intent(out) :: solar_cycle_class   ! Class of solar cycle
 
         if (f107m < 120d0) then
-            solar_cycle_class = 1
+            solar_cycle_class = SOLAR_CYCLE_ACT_LOW
         else if (f107m > 160d0) then
-            solar_cycle_class = 3
+            solar_cycle_class = SOLAR_CYCLE_ACT_HIGH
         else
-            solar_cycle_class = 2
+            solar_cycle_class = SOLAR_CYCLE_ACT_MEDIUM
         end if
 
         ! solar_cycle_class = 1 ! low activity, 2008-2009
@@ -320,11 +360,11 @@ contains
 
         real(8) :: hoy, um_ref, doy_aux
 
-        if ((solar_cycle_class == 1) .and. (doy < 166d0)) then
+        if ((solar_cycle_class == SOLAR_CYCLE_ACT_LOW) .and. (doy < 166d0)) then
             doy_aux = doy + 365d0
-        else if ((solar_cycle_class == 2) .and. (doy > 349d0)) then
+        else if ((solar_cycle_class == SOLAR_CYCLE_ACT_MEDIUM) .and. (doy > 349d0)) then
             doy_aux = doy - 365d0
-        else if ((solar_cycle_class == 3) .and. (doy > 348d0)) then
+        else if ((solar_cycle_class == SOLAR_CYCLE_ACT_HIGH) .and. (doy > 348d0)) then
             doy_aux = doy - 365d0
         else
             doy_aux = doy
@@ -342,22 +382,23 @@ contains
         character(*), intent(in) :: var_type       ! UM_VAR_TYPE_MEAN, UM_VAR_TYPE_STD
         integer, intent(in) :: solar_cycle_class   ! 1, 2, 3
         character(*), intent(out) :: fname         ! Filename
-        integer, intent(out), optional :: ier      ! Error code
+        integer, intent(out) :: ier                ! Error code
 
         character(30):: pv, pt, py
-        integer :: ierr = 0
+
+        ier = 0
 
         ! solar cycle
         select case (solar_cycle_class)
-        case (1)
+        case (SOLAR_CYCLE_ACT_LOW)
             py = "2008-2009" ! low activity
-        case (2)
+        case (SOLAR_CYCLE_ACT_MEDIUM)
             py = "2004" ! medium activity
-        case (3)
+        case (SOLAR_CYCLE_ACT_HIGH)
             py = "2002" ! high activity
         case default
             py = ""
-            ierr = -1001
+            ier = -1001
         end select
 
         ! variable
@@ -372,7 +413,7 @@ contains
             pv = "y-wind"
         case default
             pv = ""
-            ierr = -1002
+            ier = -1002
         end select
 
         ! kind
@@ -383,14 +424,119 @@ contains
             pt = "standard-deviation"
         case default
             pt = ""
-            ierr = -1003
+            ier = -1003
         end select
-
-        if (present(ier)) ier = ierr
 
         fname = trim(py)//"/"//trim(pv)//"_"//trim(pt)//".mcm.nc"
 
     end subroutine get_um_filename
+
+    subroutine tipify_um_var(var_name, var_type, solar_cycle_class, ivarname, ivartype, iscc, ier)
+        ! Convert variable name, type and solar cycle class to integer numbers to be used as indices
+
+        implicit none
+        character(*), intent(in) :: var_name        ! UM_NAME_TEMP, UM_NAME_DENS, UM_NAME_XWIND, UM_NAME_YWIND
+        character(*), intent(in) :: var_type        ! UM_VAR_TYPE_MEAN, UM_VAR_TYPE_STD
+        integer, intent(in) :: solar_cycle_class    ! 1, 2, 3
+        integer, intent(out) :: ivarname            ! Index for variable name
+        integer, intent(out) :: ivartype            ! Index for variable type
+        integer, intent(out) :: iscc                ! Index for solar cycle class
+        integer, intent(out) :: ier                 ! Error code
+
+        ier = 0
+
+        ! solar cycle
+        select case (solar_cycle_class)
+        case (SOLAR_CYCLE_ACT_LOW)
+            iscc = 1 ! low activity
+        case (SOLAR_CYCLE_ACT_MEDIUM)
+            iscc = 2 ! medium activity
+        case (SOLAR_CYCLE_ACT_HIGH)
+            iscc = 3 ! high activity
+        case default
+            iscc = 0
+            ier = -1001
+        end select
+
+        ! variable
+        select case (var_name)
+        case (UM_NAME_TEMP)
+            ivarname = 1
+        case (UM_NAME_DENS)
+            ivarname = 2
+        case (UM_NAME_XWIND)
+            ivarname = 3
+        case (UM_NAME_YWIND)
+            ivarname = 4
+        case default
+            ivarname = 0
+            ier = -1002
+        end select
+
+        ! kind
+        select case (var_type)
+        case (UM_VAR_TYPE_MEAN)
+            ivartype = 1
+        case (UM_VAR_TYPE_STD)
+            ivartype = 2
+        case default
+            ivartype = 0
+            ier = -1003
+        end select
+
+    end subroutine tipify_um_var
+
+    subroutine load_um_var(var_name, var_type, solar_cycle_class, um_var, ier)
+        ! Load UM variable into memory or retrieve from a previous load.
+
+        implicit none
+        character(*), intent(in) :: var_name       ! UM_NAME_TEMP, UM_NAME_DENS, UM_NAME_XWIND, UM_NAME_YWIND
+        character(*), intent(in) :: var_type       ! UM_VAR_TYPE_MEAN, UM_VAR_TYPE_STD
+        integer, intent(in) :: solar_cycle_class   ! 1, 2, 3
+        type(t_um_variable), intent(out) :: um_var ! Filename
+        integer, intent(out) :: ier                ! Error code
+
+        integer :: code
+        integer :: iscc, ivarname, ivartype
+        character(len=UM_FNAME_LENGTH) :: um_fname
+
+        ier = 0
+
+        call tipify_um_var(var_name, var_type, solar_cycle_class, ivarname, ivartype, iscc, code)
+        if (code /= 0) then
+            write(*,*) "Error while tipifying UM var"
+            ier = code
+            return
+        end if
+
+        if (file_is_loaded(iscc, ivarname, ivartype)) then
+            ! file is loaded, look for it
+            um_var = um_vars(iscc, ivarname, ivartype)
+        else
+            ! generate the correct filename
+            call get_um_filename(var_name, var_type, solar_cycle_class, um_fname, code)
+            if (code /= 0) then
+                write(*,*) "Error while generating UM fname"
+                ier = code
+                return
+            end if
+            um_fname = trim(path_to_um_data)//trim(um_fname)
+
+            ! write(*, *) "INFO: UM var was not initiliased. Loading "//trim(um_fname)
+
+            ! Load UM data from file
+            call load_um_file(um_fname, var_name, um_var, code)
+            if (code /= 0) then
+                write(*,*) "Error while loading "//trim(um_fname)
+                ier = code
+                return
+            end if
+
+            file_is_loaded(iscc, ivarname, ivartype) = .true.
+
+        end if
+
+    end subroutine load_um_var
 
     subroutine get_um_var_std(var, varname, alti, lati, longi, loct, doy, f107, f107m, kps)
         ! Get standard deviation for a variable from UM tables, interpolating if necessary
@@ -408,7 +554,7 @@ contains
         real(8), intent(in) :: kps(2)       ! Space weather index: kp delayed by 3 hours (1st value), kp mean of last 24 hours (2nd value)
 
         real(8) :: um_time, alti_m
-        integer :: solar_cycle_class, ier
+        integer :: solar_cycle_class, code
         character(len=UM_FNAME_LENGTH) :: um_fname
         type(t_um_variable) :: um_var
 
@@ -417,12 +563,12 @@ contains
         call classify_solar_cycle(f107m, solar_cycle_class)
         call convert_doy_to_um_time(doy, solar_cycle_class, um_time)
 
-        ! generate the correct filename
-        call get_um_filename(varname, UM_VAR_TYPE_STD, solar_cycle_class, um_fname)
-
-        ! Load UM data from file
-        um_fname = trim(path_to_um_data)//trim(um_fname)
-        call load_um_file(um_fname, varname, um_var, ier)
+        ! Load UM data from memory
+        call load_um_var(varname, UM_VAR_TYPE_STD, solar_cycle_class, um_var, code)
+        if (code /= 0) then
+            write(*,*) "Error while loading UM var"
+            return
+        end if
 
         ! interpolate
         call interpolate_um_var_nearest(um_var, alti_m, lati, loct, um_time, var)
@@ -446,7 +592,7 @@ contains
         logical, intent(in), optional :: apply_log10(4) ! Axis where to apply log10 in interpolation
 
         real(8) :: um_time, alti_m
-        integer :: solar_cycle_class, ier
+        integer :: solar_cycle_class, code
         character(len=UM_FNAME_LENGTH) :: um_fname
         type(t_um_variable) :: um_var
         logical :: interpolate_log10(4) = [.false., .false., .false., .false.] ! interpolate altitude with log10
@@ -456,12 +602,12 @@ contains
         call classify_solar_cycle(f107m, solar_cycle_class)
         call convert_doy_to_um_time(doy, solar_cycle_class, um_time)
 
-        ! generate the correct filename
-        call get_um_filename(varname, UM_VAR_TYPE_MEAN, solar_cycle_class, um_fname)
-
-        ! Load UM data from file
-        um_fname = trim(path_to_um_data)//trim(um_fname)
-        call load_um_file(um_fname, varname, um_var, ier)
+        ! Load UM data from memory
+        call load_um_var(varname, UM_VAR_TYPE_MEAN, solar_cycle_class, um_var, code)
+        if (code /= 0) then
+            write(*,*) "Error while loading UM var"
+            return
+        end if
 
         ! interpolate
         if (present(apply_log10)) then
