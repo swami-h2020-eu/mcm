@@ -1,98 +1,50 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Fortran examples &mdash; SWAMI v1.0 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=e160b93e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Python wrapper" href="python.html" />
     <link rel="prev" title="Fortran modules" href="fortran.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> SWAMI
           
-
-          
-            
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
-          
+          <a href="index.html" class="icon icon-home">
+            SWAMI
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Index</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
@@ -113,386 +65,321 @@
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">SWAMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Fortran examples</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Fortran examples</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/fortran_examples.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="fortran-examples">
-<h1>Fortran examples<a class="headerlink" href="#fortran-examples" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="fortran-examples">
+<h1>Fortran examples<a class="headerlink" href="#fortran-examples" title="Link to this heading"></a></h1>
 <div class="admonition note">
 <p class="admonition-title">Note</p>
 <p>Compilation script below</p>
 </div>
 <section id="single-point">
-<h2>Single point<a class="headerlink" href="#single-point" title="Permalink to this headline">¶</a></h2>
+<h2>Single point<a class="headerlink" href="#single-point" title="Link to this heading"></a></h2>
 <p>This program shows how to compute the temperature and the density for a single point using MCM, DTM and UM.
 Also, it shows how to get the uncertainties.</p>
 <p>Filename: examples/fortran/point.f90</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">point</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span>    <span class="k">use </span><span class="n">m_um</span>
-<span class="linenos"> 4</span>    <span class="k">use </span><span class="n">m_dtm</span>
-<span class="linenos"> 5</span>    <span class="k">use </span><span class="n">m_mcm</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="k">use </span><span class="n">m_um</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">use </span><span class="n">m_dtm</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="k">use </span><span class="n">m_mcm</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="k">implicit none</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">implicit none</span>
 <span class="linenos"> 8</span>
-<span class="linenos"> 9</span>    <span class="c">! Path where to find the UM netCDF files in folders 2002, 2004, 2008-2009</span>
-<span class="linenos">10</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_um</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
-<span class="linenos">11</span>    <span class="c">! Path where to find the &quot;DTM_2020_F107_Kp.dat&quot; file</span>
-<span class="linenos">12</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_dtm</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="c">! Path where to find the UM netCDF files in folders 2002, 2004, 2008-2009</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_um</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
+<span class="linenos">11</span><span class="w">    </span><span class="c">! Path where to find the &quot;DTM_2020_F107_Kp.dat&quot; file</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_dtm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
 <span class="linenos">13</span>
-<span class="linenos">14</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">altitude</span> <span class="o">=</span> <span class="mi">15</span><span class="mf">0.0d0</span>   <span class="c">! km</span>
-<span class="linenos">15</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">day_of_year</span> <span class="o">=</span> <span class="mi">5</span><span class="mf">3.0d0</span>    <span class="c">! days</span>
-<span class="linenos">16</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">local_time</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">2.0d0</span>    <span class="c">! hours</span>
-<span class="linenos">17</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">latitude</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>       <span class="c">! degrees</span>
-<span class="linenos">18</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">longitude</span> <span class="o">=</span> <span class="mi">15</span><span class="n">d0</span>      <span class="c">! degrees</span>
-<span class="linenos">19</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107</span> <span class="o">=</span> <span class="mi">140</span><span class="n">d0</span>     <span class="c">! F10.7</span>
-<span class="linenos">20</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107m</span> <span class="o">=</span> <span class="mi">139</span><span class="n">d0</span>     <span class="c">! F10.7 average</span>
-<span class="linenos">21</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="n">d0</span><span class="p">,</span> <span class="mi">1</span><span class="n">d0</span><span class="p">]</span>      <span class="c">! Kp</span>
+<span class="linenos">14</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">altitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="mf">0.0d0</span><span class="w">   </span><span class="c">! km</span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">day_of_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="mf">3.0d0</span><span class="w">    </span><span class="c">! days</span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">local_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">2.0d0</span><span class="w">    </span><span class="c">! hours</span>
+<span class="linenos">17</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="w">       </span><span class="c">! degrees</span>
+<span class="linenos">18</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="n">d0</span><span class="w">      </span><span class="c">! degrees</span>
+<span class="linenos">19</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">140</span><span class="n">d0</span><span class="w">     </span><span class="c">! F10.7</span>
+<span class="linenos">20</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">139</span><span class="n">d0</span><span class="w">     </span><span class="c">! F10.7 average</span>
+<span class="linenos">21</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">d0</span><span class="p">]</span><span class="w">      </span><span class="c">! Kp</span>
 <span class="linenos">22</span>
-<span class="linenos">23</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">std_dens</span><span class="p">,</span> <span class="n">std_temp</span><span class="p">,</span> <span class="n">unc</span>
+<span class="linenos">23</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">std_dens</span><span class="p">,</span><span class="w"> </span><span class="n">std_temp</span><span class="p">,</span><span class="w"> </span><span class="n">unc</span>
 <span class="linenos">24</span>
-<span class="linenos">25</span>    <span class="c">! Initialise/load the model</span>
-<span class="linenos">26</span>    <span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">data_um</span><span class="p">,</span> <span class="n">data_dtm</span><span class="p">)</span>
+<span class="linenos">25</span><span class="w">    </span><span class="c">! Initialise/load the model</span>
+<span class="linenos">26</span><span class="w">    </span><span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">data_um</span><span class="p">,</span><span class="w"> </span><span class="n">data_dtm</span><span class="p">)</span>
 <span class="linenos">27</span>
-<span class="linenos">28</span>    <span class="c">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
-<span class="linenos">29</span>    <span class="c">! MCM</span>
+<span class="linenos">28</span><span class="w">    </span><span class="c">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+<span class="linenos">29</span><span class="w">    </span><span class="c">! MCM</span>
 <span class="linenos">30</span>
-<span class="linenos">31</span>    <span class="c">! Get the temperature (K) using the MCM model</span>
-<span class="linenos">32</span>    <span class="k">call </span><span class="n">get_mcm_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">33</span>                      <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">31</span><span class="w">    </span><span class="c">! Get the temperature (K) using the MCM model</span>
+<span class="linenos">32</span><span class="w">    </span><span class="k">call </span><span class="n">get_mcm_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">33</span><span class="w">                      </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">34</span>
-<span class="linenos">35</span>    <span class="c">! Get the density (g/cm3) using the MCM model</span>
-<span class="linenos">36</span>    <span class="k">call </span><span class="n">get_mcm_dens</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">37</span>                      <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">35</span><span class="w">    </span><span class="c">! Get the density (g/cm3) using the MCM model</span>
+<span class="linenos">36</span><span class="w">    </span><span class="k">call </span><span class="n">get_mcm_dens</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">37</span><span class="w">                      </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">38</span>
-<span class="linenos">39</span>    <span class="k">print</span> <span class="o">*</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span>
+<span class="linenos">39</span><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">dens</span>
 <span class="linenos">40</span>
-<span class="linenos">41</span>    <span class="c">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
-<span class="linenos">42</span>    <span class="c">! UM  (up to 152km)</span>
+<span class="linenos">41</span><span class="w">    </span><span class="c">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+<span class="linenos">42</span><span class="w">    </span><span class="c">! UM  (up to 152km)</span>
 <span class="linenos">43</span>
-<span class="linenos">44</span>    <span class="c">! Get the temperature (K) using the UM model</span>
-<span class="linenos">45</span>    <span class="k">call </span><span class="n">get_um_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">46</span>                     <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">44</span><span class="w">    </span><span class="c">! Get the temperature (K) using the UM model</span>
+<span class="linenos">45</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">46</span><span class="w">                     </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">47</span>
-<span class="linenos">48</span>    <span class="c">! Get the density (g/cm3) using the UM model</span>
-<span class="linenos">49</span>    <span class="k">call </span><span class="n">get_um_dens</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">50</span>                     <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">48</span><span class="w">    </span><span class="c">! Get the density (g/cm3) using the UM model</span>
+<span class="linenos">49</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_dens</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">50</span><span class="w">                     </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">51</span>
-<span class="linenos">52</span>    <span class="c">! Standard deviation for density (g/cm3) and temperature (K)</span>
-<span class="linenos">53</span>    <span class="k">call </span><span class="n">get_um_dens_standard_deviation</span><span class="p">(</span><span class="n">std_dens</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">54</span>                                        <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">55</span>    <span class="k">call </span><span class="n">get_um_temp_standard_deviation</span><span class="p">(</span><span class="n">std_temp</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">56</span>                                        <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">52</span><span class="w">    </span><span class="c">! Standard deviation for density (g/cm3) and temperature (K)</span>
+<span class="linenos">53</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_dens_standard_deviation</span><span class="p">(</span><span class="n">std_dens</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">54</span><span class="w">                                        </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">55</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_temp_standard_deviation</span><span class="p">(</span><span class="n">std_temp</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">56</span><span class="w">                                        </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">57</span>
-<span class="linenos">58</span>    <span class="k">print</span> <span class="o">*</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">std_dens</span><span class="p">,</span> <span class="n">std_temp</span>
+<span class="linenos">58</span><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">std_dens</span><span class="p">,</span><span class="w"> </span><span class="n">std_temp</span>
 <span class="linenos">59</span>
-<span class="linenos">60</span>    <span class="c">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
-<span class="linenos">61</span>    <span class="c">! DTM2020 (above 120 km)</span>
+<span class="linenos">60</span><span class="w">    </span><span class="c">!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</span>
+<span class="linenos">61</span><span class="w">    </span><span class="c">! DTM2020 (above 120 km)</span>
 <span class="linenos">62</span>
-<span class="linenos">63</span>    <span class="c">! Get the temperature (K) density (g/cm3) using the DTM2020 model</span>
-<span class="linenos">64</span>    <span class="k">call </span><span class="n">get_dtm2020</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">65</span>                     <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">63</span><span class="w">    </span><span class="c">! Get the temperature (K) density (g/cm3) using the DTM2020 model</span>
+<span class="linenos">64</span><span class="w">    </span><span class="k">call </span><span class="n">get_dtm2020</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">65</span><span class="w">                     </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">66</span>
-<span class="linenos">67</span>    <span class="c">! Get the uncertainty (%) of the density</span>
-<span class="linenos">68</span>    <span class="k">call </span><span class="n">get_dtm2020_dens_uncertainty</span><span class="p">(</span><span class="n">unc</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="p">&amp;</span>
-<span class="linenos">69</span>                                      <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">67</span><span class="w">    </span><span class="c">! Get the uncertainty (%) of the density</span>
+<span class="linenos">68</span><span class="w">    </span><span class="k">call </span><span class="n">get_dtm2020_dens_uncertainty</span><span class="p">(</span><span class="n">unc</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">69</span><span class="w">                                      </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">70</span>
-<span class="linenos">71</span>    <span class="k">print</span> <span class="o">*</span><span class="p">,</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span><span class="p">,</span> <span class="n">unc</span>
+<span class="linenos">71</span><span class="w">    </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">unc</span>
 <span class="linenos">72</span>
 <span class="linenos">73</span><span class="k">end program </span><span class="n">point</span>
 </pre></div>
 </div>
 </section>
 <section id="altitude-profile">
-<h2>Altitude profile<a class="headerlink" href="#altitude-profile" title="Permalink to this headline">¶</a></h2>
+<h2>Altitude profile<a class="headerlink" href="#altitude-profile" title="Link to this heading"></a></h2>
 <p>This program is useful to get the density and temperature profiles at several points.</p>
 <p>Filename: examples/fortran/altitude_profile.f90</p>
 <p>In examples/fortran it is included a Python script that can plot the generated .dat files.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">altitude_profile</span>
 <span class="linenos"> 2</span>
-<span class="linenos"> 3</span>    <span class="k">use </span><span class="n">m_um</span>
-<span class="linenos"> 4</span>    <span class="k">use </span><span class="n">m_dtm</span>
-<span class="linenos"> 5</span>    <span class="k">use </span><span class="n">m_mcm</span>
+<span class="linenos"> 3</span><span class="w">    </span><span class="k">use </span><span class="n">m_um</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">use </span><span class="n">m_dtm</span>
+<span class="linenos"> 5</span><span class="w">    </span><span class="k">use </span><span class="n">m_mcm</span>
 <span class="linenos"> 6</span>
-<span class="linenos"> 7</span>    <span class="k">implicit none</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="k">implicit none</span>
 <span class="linenos"> 8</span>
-<span class="linenos"> 9</span><span class="k">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_um</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
-<span class="linenos">10</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_dtm</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
+<span class="linenos"> 9</span><span class="k">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_um</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_dtm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
 <span class="linenos">11</span>
-<span class="linenos">12</span>    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span>
 <span class="linenos">13</span>
-<span class="linenos">14</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">altitudes</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">250</span><span class="p">,</span> <span class="mi">5</span><span class="p">)]</span>
-<span class="linenos">15</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">times</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">180</span><span class="p">]</span>
-<span class="linenos">16</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">local_times</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
-<span class="linenos">17</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">latitudes</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">30</span><span class="p">)]</span>
-<span class="linenos">18</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="n">d0</span><span class="p">,</span> <span class="mi">140</span><span class="n">d0</span><span class="p">,</span> <span class="mi">170</span><span class="n">d0</span><span class="p">]</span>
-<span class="linenos">19</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107m</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">70</span><span class="n">d0</span><span class="p">,</span> <span class="mi">140</span><span class="n">d0</span><span class="p">,</span> <span class="mi">170</span><span class="n">d0</span><span class="p">]</span>
+<span class="linenos">14</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">altitudes</span><span class="p">(</span><span class="mi">51</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">250</span><span class="p">,</span><span class="w"> </span><span class="mi">5</span><span class="p">)]</span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">times</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">180</span><span class="p">]</span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">local_times</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)]</span>
+<span class="linenos">17</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">latitudes</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)]</span>
+<span class="linenos">18</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">70</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">140</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">170</span><span class="n">d0</span><span class="p">]</span>
+<span class="linenos">19</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107m</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">70</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">140</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">170</span><span class="n">d0</span><span class="p">]</span>
 <span class="linenos">20</span>
-<span class="linenos">21</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="n">d0</span><span class="p">,</span> <span class="mi">1</span><span class="n">d0</span><span class="p">]</span>
-<span class="linenos">22</span>    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">ih</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="n">ilt</span><span class="p">,</span> <span class="n">ilat</span><span class="p">,</span> <span class="n">isc</span>
-<span class="linenos">23</span>    <span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span> <span class="kd">::</span> <span class="n">fname</span>
-<span class="linenos">24</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">temp</span><span class="p">,</span> <span class="n">dens</span>
+<span class="linenos">21</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">d0</span><span class="p">]</span>
+<span class="linenos">22</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">ih</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="n">ilt</span><span class="p">,</span><span class="w"> </span><span class="n">ilat</span><span class="p">,</span><span class="w"> </span><span class="n">isc</span>
+<span class="linenos">23</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="nb">len</span><span class="o">=</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fname</span>
+<span class="linenos">24</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">dens</span>
 <span class="linenos">25</span>
-<span class="linenos">26</span>    <span class="c">! Initialise/load the model (calls lecdtm)</span>
-<span class="linenos">27</span>    <span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">data_um</span><span class="p">,</span> <span class="n">data_dtm</span><span class="p">)</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c">! Initialise/load the model (calls lecdtm)</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">data_um</span><span class="p">,</span><span class="w"> </span><span class="n">data_dtm</span><span class="p">)</span>
 <span class="linenos">28</span>
-<span class="linenos">29</span>    <span class="n">loop_sc</span><span class="p">:</span> <span class="k">do </span><span class="n">isc</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">f107</span><span class="p">)</span>         <span class="c">! solar cycle</span>
-<span class="linenos">30</span>    <span class="n">loop_t</span><span class="p">:</span> <span class="k">do </span><span class="n">it</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">times</span><span class="p">)</span>           <span class="c">! day of the year</span>
-<span class="linenos">31</span>    <span class="n">loop_lt</span><span class="p">:</span> <span class="k">do </span><span class="n">ilt</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">local_times</span><span class="p">)</span>   <span class="c">! local time</span>
-<span class="linenos">32</span>    <span class="n">loop_lat</span><span class="p">:</span> <span class="k">do </span><span class="n">ilat</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">latitudes</span><span class="p">)</span>   <span class="c">! latitude</span>
-<span class="linenos">33</span>        <span class="k">write</span> <span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;(A,I0.2,A,I0.2,A,I0.2,A,I0.2,A)&#39;</span><span class="p">)</span> <span class="s2">&quot;profile_sc&quot;</span><span class="p">,</span> <span class="n">isc</span><span class="p">,</span> <span class="s2">&quot;_lt&quot;</span><span class="p">,</span> <span class="n">ilt</span><span class="p">,</span> <span class="s2">&quot;_lat&quot;</span><span class="p">,</span> <span class="n">ilat</span><span class="p">,</span> <span class="s2">&quot;_t&quot;</span><span class="p">,</span> <span class="n">it</span><span class="p">,</span> <span class="s2">&quot;.dat&quot;</span>
-<span class="linenos">34</span>        <span class="k">open</span> <span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s2">&quot;altitude_profile/&quot;</span><span class="o">//</span><span class="s2">&quot;temp_&quot;</span><span class="o">//</span><span class="n">fname</span><span class="p">)</span>
-<span class="linenos">35</span>        <span class="k">open</span> <span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s2">&quot;altitude_profile/&quot;</span><span class="o">//</span><span class="s2">&quot;dens_&quot;</span><span class="o">//</span><span class="n">fname</span><span class="p">)</span>
-<span class="linenos">36</span>        <span class="k">write</span> <span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;Opening file &quot;</span><span class="p">,</span> <span class="n">fname</span>
+<span class="linenos">29</span><span class="w">    </span><span class="n">loop_sc</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">isc</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">f107</span><span class="p">)</span><span class="w">         </span><span class="c">! solar cycle</span>
+<span class="linenos">30</span><span class="w">    </span><span class="n">loop_t</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">it</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">times</span><span class="p">)</span><span class="w">           </span><span class="c">! day of the year</span>
+<span class="linenos">31</span><span class="w">    </span><span class="n">loop_lt</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">ilt</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">local_times</span><span class="p">)</span><span class="w">   </span><span class="c">! local time</span>
+<span class="linenos">32</span><span class="w">    </span><span class="n">loop_lat</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">ilat</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">latitudes</span><span class="p">)</span><span class="w">   </span><span class="c">! latitude</span>
+<span class="linenos">33</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(A,I0.2,A,I0.2,A,I0.2,A,I0.2,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;profile_sc&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">isc</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_lt&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ilt</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_lat&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">ilat</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;_t&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">it</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.dat&quot;</span>
+<span class="linenos">34</span><span class="w">        </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;altitude_profile/&quot;</span><span class="o">//</span><span class="s2">&quot;temp_&quot;</span><span class="o">//</span><span class="n">fname</span><span class="p">)</span>
+<span class="linenos">35</span><span class="w">        </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;altitude_profile/&quot;</span><span class="o">//</span><span class="s2">&quot;dens_&quot;</span><span class="o">//</span><span class="n">fname</span><span class="p">)</span>
+<span class="linenos">36</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;Opening file &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">fname</span>
 <span class="linenos">37</span>
-<span class="linenos">38</span>        <span class="c">! Save metadata in temperature file</span>
-<span class="linenos">39</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# time       : &quot;</span><span class="p">,</span> <span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-<span class="linenos">40</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# local_times: &quot;</span><span class="p">,</span> <span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">)</span>
-<span class="linenos">41</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# latitudes  : &quot;</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">)</span>
-<span class="linenos">42</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7      : &quot;</span><span class="p">,</span> <span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
-<span class="linenos">43</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7m     : &quot;</span><span class="p">,</span> <span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
-<span class="linenos">44</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# kp         : &quot;</span><span class="p">,</span> <span class="n">kps</span>
+<span class="linenos">38</span><span class="w">        </span><span class="c">! Save metadata in temperature file</span>
+<span class="linenos">39</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# time       : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos">40</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# local_times: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">)</span>
+<span class="linenos">41</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# latitudes  : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">)</span>
+<span class="linenos">42</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7      : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
+<span class="linenos">43</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7m     : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
+<span class="linenos">44</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# kp         : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span>
 <span class="linenos">45</span>
-<span class="linenos">46</span>        <span class="c">! Save metadata in density file</span>
-<span class="linenos">47</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# time       : &quot;</span><span class="p">,</span> <span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
-<span class="linenos">48</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# local_times: &quot;</span><span class="p">,</span> <span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">)</span>
-<span class="linenos">49</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# latitudes  : &quot;</span><span class="p">,</span> <span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">)</span>
-<span class="linenos">50</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7      : &quot;</span><span class="p">,</span> <span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
-<span class="linenos">51</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7m     : &quot;</span><span class="p">,</span> <span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
-<span class="linenos">52</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# kp         : &quot;</span><span class="p">,</span> <span class="n">kps</span>
-<span class="linenos">53</span>        <span class="n">loop_h</span><span class="p">:</span> <span class="k">do </span><span class="n">ih</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">altitudes</span><span class="p">)</span>
+<span class="linenos">46</span><span class="w">        </span><span class="c">! Save metadata in density file</span>
+<span class="linenos">47</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# time       : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">)</span>
+<span class="linenos">48</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# local_times: &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">)</span>
+<span class="linenos">49</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# latitudes  : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">)</span>
+<span class="linenos">50</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7      : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
+<span class="linenos">51</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7m     : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">)</span>
+<span class="linenos">52</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# kp         : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span>
+<span class="linenos">53</span><span class="w">        </span><span class="n">loop_h</span><span class="p">:</span><span class="w"> </span><span class="k">do </span><span class="n">ih</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">altitudes</span><span class="p">)</span>
 <span class="linenos">54</span>
-<span class="linenos">55</span>            <span class="c">! MCM</span>
-<span class="linenos">56</span>            <span class="k">call </span><span class="n">get_mcm_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span> <span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span> <span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">),</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">),</span> <span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="p">&amp;</span>
-<span class="linenos">57</span>                              <span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span> <span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">58</span>            <span class="k">call </span><span class="n">get_mcm_dens</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span> <span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span> <span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">),</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">),</span> <span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">),</span> <span class="p">&amp;</span>
-<span class="linenos">59</span>                              <span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span> <span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span> <span class="n">kps</span><span class="p">)</span>
+<span class="linenos">55</span><span class="w">            </span><span class="c">! MCM</span>
+<span class="linenos">56</span><span class="w">            </span><span class="k">call </span><span class="n">get_mcm_temp</span><span class="p">(</span><span class="n">temp</span><span class="p">,</span><span class="w"> </span><span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span><span class="w"> </span><span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">),</span><span class="w"> </span><span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">57</span><span class="w">                              </span><span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span><span class="w"> </span><span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">58</span><span class="w">            </span><span class="k">call </span><span class="n">get_mcm_dens</span><span class="p">(</span><span class="n">dens</span><span class="p">,</span><span class="w"> </span><span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span><span class="w"> </span><span class="n">latitudes</span><span class="p">(</span><span class="n">ilat</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="n">local_times</span><span class="p">(</span><span class="n">ilt</span><span class="p">),</span><span class="w"> </span><span class="n">times</span><span class="p">(</span><span class="n">it</span><span class="p">),</span><span class="w"> </span><span class="p">&amp;</span>
+<span class="linenos">59</span><span class="w">                              </span><span class="n">f107</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span><span class="w"> </span><span class="n">f107m</span><span class="p">(</span><span class="n">isc</span><span class="p">),</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
 <span class="linenos">60</span>
-<span class="linenos">61</span>            <span class="c">! save results</span>
-<span class="linenos">62</span>            <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="s1">&#39;(F15.6,F15.6)&#39;</span><span class="p">)</span> <span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span> <span class="n">temp</span>
-<span class="linenos">63</span>            <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="s1">&#39;(F15.6,E15.6)&#39;</span><span class="p">)</span> <span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span> <span class="n">dens</span>
-<span class="linenos">64</span>        <span class="k">end do </span><span class="n">loop_h</span>
-<span class="linenos">65</span>        <span class="k">close</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="linenos">66</span>        <span class="k">close</span> <span class="p">(</span><span class="mi">101</span><span class="p">)</span>
-<span class="linenos">67</span>    <span class="k">end do </span><span class="n">loop_lat</span>
-<span class="linenos">68</span>    <span class="k">end do </span><span class="n">loop_lt</span>
-<span class="linenos">69</span>    <span class="k">end do </span><span class="n">loop_t</span>
-<span class="linenos">70</span>    <span class="k">end do </span><span class="n">loop_sc</span>
+<span class="linenos">61</span><span class="w">            </span><span class="c">! save results</span>
+<span class="linenos">62</span><span class="w">            </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(F15.6,F15.6)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span><span class="w"> </span><span class="n">temp</span>
+<span class="linenos">63</span><span class="w">            </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(F15.6,E15.6)&#39;</span><span class="p">)</span><span class="w"> </span><span class="n">altitudes</span><span class="p">(</span><span class="n">ih</span><span class="p">),</span><span class="w"> </span><span class="n">dens</span>
+<span class="linenos">64</span><span class="w">        </span><span class="k">end do </span><span class="n">loop_h</span>
+<span class="linenos">65</span><span class="w">        </span><span class="k">close</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">66</span><span class="w">        </span><span class="k">close</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+<span class="linenos">67</span><span class="w">    </span><span class="k">end do </span><span class="n">loop_lat</span>
+<span class="linenos">68</span><span class="w">    </span><span class="k">end do </span><span class="n">loop_lt</span>
+<span class="linenos">69</span><span class="w">    </span><span class="k">end do </span><span class="n">loop_t</span>
+<span class="linenos">70</span><span class="w">    </span><span class="k">end do </span><span class="n">loop_sc</span>
 <span class="linenos">71</span>
 <span class="linenos">72</span><span class="k">end program </span><span class="n">altitude_profile</span>
 </pre></div>
 </div>
 </section>
 <section id="map-at-altitude">
-<h2>Map at altitude<a class="headerlink" href="#map-at-altitude" title="Permalink to this headline">¶</a></h2>
+<h2>Map at altitude<a class="headerlink" href="#map-at-altitude" title="Link to this heading"></a></h2>
 <p>This program is useful to get the density and temperature maps at different altitudes.</p>
 <p>Filename: examples/fortran/map_altitude.f90</p>
 <p>In examples/fortran it is included a Python script that can plot the generated .dat files.</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">map_altitude</span>
-<span class="linenos"> 2</span>    <span class="k">use </span><span class="n">m_mcm</span><span class="p">,</span> <span class="k">only</span><span class="p">:</span> <span class="n">get_mcm_dens</span><span class="p">,</span> <span class="n">get_mcm_temp</span><span class="p">,</span> <span class="n">init_mcm</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="k">use </span><span class="n">m_mcm</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">get_mcm_dens</span><span class="p">,</span><span class="w"> </span><span class="n">get_mcm_temp</span><span class="p">,</span><span class="w"> </span><span class="n">init_mcm</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span>    <span class="k">implicit none</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">implicit none</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span><span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">altitude</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">90</span><span class="p">,</span> <span class="mi">140</span><span class="p">,</span> <span class="mi">300</span><span class="p">]</span>  <span class="c">! km</span>
+<span class="linenos"> 6</span><span class="k">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">altitude</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">140</span><span class="p">,</span><span class="w"> </span><span class="mi">300</span><span class="p">]</span><span class="w">  </span><span class="c">! km</span>
 <span class="linenos"> 7</span>
-<span class="linenos"> 8</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_um</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
-<span class="linenos"> 9</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_dtm</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
-<span class="linenos">10</span>    <span class="kt">character</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span> <span class="kd">::</span> <span class="n">fname</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_um</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_dtm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
+<span class="linenos">10</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="mi">100</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">fname</span>
 <span class="linenos">11</span>
-<span class="linenos">12</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">f107m</span> <span class="o">=</span> <span class="mi">100</span><span class="p">,</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">]</span>
-<span class="linenos">13</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">doy</span> <span class="o">=</span> <span class="mi">180</span><span class="p">,</span> <span class="n">aux</span>
-<span class="linenos">14</span>    <span class="kt">integer</span> <span class="kd">::</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">,</span> <span class="n">k</span>
-<span class="linenos">15</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">lat</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">30</span><span class="p">)]</span>
-<span class="linenos">16</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">lt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span> <span class="o">=</span> <span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">6</span><span class="p">)]</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="p">]</span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">doy</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">180</span><span class="p">,</span><span class="w"> </span><span class="n">aux</span>
+<span class="linenos">14</span><span class="w">    </span><span class="kt">integer</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">,</span><span class="w"> </span><span class="n">k</span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lat</span><span class="p">(</span><span class="mi">7</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=-</span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">90</span><span class="p">,</span><span class="w"> </span><span class="mi">30</span><span class="p">)]</span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">lt</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[(</span><span class="nb">dble</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="n">i</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span><span class="w"> </span><span class="mi">24</span><span class="p">,</span><span class="w"> </span><span class="mi">6</span><span class="p">)]</span>
 <span class="linenos">17</span>
-<span class="linenos">18</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">temp</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">lt</span><span class="p">))</span>
-<span class="linenos">19</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">dens</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span> <span class="n">size</span><span class="p">(</span><span class="n">lt</span><span class="p">))</span>
+<span class="linenos">18</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">temp</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">lt</span><span class="p">))</span>
+<span class="linenos">19</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">dens</span><span class="p">(</span><span class="n">size</span><span class="p">(</span><span class="n">lat</span><span class="p">),</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">lt</span><span class="p">))</span>
 <span class="linenos">20</span>
-<span class="linenos">21</span>    <span class="c">! Load the model</span>
-<span class="linenos">22</span>    <span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">data_um</span><span class="p">,</span> <span class="n">data_dtm</span><span class="p">)</span>
+<span class="linenos">21</span><span class="w">    </span><span class="c">! Load the model</span>
+<span class="linenos">22</span><span class="w">    </span><span class="k">call </span><span class="n">init_mcm</span><span class="p">(</span><span class="n">data_um</span><span class="p">,</span><span class="w"> </span><span class="n">data_dtm</span><span class="p">)</span>
 <span class="linenos">23</span>
-<span class="linenos">24</span>    <span class="k">do </span><span class="n">k</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
-<span class="linenos">25</span>        <span class="k">write</span> <span class="p">(</span><span class="n">fname</span><span class="p">,</span> <span class="s1">&#39;(A,I0.2,A)&#39;</span><span class="p">)</span> <span class="s2">&quot;map_&quot;</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="s2">&quot;.dat&quot;</span>
+<span class="linenos">24</span><span class="w">    </span><span class="k">do </span><span class="n">k</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">altitude</span><span class="p">)</span>
+<span class="linenos">25</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="n">fname</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;(A,I0.2,A)&#39;</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;map_&quot;</span><span class="p">,</span><span class="w"> </span><span class="n">k</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;.dat&quot;</span>
 <span class="linenos">26</span>
-<span class="linenos">27</span>        <span class="k">open</span> <span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s2">&quot;map_altitude/temp_&quot;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
-<span class="linenos">28</span>        <span class="k">open</span> <span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span> <span class="k">file</span><span class="o">=</span><span class="s2">&quot;map_altitude/dens_&quot;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+<span class="linenos">27</span><span class="w">        </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;map_altitude/temp_&quot;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
+<span class="linenos">28</span><span class="w">        </span><span class="k">open</span><span class="w"> </span><span class="p">(</span><span class="n">unit</span><span class="o">=</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="k">file</span><span class="o">=</span><span class="s2">&quot;map_altitude/dens_&quot;</span><span class="o">//</span><span class="nb">trim</span><span class="p">(</span><span class="n">fname</span><span class="p">))</span>
 <span class="linenos">29</span>
-<span class="linenos">30</span>        <span class="k">print</span> <span class="o">*</span><span class="p">,</span> <span class="n">fname</span>
-<span class="linenos">31</span>        <span class="n">temp</span><span class="p">(:,</span> <span class="p">:)</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>
-<span class="linenos">32</span>        <span class="n">dens</span><span class="p">(:,</span> <span class="p">:)</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>
+<span class="linenos">30</span><span class="w">        </span><span class="k">print</span><span class="w"> </span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="n">fname</span>
+<span class="linenos">31</span><span class="w">        </span><span class="n">temp</span><span class="p">(:,</span><span class="w"> </span><span class="p">:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span>
+<span class="linenos">32</span><span class="w">        </span><span class="n">dens</span><span class="p">(:,</span><span class="w"> </span><span class="p">:)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span>
 <span class="linenos">33</span>
-<span class="linenos">34</span>        <span class="c">! Save metadata in temperature file</span>
-<span class="linenos">35</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# altitude : &quot;</span><span class="p">,</span> <span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<span class="linenos">36</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# latitudes : &quot;</span><span class="p">,</span> <span class="n">lat</span>
-<span class="linenos">37</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# local_times : &quot;</span><span class="p">,</span> <span class="n">lt</span>
-<span class="linenos">38</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7 : &quot;</span><span class="p">,</span> <span class="n">f107</span>
-<span class="linenos">39</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7m : &quot;</span><span class="p">,</span> <span class="n">f107m</span>
-<span class="linenos">40</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# doy : &quot;</span><span class="p">,</span> <span class="n">doy</span>
-<span class="linenos">41</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# kp : &quot;</span><span class="p">,</span> <span class="n">kps</span>
+<span class="linenos">34</span><span class="w">        </span><span class="c">! Save metadata in temperature file</span>
+<span class="linenos">35</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# altitude : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="linenos">36</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# latitudes : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lat</span>
+<span class="linenos">37</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# local_times : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span>
+<span class="linenos">38</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7 : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span>
+<span class="linenos">39</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7m : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span>
+<span class="linenos">40</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# doy : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">doy</span>
+<span class="linenos">41</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# kp : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span>
 <span class="linenos">42</span>
-<span class="linenos">43</span>        <span class="c">! Save metadata in density file</span>
-<span class="linenos">44</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# altitude : &quot;</span><span class="p">,</span> <span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
-<span class="linenos">45</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# latitudes : &quot;</span><span class="p">,</span> <span class="n">lat</span>
-<span class="linenos">46</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# local_times : &quot;</span><span class="p">,</span> <span class="n">lt</span>
-<span class="linenos">47</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7 : &quot;</span><span class="p">,</span> <span class="n">f107</span>
-<span class="linenos">48</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# f10.7m : &quot;</span><span class="p">,</span> <span class="n">f107m</span>
-<span class="linenos">49</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# kp : &quot;</span><span class="p">,</span> <span class="n">kps</span>
-<span class="linenos">50</span>        <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="s2">&quot;# doy : &quot;</span><span class="p">,</span> <span class="n">doy</span>
+<span class="linenos">43</span><span class="w">        </span><span class="c">! Save metadata in density file</span>
+<span class="linenos">44</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# altitude : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+<span class="linenos">45</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# latitudes : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lat</span>
+<span class="linenos">46</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# local_times : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span>
+<span class="linenos">47</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7 : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span>
+<span class="linenos">48</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# f10.7m : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span>
+<span class="linenos">49</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# kp : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span>
+<span class="linenos">50</span><span class="w">        </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="s2">&quot;# doy : &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">doy</span>
 <span class="linenos">51</span>
-<span class="linenos">52</span>        <span class="k">do </span><span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span>     <span class="c">! loop latitude</span>
-<span class="linenos">53</span>            <span class="k">do </span><span class="n">j</span> <span class="o">=</span> <span class="mi">1</span><span class="p">,</span> <span class="n">size</span><span class="p">(</span><span class="n">lt</span><span class="p">)</span>  <span class="c">! loop local time</span>
-<span class="linenos">54</span>                <span class="k">call </span><span class="n">get_mcm_dens</span><span class="p">(</span><span class="n">aux</span><span class="p">,</span> <span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">lat</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="n">lt</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="n">doy</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">55</span>                <span class="n">dens</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">aux</span>
-<span class="linenos">56</span>                <span class="k">call </span><span class="n">get_mcm_temp</span><span class="p">(</span><span class="n">aux</span><span class="p">,</span> <span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">),</span> <span class="n">lat</span><span class="p">(</span><span class="n">i</span><span class="p">),</span> <span class="mi">0</span><span class="n">d0</span><span class="p">,</span> <span class="n">lt</span><span class="p">(</span><span class="n">j</span><span class="p">),</span> <span class="n">doy</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">57</span>                <span class="n">temp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="o">=</span> <span class="n">aux</span>
-<span class="linenos">58</span>            <span class="k">end do</span>
-<span class="linenos">59</span><span class="k">            write</span> <span class="p">(</span><span class="mi">100</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">temp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">:)</span>
-<span class="linenos">60</span>            <span class="k">write</span> <span class="p">(</span><span class="mi">101</span><span class="p">,</span> <span class="o">*</span><span class="p">)</span> <span class="n">dens</span><span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="p">:)</span>
-<span class="linenos">61</span>        <span class="k">end do</span>
-<span class="linenos">62</span><span class="k">        close</span> <span class="p">(</span><span class="mi">100</span><span class="p">)</span>
-<span class="linenos">63</span>        <span class="k">close</span> <span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+<span class="linenos">52</span><span class="w">        </span><span class="k">do </span><span class="n">i</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">lat</span><span class="p">)</span><span class="w">     </span><span class="c">! loop latitude</span>
+<span class="linenos">53</span><span class="w">            </span><span class="k">do </span><span class="n">j</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w"> </span><span class="n">size</span><span class="p">(</span><span class="n">lt</span><span class="p">)</span><span class="w">  </span><span class="c">! loop local time</span>
+<span class="linenos">54</span><span class="w">                </span><span class="k">call </span><span class="n">get_mcm_dens</span><span class="p">(</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">lat</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="n">doy</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">55</span><span class="w">                </span><span class="n">dens</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span>
+<span class="linenos">56</span><span class="w">                </span><span class="k">call </span><span class="n">get_mcm_temp</span><span class="p">(</span><span class="n">aux</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">(</span><span class="n">k</span><span class="p">),</span><span class="w"> </span><span class="n">lat</span><span class="p">(</span><span class="n">i</span><span class="p">),</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="n">lt</span><span class="p">(</span><span class="n">j</span><span class="p">),</span><span class="w"> </span><span class="n">doy</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">57</span><span class="w">                </span><span class="n">temp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="n">j</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">aux</span>
+<span class="linenos">58</span><span class="w">            </span><span class="k">end do</span>
+<span class="linenos">59</span><span class="k">            write</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">temp</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span>
+<span class="linenos">60</span><span class="w">            </span><span class="k">write</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">,</span><span class="w"> </span><span class="o">*</span><span class="p">)</span><span class="w"> </span><span class="n">dens</span><span class="p">(</span><span class="n">i</span><span class="p">,</span><span class="w"> </span><span class="p">:)</span>
+<span class="linenos">61</span><span class="w">        </span><span class="k">end do</span>
+<span class="linenos">62</span><span class="k">        close</span><span class="w"> </span><span class="p">(</span><span class="mi">100</span><span class="p">)</span>
+<span class="linenos">63</span><span class="w">        </span><span class="k">close</span><span class="w"> </span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
 <span class="linenos">64</span>
-<span class="linenos">65</span>    <span class="k">end do</span>
+<span class="linenos">65</span><span class="w">    </span><span class="k">end do</span>
 <span class="linenos">66</span>
 <span class="linenos">67</span><span class="k">end program </span><span class="n">map_altitude</span>
 </pre></div>
 </div>
 </section>
 <section id="um-winds">
-<h2>UM Winds<a class="headerlink" href="#um-winds" title="Permalink to this headline">¶</a></h2>
+<h2>UM Winds<a class="headerlink" href="#um-winds" title="Link to this heading"></a></h2>
 <p>This example shows how to get the UM winds at a single point.</p>
 <p>Filename: examples/fortran/winds.f90</p>
 <div class="highlight-fortran notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="k">program </span><span class="n">winds</span>
-<span class="linenos"> 2</span>    <span class="k">use </span><span class="n">m_um</span><span class="p">,</span> <span class="k">only</span><span class="p">:</span> <span class="n">get_um_xwind</span><span class="p">,</span> <span class="n">get_um_ywind</span><span class="p">,</span> <span class="n">init_um</span>
+<span class="linenos"> 2</span><span class="w">    </span><span class="k">use </span><span class="n">m_um</span><span class="p">,</span><span class="w"> </span><span class="k">only</span><span class="p">:</span><span class="w"> </span><span class="n">get_um_xwind</span><span class="p">,</span><span class="w"> </span><span class="n">get_um_ywind</span><span class="p">,</span><span class="w"> </span><span class="n">init_um</span>
 <span class="linenos"> 3</span>
-<span class="linenos"> 4</span>    <span class="k">implicit none</span>
+<span class="linenos"> 4</span><span class="w">    </span><span class="k">implicit none</span>
 <span class="linenos"> 5</span>
-<span class="linenos"> 6</span>    <span class="c">! Path where to find the UM netCDF files in folders 2002, 2004, 2008-2009</span>
-<span class="linenos"> 7</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_um</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
-<span class="linenos"> 8</span>    <span class="c">! Path where to find the &quot;DTM_2020_F107_Kp.dat&quot; file</span>
-<span class="linenos"> 9</span>    <span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span> <span class="k">parameter</span> <span class="kd">::</span> <span class="n">data_dtm</span> <span class="o">=</span> <span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
+<span class="linenos"> 6</span><span class="w">    </span><span class="c">! Path where to find the UM netCDF files in folders 2002, 2004, 2008-2009</span>
+<span class="linenos"> 7</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_um</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/um/&quot;</span>
+<span class="linenos"> 8</span><span class="w">    </span><span class="c">! Path where to find the &quot;DTM_2020_F107_Kp.dat&quot; file</span>
+<span class="linenos"> 9</span><span class="w">    </span><span class="kt">character</span><span class="p">(</span><span class="o">*</span><span class="p">),</span><span class="w"> </span><span class="k">parameter</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">data_dtm</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s2">&quot;/home/dala/swami/swami/data/&quot;</span>
 <span class="linenos">10</span>
-<span class="linenos">11</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">altitude</span> <span class="o">=</span> <span class="mi">6</span><span class="mf">0.0d0</span>   <span class="c">! km</span>
-<span class="linenos">12</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">day_of_year</span> <span class="o">=</span> <span class="mi">5</span><span class="mf">3.0d0</span>    <span class="c">! days</span>
-<span class="linenos">13</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">local_time</span> <span class="o">=</span> <span class="mi">1</span><span class="mf">2.0d0</span>    <span class="c">! hours</span>
-<span class="linenos">14</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">latitude</span> <span class="o">=</span> <span class="mi">0</span><span class="n">d0</span>       <span class="c">! degrees</span>
-<span class="linenos">15</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">longitude</span> <span class="o">=</span> <span class="mi">15</span><span class="n">d0</span>      <span class="c">! degrees</span>
-<span class="linenos">16</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107</span> <span class="o">=</span> <span class="mi">140</span><span class="n">d0</span>     <span class="c">! F10.7</span>
-<span class="linenos">17</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="n">d0</span><span class="p">,</span> <span class="mi">1</span><span class="n">d0</span><span class="p">]</span>      <span class="c">! Kp</span>
-<span class="linenos">18</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">f107m</span>
+<span class="linenos">11</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">altitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">6</span><span class="mf">0.0d0</span><span class="w">   </span><span class="c">! km</span>
+<span class="linenos">12</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">day_of_year</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">5</span><span class="mf">3.0d0</span><span class="w">    </span><span class="c">! days</span>
+<span class="linenos">13</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">local_time</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">1</span><span class="mf">2.0d0</span><span class="w">    </span><span class="c">! hours</span>
+<span class="linenos">14</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">latitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">0</span><span class="n">d0</span><span class="w">       </span><span class="c">! degrees</span>
+<span class="linenos">15</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">longitude</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">15</span><span class="n">d0</span><span class="w">      </span><span class="c">! degrees</span>
+<span class="linenos">16</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">140</span><span class="n">d0</span><span class="w">     </span><span class="c">! F10.7</span>
+<span class="linenos">17</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">kps</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span><span class="mi">1</span><span class="n">d0</span><span class="p">,</span><span class="w"> </span><span class="mi">1</span><span class="n">d0</span><span class="p">]</span><span class="w">      </span><span class="c">! Kp</span>
+<span class="linenos">18</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">f107m</span>
 <span class="linenos">19</span>
-<span class="linenos">20</span>    <span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span> <span class="kd">::</span> <span class="n">x_wind</span><span class="p">,</span> <span class="n">y_wind</span>
+<span class="linenos">20</span><span class="w">    </span><span class="kt">real</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span><span class="w"> </span><span class="kd">::</span><span class="w"> </span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="n">y_wind</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span>    <span class="c">! Init model (load path)</span>
-<span class="linenos">23</span>    <span class="k">call </span><span class="n">init_um</span><span class="p">(</span><span class="n">data_um</span><span class="p">)</span>
+<span class="linenos">22</span><span class="w">    </span><span class="c">! Init model (load path)</span>
+<span class="linenos">23</span><span class="w">    </span><span class="k">call </span><span class="n">init_um</span><span class="p">(</span><span class="n">data_um</span><span class="p">)</span>
 <span class="linenos">24</span>
 <span class="linenos">25</span>
-<span class="linenos">26</span>    <span class="c">! Solar cycle 1: f107m &lt; 120</span>
-<span class="linenos">27</span>    <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s2">&quot;Solar cycle 1: f107m &lt; 120&quot;</span>
-<span class="linenos">28</span>    <span class="n">f107m</span> <span class="o">=</span> <span class="mi">70</span><span class="n">d0</span>
-<span class="linenos">29</span>    <span class="k">call </span><span class="n">get_um_xwind</span><span class="p">(</span><span class="n">x_wind</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">30</span>    <span class="k">call </span><span class="n">get_um_ywind</span><span class="p">(</span><span class="n">y_wind</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">31</span>    <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s2">&quot;f107m = &quot;</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="s2">&quot;x_wind = &quot;</span><span class="p">,</span> <span class="n">x_wind</span><span class="p">,</span> <span class="s2">&quot;y_wind = &quot;</span><span class="p">,</span> <span class="n">y_wind</span>
-<span class="linenos">32</span>    
-<span class="linenos">33</span>    <span class="c">! Solar cycle 2: 120 &lt; f107m &lt; 160</span>
-<span class="linenos">34</span>    <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s2">&quot;Solar cycle 2: 120 &lt; f107m &lt; 160&quot;</span>
-<span class="linenos">35</span>    <span class="n">f107m</span> <span class="o">=</span> <span class="mi">140</span><span class="n">d0</span>
-<span class="linenos">36</span>    <span class="k">call </span><span class="n">get_um_xwind</span><span class="p">(</span><span class="n">x_wind</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">37</span>    <span class="k">call </span><span class="n">get_um_ywind</span><span class="p">(</span><span class="n">y_wind</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">38</span>    <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s2">&quot;f107m = &quot;</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="s2">&quot;x_wind = &quot;</span><span class="p">,</span> <span class="n">x_wind</span><span class="p">,</span> <span class="s2">&quot;y_wind = &quot;</span><span class="p">,</span> <span class="n">y_wind</span>
-<span class="linenos">39</span>    
-<span class="linenos">40</span>    <span class="c">! Solar cycle 3: f107m &gt; 160</span>
-<span class="linenos">41</span>    <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s2">&quot;Solar cycle 3: f107m &gt; 160&quot;</span>
-<span class="linenos">42</span>    <span class="n">f107m</span> <span class="o">=</span> <span class="mi">170</span><span class="n">d0</span>
-<span class="linenos">43</span>    <span class="k">call </span><span class="n">get_um_xwind</span><span class="p">(</span><span class="n">x_wind</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">44</span>    <span class="k">call </span><span class="n">get_um_ywind</span><span class="p">(</span><span class="n">y_wind</span><span class="p">,</span> <span class="n">altitude</span><span class="p">,</span> <span class="n">latitude</span><span class="p">,</span> <span class="n">longitude</span><span class="p">,</span> <span class="n">local_time</span><span class="p">,</span> <span class="n">day_of_year</span><span class="p">,</span> <span class="n">f107</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="n">kps</span><span class="p">)</span>
-<span class="linenos">45</span>    <span class="k">print</span><span class="o">*</span><span class="p">,</span> <span class="s2">&quot;f107m = &quot;</span><span class="p">,</span> <span class="n">f107m</span><span class="p">,</span> <span class="s2">&quot;x_wind = &quot;</span><span class="p">,</span> <span class="n">x_wind</span><span class="p">,</span> <span class="s2">&quot;y_wind = &quot;</span><span class="p">,</span> <span class="n">y_wind</span>
+<span class="linenos">26</span><span class="w">    </span><span class="c">! Solar cycle 1: f107m &lt; 120</span>
+<span class="linenos">27</span><span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Solar cycle 1: f107m &lt; 120&quot;</span>
+<span class="linenos">28</span><span class="w">    </span><span class="n">f107m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">70</span><span class="n">d0</span>
+<span class="linenos">29</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_xwind</span><span class="p">(</span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">30</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_ywind</span><span class="p">(</span><span class="n">y_wind</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">31</span><span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;f107m = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;x_wind = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y_wind = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">y_wind</span>
+<span class="linenos">32</span><span class="w">    </span>
+<span class="linenos">33</span><span class="w">    </span><span class="c">! Solar cycle 2: 120 &lt; f107m &lt; 160</span>
+<span class="linenos">34</span><span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Solar cycle 2: 120 &lt; f107m &lt; 160&quot;</span>
+<span class="linenos">35</span><span class="w">    </span><span class="n">f107m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">140</span><span class="n">d0</span>
+<span class="linenos">36</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_xwind</span><span class="p">(</span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">37</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_ywind</span><span class="p">(</span><span class="n">y_wind</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">38</span><span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;f107m = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;x_wind = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y_wind = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">y_wind</span>
+<span class="linenos">39</span><span class="w">    </span>
+<span class="linenos">40</span><span class="w">    </span><span class="c">! Solar cycle 3: f107m &gt; 160</span>
+<span class="linenos">41</span><span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;Solar cycle 3: f107m &gt; 160&quot;</span>
+<span class="linenos">42</span><span class="w">    </span><span class="n">f107m</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mi">170</span><span class="n">d0</span>
+<span class="linenos">43</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_xwind</span><span class="p">(</span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">44</span><span class="w">    </span><span class="k">call </span><span class="n">get_um_ywind</span><span class="p">(</span><span class="n">y_wind</span><span class="p">,</span><span class="w"> </span><span class="n">altitude</span><span class="p">,</span><span class="w"> </span><span class="n">latitude</span><span class="p">,</span><span class="w"> </span><span class="n">longitude</span><span class="p">,</span><span class="w"> </span><span class="n">local_time</span><span class="p">,</span><span class="w"> </span><span class="n">day_of_year</span><span class="p">,</span><span class="w"> </span><span class="n">f107</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="n">kps</span><span class="p">)</span>
+<span class="linenos">45</span><span class="w">    </span><span class="k">print</span><span class="o">*</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;f107m = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">f107m</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;x_wind = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">x_wind</span><span class="p">,</span><span class="w"> </span><span class="s2">&quot;y_wind = &quot;</span><span class="p">,</span><span class="w"> </span><span class="n">y_wind</span>
 <span class="linenos">46</span>
 <span class="linenos">47</span>
 <span class="linenos">48</span><span class="k">end program </span><span class="n">winds</span>
@@ -500,45 +387,45 @@ Also, it shows how to get the uncertainties.</p>
 </div>
 </section>
 <section id="compilation-script">
-<h2>Compilation script<a class="headerlink" href="#compilation-script" title="Permalink to this headline">¶</a></h2>
+<h2>Compilation script<a class="headerlink" href="#compilation-script" title="Link to this heading"></a></h2>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="linenos"> 1</span><span class="ch">#!/usr/bin/env bash</span>
 <span class="linenos"> 2</span>
 <span class="linenos"> 3</span><span class="nv">SRC</span><span class="o">=</span><span class="s1">&#39;../../src/libswamif&#39;</span>
 <span class="linenos"> 4</span><span class="nv">FLAGS</span><span class="o">=</span><span class="s1">&#39;-Wall -pedantic -Warray-bounds -fbacktrace&#39;</span>
 <span class="linenos"> 5</span><span class="c1"># FLAGS=&#39;&#39;</span>
-<span class="linenos"> 6</span><span class="nv">L_NETCDF</span><span class="o">=</span><span class="k">$(</span>nf-config --fflags --flibs<span class="k">)</span>
+<span class="linenos"> 6</span><span class="nv">L_NETCDF</span><span class="o">=</span><span class="k">$(</span>nf-config<span class="w"> </span>--fflags<span class="w"> </span>--flibs<span class="k">)</span>
 <span class="linenos"> 7</span><span class="nv">M_INTERP</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SRC</span><span class="s2">/m_interp.f90&quot;</span>
 <span class="linenos"> 8</span><span class="nv">M_UM</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$M_INTERP</span><span class="s2"> </span><span class="nv">$SRC</span><span class="s2">/m_um.f90&quot;</span>
 <span class="linenos"> 9</span><span class="nv">M_DTM</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$SRC</span><span class="s2">/dtm2020_F107_Kp-subr_MCM.f90 </span><span class="nv">$SRC</span><span class="s2">/dtm2020_sigma_function.f90 </span><span class="nv">$SRC</span><span class="s2">/m_dtm.f90&quot;</span>
 <span class="linenos">10</span><span class="nv">M_MCM</span><span class="o">=</span><span class="s2">&quot;</span><span class="nv">$M_UM</span><span class="s2"> </span><span class="nv">$M_DTM</span><span class="s2"> </span><span class="nv">$SRC</span><span class="s2">/m_mcm.f90&quot;</span>
 <span class="linenos">11</span>
-<span class="linenos">12</span><span class="nb">echo</span> <span class="s2">&quot;&gt;&gt;&gt; Delete old tests&quot;</span>
-<span class="linenos">13</span>rm *.o
-<span class="linenos">14</span>rm *.mod
-<span class="linenos">15</span>rm *.x
-<span class="linenos">16</span>rm *.log
-<span class="linenos">17</span>rm *.test
-<span class="linenos">18</span>rm *.dat
-<span class="linenos">19</span>rm *.png
+<span class="linenos">12</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&gt;&gt;&gt; Delete old tests&quot;</span>
+<span class="linenos">13</span>rm<span class="w"> </span>*.o
+<span class="linenos">14</span>rm<span class="w"> </span>*.mod
+<span class="linenos">15</span>rm<span class="w"> </span>*.x
+<span class="linenos">16</span>rm<span class="w"> </span>*.log
+<span class="linenos">17</span>rm<span class="w"> </span>*.test
+<span class="linenos">18</span>rm<span class="w"> </span>*.dat
+<span class="linenos">19</span>rm<span class="w"> </span>*.png
 <span class="linenos">20</span>
 <span class="linenos">21</span>
-<span class="linenos">22</span><span class="nb">echo</span> <span class="s2">&quot;&gt;&gt;&gt; SINGLE POINT&quot;</span>
-<span class="linenos">23</span>gfortran <span class="nv">$M_MCM</span> point.f90 -o point.x <span class="nv">$FLAGS</span> <span class="nv">$L_NETCDF</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;Compilation point succeded!&quot;</span>
+<span class="linenos">22</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&gt;&gt;&gt; SINGLE POINT&quot;</span>
+<span class="linenos">23</span>gfortran<span class="w"> </span><span class="nv">$M_MCM</span><span class="w"> </span>point.f90<span class="w"> </span>-o<span class="w"> </span>point.x<span class="w"> </span><span class="nv">$FLAGS</span><span class="w"> </span><span class="nv">$L_NETCDF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compilation point succeded!&quot;</span>
 <span class="linenos">24</span><span class="c1"># ./point.x</span>
 <span class="linenos">25</span>
 <span class="linenos">26</span>
-<span class="linenos">27</span><span class="nb">echo</span> <span class="s2">&quot;&gt;&gt;&gt; ALTITUDE PROFILE&quot;</span>
-<span class="linenos">28</span>mkdir -p altitude_profile
-<span class="linenos">29</span>gfortran <span class="nv">$M_MCM</span> altitude_profile.f90 -o altitude_profile.x <span class="nv">$FLAGS</span> <span class="nv">$L_NETCDF</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;Compilation altitude_profiles succeded!&quot;</span>
+<span class="linenos">27</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&gt;&gt;&gt; ALTITUDE PROFILE&quot;</span>
+<span class="linenos">28</span>mkdir<span class="w"> </span>-p<span class="w"> </span>altitude_profile
+<span class="linenos">29</span>gfortran<span class="w"> </span><span class="nv">$M_MCM</span><span class="w"> </span>altitude_profile.f90<span class="w"> </span>-o<span class="w"> </span>altitude_profile.x<span class="w"> </span><span class="nv">$FLAGS</span><span class="w"> </span><span class="nv">$L_NETCDF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compilation altitude_profiles succeded!&quot;</span>
 <span class="linenos">30</span><span class="c1"># ./altitude_profile.x</span>
 <span class="linenos">31</span>
-<span class="linenos">32</span><span class="nb">echo</span> <span class="s2">&quot;&gt;&gt;&gt; map ALTITUDE&quot;</span>
-<span class="linenos">33</span>mkdir -p map_altitude
-<span class="linenos">34</span>gfortran <span class="nv">$M_MCM</span> map_altitude.f90 -o map_altitude.x <span class="nv">$FLAGS</span> <span class="nv">$L_NETCDF</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;Compilation map_altitude succeded!&quot;</span>
+<span class="linenos">32</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&gt;&gt;&gt; map ALTITUDE&quot;</span>
+<span class="linenos">33</span>mkdir<span class="w"> </span>-p<span class="w"> </span>map_altitude
+<span class="linenos">34</span>gfortran<span class="w"> </span><span class="nv">$M_MCM</span><span class="w"> </span>map_altitude.f90<span class="w"> </span>-o<span class="w"> </span>map_altitude.x<span class="w"> </span><span class="nv">$FLAGS</span><span class="w"> </span><span class="nv">$L_NETCDF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compilation map_altitude succeded!&quot;</span>
 <span class="linenos">35</span><span class="c1"># ./map_altitude.x</span>
 <span class="linenos">36</span>
-<span class="linenos">37</span><span class="nb">echo</span> <span class="s2">&quot;&gt;&gt;&gt; WINDS&quot;</span>
-<span class="linenos">38</span>gfortran <span class="nv">$M_MCM</span> winds.f90 -o winds.x <span class="nv">$FLAGS</span> <span class="nv">$L_NETCDF</span> <span class="o">&amp;&amp;</span> <span class="nb">echo</span> <span class="s2">&quot;Compilation winds succeded!&quot;</span>
+<span class="linenos">37</span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&gt;&gt;&gt; WINDS&quot;</span>
+<span class="linenos">38</span>gfortran<span class="w"> </span><span class="nv">$M_MCM</span><span class="w"> </span>winds.f90<span class="w"> </span>-o<span class="w"> </span>winds.x<span class="w"> </span><span class="nv">$FLAGS</span><span class="w"> </span><span class="nv">$L_NETCDF</span><span class="w"> </span><span class="o">&amp;&amp;</span><span class="w"> </span><span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;Compilation winds succeded!&quot;</span>
 <span class="linenos">39</span><span class="c1"># ./winds.x</span>
 </pre></div>
 </div>
@@ -547,50 +434,33 @@ Also, it shows how to get the uncertainties.</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="python.html" class="btn btn-neutral float-right" title="Python wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="fortran.html" class="btn btn-neutral float-left" title="Fortran modules" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="python.html" class="btn btn-neutral float-right" title="Python wrapper" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, SWAMI.
-
-    </p>
+    <p>&#169; Copyright 2021, SWAMI.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

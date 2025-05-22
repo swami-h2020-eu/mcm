@@ -1,98 +1,50 @@
 
 
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" >
+<html class="writer-html5" lang="en" data-content_root="./">
 <head>
-  <meta charset="utf-8" />
-  <meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
   <title>Drag Temperature Model (DTM2020) &mdash; SWAMI v1.0 documentation</title>
-  
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
+      <link rel="stylesheet" type="text/css" href="_static/graphviz.css?v=4ae1632d" />
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/graphviz.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
-  <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
-  <![endif]-->
-  
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
-        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
-    
-    <script type="text/javascript" src="_static/js/theme.js"></script>
-
-    
+      <script src="_static/jquery.js?v=5d32c60e"></script>
+      <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="_static/documentation_options.js?v=e160b93e"></script>
+      <script src="_static/doctools.js?v=9bcbadda"></script>
+      <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Fortran modules" href="fortran.html" />
     <link rel="prev" title="Unified Model (UM)" href="um.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search"  style="background: white" >
-          
 
           
-            <a href="index.html" class="icon icon-home"> SWAMI
           
-
-          
-            
-            <img src="_static/logo.png" class="logo" alt="Logo"/>
-          
+          <a href="index.html" class="icon icon-home">
+            SWAMI
+              <img src="_static/logo.png" class="logo" alt="Logo"/>
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" />
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Index</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference external" href="http://swami-h2020.eu/">SWAMI Website</a></li>
@@ -115,105 +67,40 @@
 <li class="toctree-l1"><a class="reference internal" href="license.html">License</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu"  style="background: white" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
           <a href="index.html">SWAMI</a>
-        
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
-        
-      <li>Drag Temperature Model (DTM2020)</li>
-    
-    
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Drag Temperature Model (DTM2020)</li>
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="_sources/dtm2020.rst.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  
-<style>
-/* CSS overrides for sphinx_rtd_theme */
-
-/* 24px margin */
-.nbinput.nblast.container,
-.nboutput.nblast.container {
-    margin-bottom: 19px;  /* padding has already 5px */
-}
-
-/* ... except between code cells! */
-.nblast.container + .nbinput.container {
-    margin-top: -19px;
-}
-
-.admonition > p:before {
-    margin-right: 4px;  /* make room for the exclamation icon */
-}
-
-/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
-.math {
-    text-align: unset;
-}
-</style>
-<section id="drag-temperature-model-dtm2020">
-<h1>Drag Temperature Model (DTM2020)<a class="headerlink" href="#drag-temperature-model-dtm2020" title="Permalink to this headline">¶</a></h1>
+             
+  <section id="drag-temperature-model-dtm2020">
+<h1>Drag Temperature Model (DTM2020)<a class="headerlink" href="#drag-temperature-model-dtm2020" title="Link to this heading"></a></h1>
 <section id="description-of-the-model">
-<h2>Description of the model<a class="headerlink" href="#description-of-the-model" title="Permalink to this headline">¶</a></h2>
+<h2>Description of the model<a class="headerlink" href="#description-of-the-model" title="Link to this heading"></a></h2>
 <p>The semi-empirical Drag Temperature Model (DTM) predicts temperature, density and composition of the Earth’s thermosphere, especially for the purpose of orbit computation. Operational and Research DTM2020 models were developed in the framework of the H2020 Space Weather Atmosphere Models and Indices project (SWAMI). The models provide low spatial and temporal resolution point-wise predictions as a function of location (altitude, latitude, longitude, local solar time), solar and geomagnetic activities, and season. The drivers of the operational model are F10.7 and Kp, whereas the more accurate research model uses a more representative but possibly less robust solar proxy, F30, and the new hourly geomagnetic index Hp60. The DTM2020 models are constructed by optimally fitting model coefficients to density, temperature, and composition measurements.</p>
 <p>The backbone of the models is the complete CHAMP and GOCE high-resolution accelerometer-inferred density datasets, as well as SwarmA densities. Those density datasets were processed by TU Delft (Netherlands) using high fidelity satellite models and they are presently the standard for absolute density. As a result, the DTM2020 densities are on average 20-25% smaller than DTM2013.</p>
 <p>The DTM2020 subroutines present in the MCM model are available at the <a class="reference internal" href="fortran.html#m-dtm-drag-temperature-model-dtm"><span class="std std-ref">m_dtm: Drag Temperature Model (DTM)</span></a> module.</p>
 </section>
 <section id="density-uncertainty">
-<h2>Density uncertainty<a class="headerlink" href="#density-uncertainty" title="Permalink to this headline">¶</a></h2>
+<h2>Density uncertainty<a class="headerlink" href="#density-uncertainty" title="Link to this heading"></a></h2>
 <p>An optional new feature of the operational DTM2020 is the possibility to compute the uncertainty of the density prediction.
 The 1-sigma uncertainty provided in the model is given as a percentage of the value of the predicted density.</p>
 <p>The uncertainty model is justified in the range [200 km - 500 km].
@@ -225,9 +112,9 @@ However, strong assumptions must be added to extend the altitude range from 100 
 <p>This 1-sigma uncertainty prediction can be obtained with the subroutine sigma_subroutine.f90 or via <code class="xref py py-func docutils literal notranslate"><span class="pre">m_dtm/get_dtm2020_dens_uncertainty()</span></code></p>
 </section>
 <section id="implementation-instructions">
-<h2>Implementation instructions<a class="headerlink" href="#implementation-instructions" title="Permalink to this headline">¶</a></h2>
+<h2>Implementation instructions<a class="headerlink" href="#implementation-instructions" title="Link to this heading"></a></h2>
 <section id="implementation-of-dtm2020-operational-version">
-<h3>Implementation of DTM2020 - operational version<a class="headerlink" href="#implementation-of-dtm2020-operational-version" title="Permalink to this headline">¶</a></h3>
+<h3>Implementation of DTM2020 - operational version<a class="headerlink" href="#implementation-of-dtm2020-operational-version" title="Link to this heading"></a></h3>
 <p>List of files (located in src/dtm2020):</p>
 <ul class="simple">
 <li><p>dtm2020_F107_Kp-subr.f90</p></li>
@@ -308,7 +195,7 @@ It is given as a percentage of the density estimate. The call is made after dtm3
 </ul>
 </section>
 <section id="implementation-of-dtm2020-research-version">
-<h3>Implementation of DTM2020 - research version<a class="headerlink" href="#implementation-of-dtm2020-research-version" title="Permalink to this headline">¶</a></h3>
+<h3>Implementation of DTM2020 - research version<a class="headerlink" href="#implementation-of-dtm2020-research-version" title="Link to this heading"></a></h3>
 <p>Related files (located in src/dtm2020):</p>
 <ul class="simple">
 <li><p>dtm2020_F30_Hp-subr.f90</p></li>
@@ -385,50 +272,33 @@ Then call the dtm5 subroutine:</p>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="fortran.html" class="btn btn-neutral float-right" title="Fortran modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="um.html" class="btn btn-neutral float-left" title="Unified Model (UM)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="fortran.html" class="btn btn-neutral float-right" title="Fortran modules" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021, SWAMI.
-
-    </p>
+    <p>&#169; Copyright 2021, SWAMI.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
