@@ -34,9 +34,10 @@ Compilation instructions are at: https://swami-h2020-eu.github.io/mcm/fortran.ht
 
 ### Python wrapper
 
-* First, go to `src/swami` and compile the Fortran binary by running `./make_wrapper.sh`
-* To create the package: `python3 setup.py sdist`
-* To install: `pip3 install .`. This will install a Python package called `swami`
+* First, copy contents of `data` into `src/swami` using `cp ./data/ ./src/swami/`.
+* Then, go to `src/swami` and compile the Fortran binary by running `./make_wrapper.sh`
+* To create the package: `python3 setup.py sdist`. This will create a new folder called `dist` in the root directory.
+* To install, change back to the root mcm directory and run: `pip3 install ./dist/swami-1.0rc0.tar.gz`. This will install a Python package called `swami`.
 
 More detailed instructions at: https://swami-h2020-eu.github.io/mcm/python.html
 
