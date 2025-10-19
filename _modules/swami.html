@@ -98,7 +98,7 @@
 <span class="kn">import</span> <span class="nn">subprocess</span>
 <span class="kn">import</span> <span class="nn">tempfile</span>
 <span class="kn">from</span> <span class="nn">pathlib</span> <span class="kn">import</span> <span class="n">Path</span>
-<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">NamedTuple</span>
+<span class="kn">from</span> <span class="nn">typing</span> <span class="kn">import</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">NamedTuple</span>
 
 <span class="n">__version__</span> <span class="o">=</span> <span class="s2">&quot;swami-1.0.rc&quot;</span>
 
@@ -153,10 +153,14 @@
 <span class="sd">        path_to_data (os.PathLike, optional): Path to the data. Defaults to the included package.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="n">path_to_bin</span> <span class="o">=</span> <span class="n">_PATH_DEFAULT_EXEC</span>
-    <span class="n">path_to_data</span> <span class="o">=</span> <span class="n">_PATH_DEFAULT_DATA</span>
+    <span class="n">path_to_bin</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">_PATH_DEFAULT_EXEC</span>
+    <span class="n">path_to_data</span><span class="p">:</span> <span class="n">Path</span> <span class="o">=</span> <span class="n">_PATH_DEFAULT_DATA</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">exec_swami</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">path_to_data</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span> <span class="o">=</span> <span class="kc">None</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">exec_swami</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">path_to_data</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Initialiser</span>
 
 <span class="sd">        Args:</span>
@@ -165,12 +169,14 @@
 <span class="sd">        &quot;&quot;&quot;</span>
 
         <span class="k">if</span> <span class="n">exec_swami</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">path_to_bin</span> <span class="o">=</span> <span class="n">exec_swami</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_to_bin</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">exec_swami</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">path_to_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
-            <span class="bp">self</span><span class="o">.</span><span class="n">path_to_data</span> <span class="o">=</span> <span class="n">path_to_data</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">path_to_data</span> <span class="o">=</span> <span class="n">Path</span><span class="p">(</span><span class="n">path_to_data</span><span class="p">)</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_generate_nml_from_dict</span><span class="p">(</span><span class="n">d</span><span class="p">:</span> <span class="nb">dict</span><span class="p">,</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_generate_nml_from_dict</span><span class="p">(</span>
+        <span class="n">d</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="nb">int</span> <span class="o">|</span> <span class="nb">float</span> <span class="o">|</span> <span class="nb">bool</span> <span class="o">|</span> <span class="nb">str</span><span class="p">],</span> <span class="n">name</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s2">&quot;input&quot;</span>
+    <span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Generate a namelist file from a dictionary</span>
 
 <span class="sd">        Args:</span>
@@ -181,32 +187,34 @@
         <span class="k">def</span> <span class="nf">logical</span><span class="p">(</span><span class="n">b</span><span class="p">:</span> <span class="nb">bool</span><span class="p">):</span>
             <span class="k">return</span> <span class="s2">&quot;.true.&quot;</span> <span class="k">if</span> <span class="n">b</span> <span class="k">else</span> <span class="s2">&quot;.false.&quot;</span>
 
-        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span><span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;swami_&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.inp&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">nml</span><span class="p">:</span>
-            <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&amp;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">with</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
+            <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;swami_&quot;</span><span class="p">,</span> <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.inp&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span>
+        <span class="p">)</span> <span class="k">as</span> <span class="n">nml</span><span class="p">:</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;&amp;</span><span class="si">{</span><span class="n">name</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">d</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
                 <span class="c1"># Booleans</span>
                 <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">bool</span><span class="p">):</span>
-                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">logical</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">logical</span><span class="p">(</span><span class="n">v</span><span class="p">)</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="c1"># Strings</span>
                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">):</span>
-                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = &#39;</span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">s</span><span class="si">}</span><span class="s2">&#39;</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="c1"># Floats</span>
                 <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">float</span><span class="p">):</span>
-                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">23.16e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">23.16e</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="c1"># Integers</span>
-                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>
-                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">int</span><span class="p">):</span>  <span class="c1"># pyright: ignore[reportUnnecessaryIsInstance]</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">:</span><span class="s2">d</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
                 <span class="c1"># Others</span>
                 <span class="k">else</span><span class="p">:</span>
-                    <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+                    <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">k</span><span class="si">}</span><span class="s2"> = </span><span class="si">{</span><span class="n">v</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="c1"># nml.write(&quot;\\&quot;)</span>
-            <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&amp;end</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">_</span> <span class="o">=</span> <span class="n">nml</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s2">&quot;&amp;end</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="n">nml</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
             <span class="k">return</span> <span class="n">nml</span><span class="o">.</span><span class="n">name</span>
 
     <span class="nd">@staticmethod</span>
-    <span class="k">def</span> <span class="nf">_read_output_file</span><span class="p">(</span><span class="n">outfile</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">PathLike</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">_read_output_file</span><span class="p">(</span><span class="n">outfile</span><span class="p">:</span> <span class="n">Path</span> <span class="o">|</span> <span class="nb">str</span><span class="p">):</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Read output file from swami.x</span>
 
 <span class="sd">        Args:</span>
@@ -227,19 +235,20 @@
 
 <div class="viewcode-block" id="MCM.run">
 <a class="viewcode-back" href="../python.html#swami.MCM.run">[docs]</a>
-    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span>
-            <span class="n">altitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">day_of_year</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">local_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">f107</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">f107m</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">kp1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">kp2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
-            <span class="n">get_uncertainty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
-            <span class="n">get_winds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span>
-            <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MCMOutput</span><span class="p">:</span>
+    <span class="k">def</span> <span class="nf">run</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">altitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">day_of_year</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">local_time</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">latitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">longitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">f107</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">f107m</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">kp1</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">kp2</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">get_uncertainty</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">get_winds</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MCMOutput</span><span class="p">:</span>
 <span class="w">        </span><span class="sd">&quot;&quot;&quot;Run the model</span>
 
 <span class="sd">        Returns a MCMOutput object with the results as attributes.</span>
@@ -263,7 +272,8 @@
 
         <span class="c1"># Make temporary output file</span>
         <span class="n">output_file</span> <span class="o">=</span> <span class="n">tempfile</span><span class="o">.</span><span class="n">NamedTemporaryFile</span><span class="p">(</span>
-            <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.out&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;swami_&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span><span class="p">)</span>
+            <span class="n">delete</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">suffix</span><span class="o">=</span><span class="s2">&quot;.out&quot;</span><span class="p">,</span> <span class="n">prefix</span><span class="o">=</span><span class="s2">&quot;swami_&quot;</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s2">&quot;r+&quot;</span>
+        <span class="p">)</span>
 
         <span class="c1"># Sanitize paths</span>
         <span class="n">data_dtm</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_to_data</span><span class="p">)</span>
@@ -286,7 +296,7 @@
             <span class="s2">&quot;b_winds&quot;</span><span class="p">:</span> <span class="nb">bool</span><span class="p">(</span><span class="n">get_winds</span><span class="p">),</span>
             <span class="s2">&quot;data_dtm&quot;</span><span class="p">:</span> <span class="n">data_dtm</span><span class="p">,</span>
             <span class="s2">&quot;data_um&quot;</span><span class="p">:</span> <span class="n">data_um</span><span class="p">,</span>
-            <span class="s2">&quot;output_file&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+            <span class="s2">&quot;output_file&quot;</span><span class="p">:</span> <span class="nb">str</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="p">),</span>
         <span class="p">}</span>
 
         <span class="c1"># Generate input file</span>
@@ -294,7 +304,7 @@
 
         <span class="c1"># Run command</span>
         <span class="n">cmd</span> <span class="o">=</span> <span class="p">[</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">path_to_bin</span><span class="p">),</span> <span class="n">input_file</span><span class="p">]</span>
-        <span class="n">proc</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">_</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">(</span><span class="n">cmd</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 
         <span class="c1"># Read output file</span>
         <span class="n">out</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_read_output_file</span><span class="p">(</span><span class="n">output_file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>

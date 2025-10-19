@@ -116,7 +116,7 @@ sudo<span class="w"> </span>apt-get<span class="w"> </span>install<span class="w
 <section id="how-to-compile">
 <h3>How to compile<a class="headerlink" href="#how-to-compile" title="Link to this heading"></a></h3>
 <p>Using gfortran and linking the netcdf library (which is the most tricky part).</p>
-<p>This command will compile everything, but please look at both the <cite>examples/build_examples.sh</cite> and the <cite>src/libswamif/build_tests.sh</cite> scripts for more details.</p>
+<p>This command will compile everything, but please look at <cite>examples/fortran/build_examples.sh</cite> for more details.</p>
 <div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="nv">SRC</span><span class="o">=</span><span class="s1">&#39;src/libswamif&#39;</span>
 
 gfortran<span class="w"> </span>-c<span class="w"> </span><span class="nv">$SRC</span>/dtm2020_F107_Kp-subr_MCM.f90<span class="w"> </span><span class="nv">$SRC</span>/dtm2020_sigma_function.f90<span class="w"> </span><span class="se">\</span>
