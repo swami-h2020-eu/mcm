@@ -16,7 +16,7 @@ import os
 import subprocess
 import tempfile
 from pathlib import Path
-from typing import NamedTuple
+from typing import Dict, NamedTuple
 
 __version__ = "swami-1.0.rc"
 
@@ -66,10 +66,14 @@ class MCM:
         path_to_data (os.PathLike, optional): Path to the data. Defaults to the included package.
     """
 
-    path_to_bin = _PATH_DEFAULT_EXEC
-    path_to_data = _PATH_DEFAULT_DATA
+    path_to_bin: Path = _PATH_DEFAULT_EXEC
+    path_to_data: Path = _PATH_DEFAULT_DATA
 
-    def __init__(self, exec_swami: os.PathLike = None, path_to_data: os.PathLike = None):
+    def __init__(
+        self,
+        exec_swami: Path | str | None = None,
+        path_to_data: Path | str | None = None,
+    ):
         """Initialiser
 
         Args:
@@ -78,12 +82,14 @@ class MCM:
         """
 
         if exec_swami is not None:
-            self.path_to_bin = exec_swami
+            self.path_to_bin = Path(exec_swami)
         if path_to_data is not None:
-            self.path_to_data = path_to_data
+            self.path_to_data = Path(path_to_data)
 
     @staticmethod
-    def _generate_nml_from_dict(d: dict, name: str = "input"):
+    def _generate_nml_from_dict(
+        d: Dict[str, int | float | bool | str], name: str = "input"
+    ):
         """Generate a namelist file from a dictionary
 
         Args:
@@ -94,32 +100,34 @@ class MCM:
         def logical(b: bool):
             return ".true." if b else ".false."
 
-        with tempfile.NamedTemporaryFile(prefix="swami_", delete=False, suffix=".inp", mode="r+") as nml:
-            nml.write(f"&{name}\n")
+        with tempfile.NamedTemporaryFile(
+            prefix="swami_", delete=False, suffix=".inp", mode="r+"
+        ) as nml:
+            _ = nml.write(f"&{name}\n")
             for k, v in d.items():
                 # Booleans
                 if isinstance(v, bool):
-                    nml.write(f"{k} = {logical(v):s}\n")
+                    _ = nml.write(f"{k} = {logical(v):s}\n")
                 # Strings
                 elif isinstance(v, str):
-                    nml.write(f"{k} = '{v:s}'\n")
+                    _ = nml.write(f"{k} = '{v:s}'\n")
                 # Floats
                 elif isinstance(v, float):
-                    nml.write(f"{k} = {v:23.16e}\n")
+                    _ = nml.write(f"{k} = {v:23.16e}\n")
                 # Integers
-                elif isinstance(v, int):
-                    nml.write(f"{k} = {v:d}\n")
+                elif isinstance(v, int):  # pyright: ignore[reportUnnecessaryIsInstance]
+                    _ = nml.write(f"{k} = {v:d}\n")
                 # Others
                 else:
-                    nml.write(f"{k} = {v}\n")
+                    _ = nml.write(f"{k} = {v}\n")
             # nml.write("\\")
-            nml.write("&end\n")
+            _ = nml.write("&end\n")
             nml.close()
 
             return nml.name
 
     @staticmethod
-    def _read_output_file(outfile: os.PathLike):
+    def _read_output_file(outfile: Path | str):
         """Read output file from swami.x
 
         Args:
@@ -138,19 +146,20 @@ class MCM:
 
             return MCMOutput(**res)
 
-    def run(self,
-            altitude: float,
-            day_of_year: float,
-            local_time: float,
-            latitude: float,
-            longitude: float,
-            f107: float,
-            f107m: float,
-            kp1: float,
-            kp2: float,
-            get_uncertainty: bool = False,
-            get_winds: bool = False
-            ) -> MCMOutput:
+    def run(
+        self,
+        altitude: float,
+        day_of_year: float,
+        local_time: float,
+        latitude: float,
+        longitude: float,
+        f107: float,
+        f107m: float,
+        kp1: float,
+        kp2: float,
+        get_uncertainty: bool = False,
+        get_winds: bool = False,
+    ) -> MCMOutput:
         """Run the model
 
         Returns a MCMOutput object with the results as attributes.
@@ -174,7 +183,8 @@ class MCM:
 
         # Make temporary output file
         output_file = tempfile.NamedTemporaryFile(
-            delete=False, suffix=".out", prefix="swami_", mode="r+")
+            delete=False, suffix=".out", prefix="swami_", mode="r+"
+        )
 
         # Sanitize paths
         data_dtm = str(self.path_to_data)
@@ -197,7 +207,7 @@ class MCM:
             "b_winds": bool(get_winds),
             "data_dtm": data_dtm,
             "data_um": data_um,
-            "output_file": str(output_file.name)
+            "output_file": str(output_file.name),
         }
 
         # Generate input file
@@ -205,7 +215,7 @@ class MCM:
 
         # Run command
         cmd = [str(self.path_to_bin), input_file]
-        proc = subprocess.run(cmd, check=True)
+        _ = subprocess.run(cmd, check=True)
 
         # Read output file
         out = self._read_output_file(output_file.name)

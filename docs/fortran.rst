@@ -25,7 +25,7 @@ How to compile
 
 Using gfortran and linking the netcdf library (which is the most tricky part).
 
-This command will compile everything, but please look at both the `examples/build_examples.sh` and the `src/libswamif/build_tests.sh` scripts for more details.
+This command will compile everything, but please look at `examples/fortran/build_examples.sh` for more details.
 
 .. code-block:: bash
 
@@ -41,7 +41,7 @@ A more complex setup would be:
 
 .. code-block:: bash
 
-    # path to the source code 
+    # path to the source code
     SRC='src/libswamif'
     # flags for gfortran
     FLAGS='-Wall -pedantic -Warray-bounds -fbacktrace'
@@ -52,7 +52,7 @@ A more complex setup would be:
     # for the UM module
     M_UM="$SRC/m_um.f90 $M_INTERP $L_NETCDF"
     # for the DTM module
-    M_DTM="$SRC/dtm2020_F107_Kp-subr_MCM.f90 $SRC/dtm2020_sigma_function.f90 $SRC/m_dtm.f90"  
+    M_DTM="$SRC/dtm2020_F107_Kp-subr_MCM.f90 $SRC/dtm2020_sigma_function.f90 $SRC/m_dtm.f90"
     # for the MCM module
     M_MCM="$M_UM $M_DTM $SRC/m_mcm.f90"
 
@@ -62,7 +62,7 @@ A more complex setup would be:
 How to use
 ----------
 
-In your fortran program, use the `use` statement to load the module. 
+In your fortran program, use the `use` statement to load the module.
 There are three modules with their most important functions.
 More details on the units, the valid ranges and the definition in :ref:`Fortran interface`
 
@@ -80,7 +80,7 @@ m_mcm: MOWA Climatological Model (MCM)
 This module contains routines related to the MCM model, which combines the DTM (thermosphere) and the UM (lower atmosphere) to have a `MOdel of the Whole Atmosphere`
 
 .. code-block:: fortran
-    
+
     call init_mcm(path_to_data_um, path_to_data_dtm)
     call get_mcm_dens(dens, alti, lati, long, loct, doy, f107, f107m, kps(2))
     call get_mcm_temp(temp, alti, lati, long, loct, doy, f107, f107m, kps(2))
@@ -201,5 +201,3 @@ Go to :ref:`Unified Model (UM)`) for some theoretical details about the model.
 
 
 .. f:autosubroutine:: m_um/get_um_ywind_standard_deviation
-
-

@@ -6,6 +6,14 @@ To be efficient and performant, the UM was averaged to a set of data tables that
 
 The thermosphere model DTM2020 is also available separately. Two versions exist: the operational version, which is used in MCM, and a more accurate research version. The drivers of the DTM2020 research model are the 30 cm solar radio flux F30 and the new hourly planetary geomagnetic index Hp60.
 
+## Paper
+
+For a more detailed explanation of the model, please refer to the open access paper:
+
+> The Space Weather Atmosphere Models and Indices (SWAMI) project: Overview and first results
+> David R. Jackson, Sean Bruinsma, Sandra Negrin, Claudia Stolle, Chris J. Budd, Raul Dominguez Gonzalez, Emily Down, Daniel J. Griffin, Matthew J. Griffith, Guram Kervalishvili, Daniel Lubián Arenillas, James Manners, Jürgen Matzka, Yuri Y. Shprits, Ruggero Vasile and Irina S. Zhelavskaya
+> J. Space Weather Space Clim., 10 (2020) 18
+> DOI: https://doi.org/10.1051/swsc/2020019
 
 ## Documentation
 
@@ -73,9 +81,8 @@ USER OF THE TERMS OF THE PRESENT LICENSE.
 
 ## Contact details
 
-[@zurdala](http://github.com/zurdala) @ Deimos Space
-
 [@seanbruinsma](http://github.com/seanbruinsma) @ CNES
 
 David Jackson @ MetOffice
 
+[@zurdala](http://github.com/zurdala) @ Deimos Space (not at Deimos anymore)
