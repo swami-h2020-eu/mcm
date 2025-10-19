@@ -1,0 +1,55 @@
+[tool.pdm]
+package-dir = "src"
+
+[project]
+name = "swami"
+version = "1.0.1"
+description = "Space Weather Atmosphere Models and Indices"
+readme = "README.md"
+authors = [
+    {name = "SWAMI", email = "swami@swami-h2020.eu"},
+    {name = "Sean Bruinsma", email = "sean.bruinsma@cnes.fr"},
+    {name = "Daniel LubianArenillas", email = "daniel.lubian@deimos-space.com"},
+]
+maintainers = [
+    {name = "Daniel LubianArenillas", email = "dala.dev@zurdala.es"}
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Developers",
+    "Natural Language :: English",
+    "Programming Language :: Python :: 3.6",
+    "Programming Language :: Python :: 3.7",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+]
+requires-python = ">=3.6"
+license = {text = "MIT"}
+
+[project.urls]
+Homepage = "https://www.swami-h2020.eu"
+Documentation = "https://swami-h2020-eu.github.io/mcm/index.html"
+
+[project.optional-dependencies]
+dev = [
+    "black",
+    "coverage",
+    "pylint",
+    "pytest",
+    "tox",
+]
+docs = [
+    "ipython",
+    "nbsphinx",
+    "sphinx",
+    "sphinx-fortran",
+    "sphinx-rtd-theme",
+]
+
+[build-system]
+requires = ["pdm-backend"]
+build-backend = "pdm.backend"
