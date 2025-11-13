@@ -1,5 +1,6 @@
-[tool.pdm]
-package-dir = "src"
+[build-system]
+requires = ["meson", "meson-python", "numpy"]
+build-backend = "mesonpy"
 
 [project]
 name = "swami"
@@ -49,7 +50,3 @@ docs = [
     "sphinx-fortran",
     "sphinx-rtd-theme",
 ]
-
-[build-system]
-requires = ["pdm-backend"]
-build-backend = "pdm.backend"
