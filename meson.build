@@ -1,4 +1,4 @@
-project('swarmi', 'fortran',
+project('swami', 'fortran',
   version : '1.0.1',
   license: 'MIT',
   meson_version: '>=0.64.0',
