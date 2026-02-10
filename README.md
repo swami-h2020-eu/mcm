@@ -25,12 +25,13 @@ It includes API reference, brief descriptions of the model, examples and compila
 
 Clone the repository or [download the code](https://github.com/swami-h2020-eu/mcm/archive/refs/heads/main.zip).
 
-Tested in Ubuntu 18.04 LTS
+Tested in Ubuntu 18.04 LTS and 24.04 LTS
 
 Requirements:
 * gfortran
 * python >3.5
-* libnetcdff-dev
+* `libnetcdff-dev`
+* `pkg-config`
 
 ### Fortran code
 
