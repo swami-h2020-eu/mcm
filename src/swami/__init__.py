@@ -215,7 +215,12 @@ class MCM:
 
         # Run command
         cmd = [str(self.path_to_bin), input_file]
-        _ = subprocess.run(cmd, check=True)
+        _ = subprocess.run(
+            cmd,
+            check=True,
+            cwd=self.path_to_bin.parent,
+            env={"LD_LIBRARY_PATH": str(self.path_to_bin.parent)}
+        )
 
         # Read output file
         out = self._read_output_file(output_file.name)
