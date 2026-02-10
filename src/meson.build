@@ -1,0 +1,3 @@
+subdir('libswamif')
+
+subdir('swami')
